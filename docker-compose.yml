@@ -13,6 +13,12 @@ services:
       - db
     ports:
       - 80:80
+  node:
+    build:
+      context: '.'
+      dockerfile: node.Dockerfile
+    volumes:
+      - ./site/web/app/themes/megane-v1.2:/app
   db:
     restart: always
     image: mariadb:10.3.0

@@ -1,1 +1,2 @@
-site
+configs/.env
+!configs/.env.sample

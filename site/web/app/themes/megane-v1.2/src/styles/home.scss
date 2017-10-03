@@ -1,0 +1,18 @@
+#content {
+  flex-grow: 1;
+
+  .container {
+    background-color: #FFF;
+    flex-grow: 1;
+
+    #header-blog {
+
+      .header-post {
+        background-color: pink;
+        height: inherit;
+        height: 20em;
+      }
+
+    }
+  }
+}
