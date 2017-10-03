@@ -5,6 +5,10 @@
 }
 
 // General Styles
+h1,h2,h3,h4,h5,h6 {
+  color: #222;
+}
+
 .cover-container {
   background-size: cover;
   background-position: center;
@@ -13,6 +17,18 @@
 
 .mg-white-background {
   background-color: #fff;
+}
+
+// reference
+// http://alexgoff.net/web-type/
+.post-content {
+  line-height: 1.5em;
+  margin: 1.5rem 0;
+
+  p {
+    color: #444;
+    letter-spacing: 0.01rem;
+  }
 }
 
 html {

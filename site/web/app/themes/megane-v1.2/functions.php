@@ -30,6 +30,9 @@
     // home styles
     wp_register_style('css-home', $build_path . 'home.style.css', '', '1.0.0', 'all');
     wp_register_script('js-home', $build_path . 'home.bundle.js', '', '1.0.0', true);
+    // single styles
+    wp_register_style('css-single', $build_path . 'singles.style.css', '', '1.0.0', 'all');
+    wp_register_script('js-single', $build_path . 'singles.bundle.js', '', '1.0.0', true);
 
     if(!is_admin()) {
       wp_enqueue_script( 'js-app' );
@@ -40,6 +43,12 @@
       wp_enqueue_script('js-home');
       wp_enqueue_style('css-home');
     }
+
+    if(is_single()) {
+      wp_enqueue_script('js-single');
+      wp_enqueue_style('css-single');
+    }
+
   }
   add_action('wp_enqueue_scripts', 'load_style_scripts');
 
