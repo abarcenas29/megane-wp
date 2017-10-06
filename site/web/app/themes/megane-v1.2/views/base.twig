@@ -52,7 +52,9 @@
   <body>
     <div id='skeleton'>
       <header id='main-header'>
-        {% include 'header.twig' %}
+        {% block mainHeader %}
+          {% include 'header.twig' %}
+        {% endblock mainHeader  %}
       </header>
       <div id='content'>
         {% block content %}
