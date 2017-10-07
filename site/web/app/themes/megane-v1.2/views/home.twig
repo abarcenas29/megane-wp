@@ -5,14 +5,66 @@
     <div class='container'>
 
       <div class='uk-grid'>
+
+        <!-- Category Roll  -->
+        <div class='uk-width-1-1'>
+
+          <div class='uk-cover-container uk-height-large'>
+            <img src='http://loremflickr.com/1280/720' />
+            <div class='
+              uk-overlay
+              uk-overlay-primary
+              uk-position-right
+              uk-overlay-primary
+              uk-width-1-3@m
+              uk-width-1-1@s
+              '>
+
+              <h2>Category Name</h2>
+
+              <ul class='uk-list uk-link'>
+                {% for i in 1..6 %}
+                  <li><a href='#{{i}}'>Cateogry {{i}}</a></li>
+                {% endfor %}
+              </ul>
+
+              <button class='uk-button uk-button-default uk-margin-top'>
+                CHECK FOR MORE
+                <span uk-icon='icon: arrow-right'></span>
+              </button>
+
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Category Roll CTA  -->
+        <div class='uk-width-1-1'>
+          <div class='uk-background-primary uk-padding'>
+            <h2 class='uk-text-center uk-text-bold uk-text-uppercase uk-margin-remove'>
+              This is some cta action or image
+            </h2>
+          </div>
+        </div>
+
         <div class='uk-width-1-1'>
 
           <div class="uk-grid-collapse" id='header-blog' uk-grid>
 
             {% for i in 1..3  %}
             <div class='uk-width-1-3@m uk-width-1-1@s'>
-              <div class='header-post'>
-                Header post {{i}}
+              <div class='uk-cover-container uk-height-medium'>
+                <img src='http://loremflickr.com/320/320' uk-cover />
+                <a
+                  href='#'
+                  class='
+                    uk-overlay
+                    uk-overlay-primary
+                    uk-position-bottom
+                    uk-display-block'
+                >
+                  AAA
+                </a>
               </div>
             </div>
             {% endfor  %}
@@ -78,62 +130,9 @@
               </div>
 
               <div class='uk-width-2-5@m uk-width-1-1@s'>
-
-                <div id='call-to-action-sticky' class='uk-width-4-6@m uk-width-5-6@m uk-width-1-1@s uk-margin-top'>
-                  <div class='uk-flex uk-flex-center uk-flex-column'  uk-sticky='top: #call-to-action-sticky; media: 640'>
-                    <!-- About Widget   -->
-                    <div class='uk-card uk-background-muted uk-width-1-1'>
-                      <div class='uk-card-body'>
-                        <div class='uk-flex uk-flex-center' style='height: 150px;'>
-                          <img
-                          class='uk-border-circle' src='https://pbs.twimg.com/profile_images/520732099/NewAvatar_400x400.png' height='150px' width='150px'  />
-                        </div>
-                        <p class='uk-text-center'>My Name</p>
-                        <p class='uk-text-center'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                      </div>
-                      <div class='uk-card-footer'>
-                        <div uk-margin class='uk-flex uk-flex-center'>
-                          <a href="#" class='uk-icon-button uk-margin-right' uk-icon='icon: twitter'></a>
-                          <a href="#" class='uk-icon-button' uk-icon='icon: mail'></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                    <!-- Twitter Feed  -->
-                    <div class='uk-margin-top uk-width-4-6@l uk-width-5-6@m uk-width-1-1@s'>
-                      <ul uk-tab uk-switcher>
-                        <li class='uk-active'>
-                          <a href='#'>@solidad</a>
-                        </li>
-                        <li class='uk-active'>
-                          <a href='#'>@meganelife</a>
-                        </li>
-                      </ul>
-                      <ul class='uk-switcher'>
-                        <li>
-                          <div>
-                            <a
-                            class="twitter-timeline"  href="https://twitter.com/search?q=from%3Asolidad%20-to%3Asolidad%20-%40solidad" data-widget-id="914526805419323392"
-                            data-chrome='no-header'
-                            >Tweets about from:solidad -to:solidad -@solidad</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-                          </div>
-                        </li>
-                        <li>
-                          <div>
-                            <a class="twitter-timeline"  href="https://twitter.com/search?q=from%3Asolidad%20-to%3Asolidad%20-%40solidad" data-widget-id="914526805419323392">Tweets about from:solidad -to:solidad -@solidad</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-
-
-
-
+                {% include 'parts/aside.twig' %}
               </div>
+
             </div>
           </div>
 

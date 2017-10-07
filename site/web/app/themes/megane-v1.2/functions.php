@@ -14,6 +14,24 @@
     return;
   }
 
+  // General Variables
+  function Load_Timber_Context () {
+    $context = Timber::get_context();
+    $context['nav_menu_header_args'] = [
+      'menu' => 'categories',
+      'menu_class' => 'uk-navbar-nav uk-visible@m',
+      'menu_id' => '',
+      'container' => false
+    ];
+    $context['nav_menu_footer_args'] = [
+      'menu' => 'categories',
+      'menu_class' => 'uk-list uk-link',
+      'menu_id' => ''
+    ];
+
+    return $context;
+  }
+
   // script loads
   function load_style_scripts () {
     $uri = get_stylesheet_directory_uri();

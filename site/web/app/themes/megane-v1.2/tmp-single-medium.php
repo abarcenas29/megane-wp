@@ -5,7 +5,7 @@
  * Description: Medium type post format
  */
 
- $context = Timber::get_context();
+ $context = Load_Timber_Context();
  $post = Timber::query_post();
  $context['post'] = $post;
 
