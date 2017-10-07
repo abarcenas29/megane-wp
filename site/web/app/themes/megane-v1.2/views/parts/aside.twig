@@ -14,7 +14,7 @@
     uk-sticky='
       top: #call-to-action-sticky;
       media: 640;
-      offset: 80;'>
+      offset: {{hide_nav_banner ?  '0' : '80'}};'>
     <!-- About Widget   -->
       <div
         class='
@@ -73,43 +73,47 @@
 
       <ul class='uk-switcher'>
         <li class='uk-display-block'>
-          <a
-            class="twitter-timeline"
-            href="https://twitter.com/search?q=from%3Asolidad%20-to%3Asolidad%20-%40solidad" data-widget-id="914526805419323392"
-            data-chrome='no-header'
-          >
-            Tweets about from:solidad -to:solidad -@solidad
-          </a>
-          <script>
-            !function(d,s,id) {
-              var js,
-                  fjs=d.getElementsByTagName(s)[0],
-                  p=/^http:/.test(d.location)?'http':'https';
-              if(!d.getElementById(id)) {
-                js=d.createElement(s);
-                js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);
-              }
-            }(document,"script","twitter-wjs");
-          </script>
+          <div>
+            <a
+              class="twitter-timeline"
+              href="https://twitter.com/search?q=from%3Asolidad%20-to%3Asolidad%20-%40solidad" data-widget-id="914526805419323392"
+              data-chrome='no-header'
+            >
+              Tweets about from:solidad -to:solidad -@solidad
+            </a>
+            <script>
+              !function(d,s,id) {
+                var js,
+                    fjs=d.getElementsByTagName(s)[0],
+                    p=/^http:/.test(d.location)?'http':'https';
+                if(!d.getElementById(id)) {
+                  js=d.createElement(s);
+                  js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);
+                }
+              }(document,"script","twitter-wjs");
+            </script>
+          </div>
         </li>
 
-        <li class='uk-display-block'>
-          <a
-            class="twitter-timeline"
-            href="https://twitter.com/search?q=from%3Asolidad%20-to%3Asolidad%20-%40solidad" data-widget-id="914526805419323392">
-              Tweets about from:solidad -to:solidad -@solidad
-          </a>
-          <script>
-            !function(d,s,id) {
-              var js,
-                  fjs=d.getElementsByTagName(s)[0],
-                  p=/^http:/.test(d.location)?'http':'https';
-              if(!d.getElementById(id)) {
-                js=d.createElement(s);
-                js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);
-              }
-            }(document,"script","twitter-wjs");
-          </script>
+        <li>
+          <div>
+            <a
+              class="twitter-timeline"
+              href="https://twitter.com/search?q=from%3Asolidad%20-to%3Asolidad%20-%40solidad" data-widget-id="914526805419323392">
+                Tweets about from:solidad -to:solidad -@solidad
+            </a>
+            <script>
+              !function(d,s,id) {
+                var js,
+                    fjs=d.getElementsByTagName(s)[0],
+                    p=/^http:/.test(d.location)?'http':'https';
+                if(!d.getElementById(id)) {
+                  js=d.createElement(s);
+                  js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);
+                }
+              }(document,"script","twitter-wjs");
+            </script>
+          </div>
         </li>
       </ul>
 </div>

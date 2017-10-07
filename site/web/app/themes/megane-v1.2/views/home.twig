@@ -22,7 +22,7 @@
 
               <h2>Category Name</h2>
 
-              <ul class='uk-list uk-link'>
+              <ul class='uk-list'>
                 {% for i in 1..6 %}
                   <li><a href='#{{i}}'>Cateogry {{i}}</a></li>
                 {% endfor %}
@@ -109,7 +109,13 @@
                 <h2 class='uk-heading-line'><span>Latest Posts</span></h2>
 
                 {% for i in 1..10 %}
-                <div class='uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin' uk-grid>
+                <div class='
+                  uk-card
+                  uk-card-default
+                  uk-grid-collapse
+                  uk-child-width-1-2@s
+                  uk-margin'
+                  uk-grid>
                   <div class='uk-card-media-left uk-cover-container cover-container'
                     style='background-image:url("http://loremflickr.com/320/320");'>
                     <img class='uk-hidden-notouch'  src='http://loremflickr.com/320/320'/>

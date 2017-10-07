@@ -1,0 +1,34 @@
+<div id='mobile-main-menu' uk-offcanvas>
+  <div class='uk-offcanvas-bar'>
+    <button class='uk-offcanvas-close' type='button' uk-close></button>
+    <div class='uk-child-width-1-1' uk-grid>
+      <div class='uk-text-center'>
+        <a href='{{site.url}}' class='uk-display-block'>
+          <img src='{{theme.link}}/images/logo-w.svg' class='uk-width-1-1' />
+        </a>
+      </div>
+      <!-- Search  -->
+      <div>
+        <form>
+          <div class='uk-flex'>
+            <input
+              class='uk-input uk-form width-small uk-width-1-1'
+              type='text'
+              placeholder='search'
+            />
+            <button
+              class='
+                uk-button
+                uk-button-small'
+              uk-icon='icon: search'>
+            </button>
+          </div>
+        </form>
+      </div>
+      <!-- Categories -->
+      <div>
+        {{ function('wp_nav_menu', nav_menu_footer_args) }}
+      </div>
+    </div>
+  </div>
+</div>

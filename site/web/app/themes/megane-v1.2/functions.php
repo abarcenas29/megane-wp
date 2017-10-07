@@ -25,8 +25,9 @@
     ];
     $context['nav_menu_footer_args'] = [
       'menu' => 'categories',
-      'menu_class' => 'uk-list uk-link',
-      'menu_id' => ''
+      'menu_class' => 'uk-list',
+      'menu_id' => '',
+      'container' => false
     ];
 
     return $context;

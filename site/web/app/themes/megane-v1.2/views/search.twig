@@ -1,0 +1,74 @@
+{% extends 'base.twig' %}
+
+{% block mainHeader %}
+  {% include 'parts/navigation-simple.twig' %}
+{% endblock mainHeader %}
+
+{% block content %}
+  <div class='uk-child-width-1-1' uk-grid>
+    <div>
+      <div class='uk-container'>
+        <div class='uk-background-default uk-padding-small'>
+
+          <div class='uk-child-width-1-1' uk-grid>
+
+            <!-- Header -->
+            <div>
+              <h1 class='
+                uk-text-uppercase
+                uk-text-bold
+                uk-heading-divider
+                '>
+                Search Results For: Blah Blah
+              </h1>
+            </div>
+
+            <!-- Content -->
+            <div>
+              <div uk-grid>
+                <div class='uk-width-2-3@m uk-width-1-1@s'>
+                  <div class='uk-child-width-1-1' uk-grid>
+                    {% for i in 1..10 %}
+                    <a href='#' class='uk-display-block'>
+                      <div
+                        class="
+                          uk-card
+                          uk-card-default
+                          uk-grid-collapse
+                          uk-margin"
+                        uk-grid>
+                          <div
+                            class="
+                              uk-width-1-3
+                              uk-card-media-left
+                              uk-cover-container">
+                              <img
+                                src="http://loremflickr.com/320/320"
+                                alt="" uk-cover>
+                              <canvas width="320" height="320"></canvas>
+                          </div>
+                          <div
+                            class='uk-width-2-3'>
+                              <div class="uk-card-body">
+                                  <h3 class="uk-card-title">Search Result Post</h3>
+                                  <p>Display the first few sentences of the paragraph</p>
+                              </div>
+                          </div>
+                      </div>
+                    </a>
+                    {% endfor %}
+                  </div>
+                </div>
+                <aside class='uk-width-1-3@m uk-width-1-1@s'>
+                  {% include 'parts/aside.twig' %}
+                </aside>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

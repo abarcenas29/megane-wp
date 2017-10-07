@@ -50,7 +50,8 @@
     {{ function('wp_head') }}
   </head>
   <body>
-    <div id='skeleton'>
+    <div id='skeleton' class='uk-offcanvas-content'>
+      {% include 'parts/off-canvas.twig' %}
       <header id='main-header'>
         {% block mainHeader %}
           {% include 'header.twig' %}
