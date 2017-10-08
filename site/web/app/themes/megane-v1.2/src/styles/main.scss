@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto');
+
 // Overrides
 
 .uk-navbar-nav > li > a {
@@ -6,8 +8,23 @@
 
 // General Styles
 h1,h2,h3,h4,h5,h6 {
+  font-family: 'Roboto', sans-serif;
   color: #222;
 }
+
+p, li, a {
+  font-family: 'Open Sans', sans-serif !important;
+  transition: color 1s;
+}
+
+a:hover {
+  color: #F57C00 !important;
+}
+
+p::selection {
+  background-color: #F57C00;
+}
+
 
 .cover-container {
   background-size: cover;
