@@ -13,7 +13,8 @@ const webpack = {
     categories: path.resolve('src', 'categories.js'),
     home: path.resolve('src', 'home.js'),
     main: path.resolve('src', 'main.js'),
-    singles: path.resolve('src', 'singles.js')
+    singles: path.resolve('src', 'singles.js'),
+    editor: path.resolve('src', 'editor.js')
   },
   output: {
     path: path.resolve('build'),

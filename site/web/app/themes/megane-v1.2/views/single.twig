@@ -12,9 +12,11 @@
 
           <article class='uk-grid-collapse uk-padding-small' uk-grid>
             <header class='uk-width-1-1'>
-              <h4 class='uk-margin-remove'>Category</h4>
-              <h1 class='uk-primary-header uk-text-bold uk-margin-remove'>This is Length Article Title</h1>
-              <p class='uk-margin-remove uk-text-lead'>This is a the excerpt of an article</p>
+              <h4 class='uk-margin-remove'>{{ categories|list(',',',','&')  }}</h4>
+              <h1 class='uk-primary-header uk-text-bold uk-margin-remove'>
+              {{post.title}}
+              </h1>
+              <p class='uk-margin-remove uk-text-lead'>{{excerpt}}</p>
             </header>
 
             <section class='uk-width-2-3@m uk-width-1-1@s uk-margin-top'>
@@ -23,24 +25,14 @@
 
                 <!-- thumbnail  -->
                 <div>
-                  <img src='http://loremflickr.com/1280/720' class='uk-width-1-1' />
+                  <img src='{{ post.thumbnail.src('full') }}' class='uk-width-1-1' />
                   <p class='uk-text-meta'>Small thumbnial description below</p>
                   <hr class="uk-divider-icon">
                 </div>
 
                 <!-- content  -->
                 <div class='post-content'>
-                  <p>Bacon ipsum dolor amet cupim filet mignon tail, shank short loin pancetta fatback bresaola drumstick porchetta. Shank brisket bresaola short loin ground round turducken capicola doner cow. Short loin tail doner, brisket boudin shank filet mignon strip steak turkey. Ribeye kevin kielbasa sirloin sausage venison. Kevin hamburger andouille frankfurter bresaola chicken pork loin t-bone tail jowl prosciutto meatball pancetta filet mignon kielbasa.</p>
-
-                  <p>Ground round pancetta fatback meatloaf pastrami shankle burgdoggen biltong. Spare ribs andouille tri-tip brisket tail. Leberkas ham chicken biltong beef sausage drumstick bresaola burgdoggen hamburger andouille. Corned beef short ribs ribeye cow spare ribs flank kielbasa tail t-bone. Jerky kielbasa burgdoggen, alcatra short ribs beef ribs cupim.</p>
-
-                  <p>Ball tip pork belly short ribs capicola, kielbasa ground round cupim. Filet mignon brisket ham pastrami beef ground round meatball meatloaf. Capicola chuck venison alcatra sirloin pork belly ball tip andouille shankle pastrami short ribs, chicken pork loin leberkas. Bresaola andouille short ribs kielbasa, doner pork loin boudin pancetta filet mignon t-bone meatball cow. Kielbasa cupim sirloin, porchetta chuck drumstick short ribs shoulder leberkas doner pig pork chop capicola.</p>
-
-                  <p>Porchetta kevin pork chop meatloaf doner sausage drumstick. Chuck short loin shank chicken bresaola flank filet mignon. Salami doner cupim cow filet mignon shank spare ribs leberkas bacon venison bresaola tri-tip swine landjaeger meatball. Pork chop venison short ribs prosciutto turducken picanha tail turkey porchetta t-bone ball tip kielbasa shoulder. Beef landjaeger tri-tip kevin frankfurter ham hock burgdoggen venison. Pork loin spare ribs short loin turkey, ball tip cow porchetta pork chop shoulder kielbasa jowl ham hock tail tongue turducken. Capicola ribeye prosciutto, shoulder salami cupim ball tip short loin alcatra.</p>
-
-                  <p>Sausage capicola doner rump jowl. Hamburger capicola andouille sirloin tongue alcatra. Corned beef brisket t-bone, sausage beef ribeye doner cow tenderloin bacon chuck ball tip. Meatball beef ribs strip steak turkey hamburger chicken. Shoulder sausage landjaeger pork belly tongue.</p>
-
-                  <p>Does your lorem ipsum text long for something a little meatier? Give our generator a try… it’s tasty!</p>
+                  {{post.content}}
                 </div>
               </div>
 

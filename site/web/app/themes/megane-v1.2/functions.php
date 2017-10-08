@@ -38,9 +38,6 @@
     $uri = get_stylesheet_directory_uri();
     $build_path = $uri . "/build/";
 
-    // Timber::$locations = dirname(__DIR__) . '/megane-1.2v/templates';
-
-
     wp_deregister_script('jquery');
 
     // main styles
@@ -71,4 +68,8 @@
   }
   add_action('wp_enqueue_scripts', 'load_style_scripts');
 
-
+  function load_editor_scripts () {
+    $uri = get_stylesheet_directory_uri() . '/build/editor.style.css';
+    add_editor_style($uri);
+  }
+  add_action('admin_init', 'load_editor_scripts');
