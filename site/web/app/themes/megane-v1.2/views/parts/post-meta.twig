@@ -1,0 +1,16 @@
+<ul class='uk-text-meta'>
+  <li>
+    <img
+      src='{{post.author.avatar}}'
+      class='uk-border-circle' width='40'>
+  </li>
+  <li>
+    <a href='{{post.author.link}}'>
+      {{post.author.name}}
+    </a>
+  </li>
+  <li>|</li>
+  <li>
+    Posted On {{ post.date|date('F jS Y') }}
+  </li>
+</ul>

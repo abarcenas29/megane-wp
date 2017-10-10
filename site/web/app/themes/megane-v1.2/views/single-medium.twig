@@ -13,52 +13,44 @@
           <div class='uk-grid'>
             <div class='uk-width-1-1'>
               <div class='uk-cover-container uk-height-large'>
-                <img src='http://loremflickr.com/1024/768' uk-cover />
+
+                {% if post.cover_position == 'top' %}
+                  {% set style = 'top: 75%' %}
+                {% elseif post.cover_position == 'bottom' %}
+                  {% set style = 'top: 25%' %}
+                {% else %}
+                  {% set style = ''  %}
+                {% endif %}
+
+                <img src='{{ post.thumbnail.src('full')  }}' style='{{style}}'  uk-cover />
               </div>
             </div>
             <div class='uk-width-1-1 uk-margin-medium-left uk-margin-medium-right uk-margin'>
 
               <!-- Content -->
-              <article class='uk-child-width-1-1 uk-grid-collapse uk-article' uk-grid id='single-medium-post'>
+              <article
+                class='
+                uk-child-width-1-1
+                uk-grid-collapse
+                uk-article'
+                uk-grid
+                id='single-medium-post'>
                 <header>
                   <h1 class='uk-article-title post-content uk-text-bold'>
-                    <a class='uk-link-reset'>This is can be a very long or short post title</a>
+                    <a class='uk-link-reset'>{{post.title}}</a>
                   </h1>
                 </header>
                 <!-- Meta  -->
                 <section class='uk-margin-top'>
-                  <ul>
-                    <li>
-                      <a href='#'>
-                        <img
-                          src='http://loremflickr.com/25/25' class='uk-border-circle'
-                          />
-                        </a>
-                    </li>
-                    <li>
-                      Post Date
-                    </li>
-                  </ul>
+                  {% include 'parts/post-meta.twig'  %}
                 </section>
                 <!-- lead (excerpt) -->
                 <section class='uk-margin-small-top'>
-                  <p class='uk-text-lead'>This is a lead paragraph<p>
+                  <p class='uk-text-lead'>{{excerpt}}<p>
                 </section>
                 <!-- paragraph  -->
                 <section class='post-content'>
-                  <p class='uk-dropcap'>Bacon ipsum dolor amet cupim filet mignon tail, shank short loin pancetta fatback bresaola drumstick porchetta. Shank brisket bresaola short loin ground round turducken capicola doner cow. Short loin tail doner, brisket boudin shank filet mignon strip steak turkey. Ribeye kevin kielbasa sirloin sausage venison. Kevin hamburger andouille frankfurter bresaola chicken pork loin t-bone tail jowl prosciutto meatball pancetta filet mignon kielbasa.</p>
-
-                  <p>Ground round pancetta fatback meatloaf pastrami shankle burgdoggen biltong. Spare ribs andouille tri-tip brisket tail. Leberkas ham chicken biltong beef sausage drumstick bresaola burgdoggen hamburger andouille. Corned beef short ribs ribeye cow spare ribs flank kielbasa tail t-bone. Jerky kielbasa burgdoggen, alcatra short ribs beef ribs cupim.</p>
-
-                  <img src='http://loremflickr.com/1280/720' />
-
-                  <p>Ball tip pork belly short ribs capicola, kielbasa ground round cupim. Filet mignon brisket ham pastrami beef ground round meatball meatloaf. Capicola chuck venison alcatra sirloin pork belly ball tip andouille shankle pastrami short ribs, chicken pork loin leberkas. Bresaola andouille short ribs kielbasa, doner pork loin boudin pancetta filet mignon t-bone meatball cow. Kielbasa cupim sirloin, porchetta chuck drumstick short ribs shoulder leberkas doner pig pork chop capicola.</p>
-
-                  <p>Porchetta kevin pork chop meatloaf doner sausage drumstick. Chuck short loin shank chicken bresaola flank filet mignon. Salami doner cupim cow filet mignon shank spare ribs leberkas bacon venison bresaola tri-tip swine landjaeger meatball. Pork chop venison short ribs prosciutto turducken picanha tail turkey porchetta t-bone ball tip kielbasa shoulder. Beef landjaeger tri-tip kevin frankfurter ham hock burgdoggen venison. Pork loin spare ribs short loin turkey, ball tip cow porchetta pork chop shoulder kielbasa jowl ham hock tail tongue turducken. Capicola ribeye prosciutto, shoulder salami cupim ball tip short loin alcatra.</p>
-
-                  <p>Sausage capicola doner rump jowl. Hamburger capicola andouille sirloin tongue alcatra. Corned beef brisket t-bone, sausage beef ribeye doner cow tenderloin bacon chuck ball tip. Meatball beef ribs strip steak turkey hamburger chicken. Shoulder sausage landjaeger pork belly tongue.</p>
-
-                  <p>Does your lorem ipsum text long for something a little meatier? Give our generator a try… it’s tasty!</p>
+                  {{post.content}}
                 </section>
               </article>
 

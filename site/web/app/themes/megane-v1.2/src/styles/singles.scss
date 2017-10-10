@@ -1,10 +1,23 @@
-#singles-standard {
+.uk-text-meta {
+  padding-left: 0;
 
+  li:first-child {
+    margin-right: 0.5em;
+  }
+  li:last-child {
+    font-style: italic;
+  }
+
+  li {
+    display: inline-block;
+  }
+}
+
+#singles-standard {
   #post-list {
     .title {
       background-color: #F57C00;
       color: #F9F9F9;
     }
   }
-
 }

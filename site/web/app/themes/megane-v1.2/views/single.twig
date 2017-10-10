@@ -12,11 +12,18 @@
 
           <article class='uk-grid-collapse uk-padding-small' uk-grid>
             <header class='uk-width-1-1'>
-              <h4 class='uk-margin-remove'>{{ categories|list(',',',','&')  }}</h4>
+              <h4 class='uk-margin-remove'>
+                {% for category in categories %}
+                  <a href='{{category.link}}' class='uk-link-muted uk-text-uppercase'>
+                    {{category.name}}
+                  </a>
+                {% endfor  %}
+              </h4>
               <h1 class='uk-primary-header uk-text-bold uk-margin-remove'>
               {{post.title}}
               </h1>
               <p class='uk-margin-remove uk-text-lead'>{{excerpt}}</p>
+              {% include 'parts/post-meta.twig' %}
             </header>
 
             <section class='uk-width-2-3@m uk-width-1-1@s uk-margin-top'>
@@ -26,7 +33,7 @@
                 <!-- thumbnail  -->
                 <div>
                   <img src='{{ post.thumbnail.src('full') }}' class='uk-width-1-1' />
-                  <p class='uk-text-meta'>Small thumbnial description below</p>
+                  <p class='uk-text-meta' style='display: none;'>Small thumbnial description below</p>
                   <hr class="uk-divider-icon">
                 </div>
 
