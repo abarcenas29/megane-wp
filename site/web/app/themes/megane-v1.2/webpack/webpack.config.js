@@ -68,16 +68,24 @@ const webpack = {
       {
         test: /\.(png|jpg|woff|woff2|eot|ttf|svg)(\?.*)?$/,
         loader: 'file-loader?name=[path]/[name].[ext]?[hash]'
+      },
+      {
+        test: require.resolve('jquery'),
+        use: [
+          {
+            loader: 'expose-loader',
+            options: 'jQuery'
+          },
+          {
+            loader: 'expose-loader',
+            options: '$'
+          }
+        ]
       }
     ] // end rules
   }, // end module
 
   plugins: [
-    new Webpack.DllReferencePlugin({
-      context: path.resolve('src'),
-      name: '[name]',
-      manifest: path.resolve('webpack', 'dlls', 'vendor.json')
-    }),
     new Webpack.LoaderOptionsPlugin({
       minimize: (env === 'production'),
       debug: false
@@ -86,10 +94,24 @@ const webpack = {
       filename: '[name].style.css',
       allChunks: true
     })
-  ]
+  ],
+
+  resolve: {
+    alias: {
+      'jquery-extensions': path.resolve('jquery-plugins', 'index.js'),
+      styles: path.resolve('src', 'styles')
+    }
+  }
 }
 
 if (env === 'development') {
+  webpack.plugins.push(
+    new Webpack.DllReferencePlugin({
+      context: path.resolve('src'),
+      name: '[name]',
+      manifest: path.resolve('webpack', 'dlls', 'vendor.json')
+    })
+  )
   webpack.plugins.push(
     new BrowserSyncPlugin({
       proxy: 'www.megane.local',
@@ -115,6 +137,13 @@ if (env === 'development') {
 }
 
 if (env === 'production') {
+  webpack.plugins.push(
+    new Webpack.optimize.CommonsChunkPlugin({
+      name: 'commons',
+      minChunks: Infinity
+    })
+  )
+
   webpack.plugins.push(
     // More minification
     new Webpack.optimize.AggressiveMergingPlugin()

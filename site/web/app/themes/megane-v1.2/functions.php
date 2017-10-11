@@ -40,6 +40,8 @@
 
     wp_deregister_script('jquery');
 
+    wp_register_script('commons-bundle', $build_path . 'commons.bundle.js', '', '1.0.0', true);
+
     // main styles
     wp_register_style('css-uikit', $build_path . 'main.style.css', '', '1.0.0', 'all');
     wp_register_script('js-app', $build_path . 'main.bundle.js', '', '1.0.0', true);
@@ -51,6 +53,7 @@
     wp_register_script('js-single', $build_path . 'singles.bundle.js', '', '1.0.0', true);
 
     if(!is_admin()) {
+      wp_enqueue_script('commons-bundle');
       wp_enqueue_script( 'js-app' );
       wp_enqueue_style( 'css-uikit');
     }
