@@ -1,105 +1,134 @@
 {% extends 'base.twig' %}
 
 {% block content %}
+  {% include 'parts/navigation-simple.twig' %}
   <div class='uk-container uk-container-large'>
     <div class='container'>
 
       <div class='uk-grid'>
 
         <!-- Category Roll  -->
-        <div class='uk-width-1-1'>
+        {% if options.category_bar.enable %}
+          <div class='uk-width-1-1'>
 
-          <div class='uk-cover-container uk-height-large'>
-            <img src='http://loremflickr.com/1280/720' />
-            <div class='
-              uk-overlay
-              uk-overlay-primary
-              uk-position-right
-              uk-overlay-primary
-              uk-width-1-3@m
-              uk-width-1-1@s
-              '>
+            <div class='uk-cover-container uk-height-large'>
+              <img src='http://loremflickr.com/1280/720' />
+              <div class='
+                uk-overlay
+                uk-overlay-primary
+                uk-position-right
+                uk-overlay-primary
+                uk-width-1-3@m
+                uk-width-1-1@s
+                '>
 
-              <h2>Category Name</h2>
+                <h2>Category Name</h2>
 
-              <ul class='uk-list'>
-                {% for i in 1..6 %}
-                  <li><a href='#{{i}}'>Cateogry {{i}}</a></li>
-                {% endfor %}
-              </ul>
+                <ul class='uk-list'>
+                  {% for i in 1..6 %}
+                    <li><a href='#{{i}}'>Cateogry {{i}}</a></li>
+                  {% endfor %}
+                </ul>
 
-              <button class='uk-button uk-button-default uk-margin-top'>
-                CHECK FOR MORE
-                <span uk-icon='icon: arrow-right'></span>
-              </button>
+                <button class='uk-button uk-button-default uk-margin-top'>
+                  CHECK FOR MORE
+                  <span uk-icon='icon: arrow-right'></span>
+                </button>
 
+              </div>
             </div>
-          </div>
 
-        </div>
+          </div>
+        {% endif %}
 
         <!-- Category Roll CTA  -->
-        <div class='uk-width-1-1'>
-          <div class='uk-background-primary uk-padding'>
-            <h2 class='uk-text-center uk-text-bold uk-text-uppercase uk-margin-remove'>
-              This is some cta action or image
-            </h2>
+        {% if options.call_to_action_text.enable %}
+          <div class='uk-width-1-1'>
+            <div class='uk-background-primary uk-padding'>
+              <h2 class='uk-text-center uk-text-bold uk-text-uppercase uk-margin-remove'>
+                This is some cta action or image
+              </h2>
+            </div>
           </div>
-        </div>
+        {% endif %}
+
 
         <div class='uk-width-1-1'>
 
           <div class="uk-grid-collapse" id='header-blog' uk-grid>
 
-            {% for i in 1..3  %}
-            <div class='uk-width-1-3@m uk-width-1-1@s'>
-              <div class='uk-cover-container uk-height-medium'>
-                <img src='http://loremflickr.com/320/320' uk-cover />
-                <a
-                  href='#'
-                  class='
-                    uk-overlay
-                    uk-overlay-primary
-                    uk-position-bottom
-                    uk-display-block'
-                >
-                  AAA
-                </a>
-              </div>
-            </div>
-            {% endfor  %}
-
-          </div>
-
-        </div>
-
-        <div class='uk-width-1-1 uk-margin-top'>
-
-          <div class='uk-margin-left uk-margin-right'>
-            <div class='uk-child-width-1-3@m uk-child-width-1-1@s' uk-grid>
-
-              {% for i in 1..3 %}
-              <div>
-                <div class='uk-card uk-card-small uk-card-default'>
-                  <div class="uk-card-badge uk-label">Badge</div>
-                  <div class='uk-media-top uk-width-1-1'>
-                    <img src='http://loremflickr.com/320/320' class='uk-width-1-1' />
-                  </div>
-                  <div class='uk-card-body'>
-                    <h3 class='uk-card-title'>Title Card</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                  </div>
-                  <div class='uk-card-footer'>
-                    <a href='#' class='uk-button uk-button-text'>READ MORE</a>
+            {% if headlines %}
+              {% for post in headlines %}
+                <div class='uk-width-1-3@m uk-width-1-1@s'>
+                  <div class='uk-cover-container uk-height-medium'>
+                    <img src='{{post.thumbnail.src('thumbnail')}}' uk-cover />
+                    <a
+                      href='{{post.link}}'
+                      class='
+                        uk-overlay
+                        uk-overlay-primary
+                        uk-position-bottom
+                        uk-display-block'
+                    >
+                      {{post.title | truncate(5)}}
+                    </a>
                   </div>
                 </div>
-              </div>
-              {% endfor  %}
+              {% endfor %}
+            {% endif %}
 
-            </div>
           </div>
 
         </div>
+
+        <!-- Headline Loop  -->
+        {% if category_headline %}
+          <div class='uk-width-1-1 uk-margin-top'>
+
+            <div class='uk-margin-left uk-margin-right'>
+              <div
+                class='
+                  uk-child-width-1-3@m
+                  uk-child-width-1-1@s
+                  uk-grid-match'
+                uk-grid
+              >
+
+                {% for category in category_headline %}
+                  {% if category.post %}
+                    <div>
+                      <div class='uk-card uk-card-small uk-card-default'>
+                        <div class="uk-card-badge uk-label">
+                          {{ category.post.categories[0]  }}
+                        </div>
+                        <div class='uk-media-top uk-width-1-1'>
+                          <img src='{{category.post.thumbnail.src('thumbnail')}}' class='uk-width-1-1' />
+                        </div>
+                        <div class='uk-card-body'>
+                          <h3 class='uk-card-title' title='{{category.post.title}}'>{{category.post.title | truncate(5) }}</h3>
+                          <p>
+                            {{
+                              function('get_the_excerpt', category.post.ID) | truncate(15)
+                            }}
+                          </p>
+                        </div>
+                        <div class='uk-card-footer'>
+                          <a
+                            href='{{category.post.link}}'
+                            class='uk-button uk-button-text'
+                            title='{{category.post.title}}'>READ MORE</a>
+                        </div>
+                      </div>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+
+              </div>
+            </div>
+
+          </div>
+
+        {% endif %}
 
         <div class='uk-width-1-1 uk-margin-top uk-margin-bottom'>
 
@@ -108,30 +137,32 @@
               <div class='uk-width-3-5@m uk-width-1-1@s'>
                 <h2 class='uk-heading-line'><span>Latest Posts</span></h2>
 
-                {% for i in 1..10 %}
-                <div class='
-                  uk-card
-                  uk-card-default
-                  uk-grid-collapse
-                  uk-child-width-1-2@s
-                  uk-margin'
-                  uk-grid>
-                  <div class='uk-card-media-left uk-cover-container cover-container'
-                    style='background-image:url("http://loremflickr.com/320/320");'>
-                    <img class='uk-hidden-notouch'  src='http://loremflickr.com/320/320'/>
-                  </div>
-                  <div>
-                    <div class="uk-card-badge uk-label">Badge</div>
-                    <div class='uk-card-body'>
-                      <h3 class='uk-card-title'>Title Card</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                {% if posts %}
+                  {% for post in posts %}
+                    <div class='
+                      uk-card
+                      uk-card-default
+                      uk-grid-collapse
+                      uk-child-width-1-2@s
+                      uk-margin'
+                      uk-grid>
+                      <div class='uk-card-media-left uk-cover-container cover-container'
+                        style='background-image:url("{{post.thumbnail.src('thumbnail')}}");'>
+                        <img class='uk-hidden-notouch'  src='{{post.thumbnail.src('thumbnail')}}'/>
+                      </div>
+                      <div>
+                        <div class="uk-card-badge uk-label">{{post.categories[0]}}</div>
+                        <div class='uk-card-body'>
+                          <h3 class='uk-card-title'>{{post.title}}</h3>
+                          <p>{{ function('get_the_excerpt', post.ID) | truncate(15) }}</p>
+                        </div>
+                        <div class='uk-card-footer'>
+                          <a href='{{post.link}}' class='uk-button uk-button-text'>READ MORE</a>
+                        </div>
+                      </div>
                     </div>
-                    <div class='uk-card-footer'>
-                      <a href='#' class='uk-button uk-button-text'>READ MORE</a>
-                    </div>
-                  </div>
-                </div>
-                {% endfor %}
+                  {% endfor %}
+                {% endif %}
 
               </div>
 

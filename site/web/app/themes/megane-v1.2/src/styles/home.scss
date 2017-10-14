@@ -1,6 +1,17 @@
 #content {
   flex-grow: 1;
 
+  #simple-navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateY(-5em);
+    transition: transform 200ms ease-in-out;
+    z-index: 100;
+  }
+
   .container {
     background-color: #FFF;
     flex-grow: 1;
