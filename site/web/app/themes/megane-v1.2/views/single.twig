@@ -20,7 +20,7 @@
                   </a>
                 {% endfor  %}
               </h4>
-              <h1 class='uk-primary-header uk-text-bold uk-margin-remove'>
+              <h1 class='uk-primary-header uk-text-bold uk-margin-remove uk-text-uppercase'>
               {{post.title}}
               </h1>
               <p class='uk-margin-remove uk-text-lead'>{{excerpt}}</p>
@@ -33,8 +33,13 @@
 
                 <!-- thumbnail  -->
                 <div>
-                  <img src='{{ post.thumbnail.src('full') }}' class='uk-width-1-1' />
-                  <p class='uk-text-meta' style='display: none;'>Small thumbnial description below</p>
+                  {% if post.thumbnail %}
+                    <img src='{{ post.thumbnail.src('full') }}' class='uk-width-1-1' />
+                  {% else  %}
+                    <img src='http://via.placeholder.com/800x400' class='uk-width-1-1' />
+                  {% endif %}
+
+                  <p class='uk-text-meta' style='display: none;'>Small thumbnail description below</p>
                   <hr class="uk-divider-icon">
                 </div>
 
@@ -64,17 +69,20 @@
                 <div>
                 <div>
                   <div class='uk-background-muted uk-padding-small content'>
-                    <ul class='uk-list uk-list-divider'>
-                      {% for i in 1..10 %}
-                      <li>
-                        <a
-                          href='#'
-                          class='uk-link uk-link-muted'>
-                          Post name {{i}}
-                        </a>
-                      </li>
-                      {% endfor %}
-                    </ul>
+                    {% if other_posts %}
+                      <ul class='uk-list uk-list-divider'>
+                        {% for post in other_posts %}
+                        <li>
+                          <a
+                            href='{{post.link}}'
+                            title='{{post.title}}'
+                            class='uk-link uk-link-muted'>
+                            {{post.title | truncate(8)}}
+                          </a>
+                        </li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
                   </div>
                 </div>
               </div>

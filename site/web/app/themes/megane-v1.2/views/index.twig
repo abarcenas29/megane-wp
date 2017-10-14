@@ -19,7 +19,8 @@
                 uk-text-bold
                 uk-heading-divider
                 '>
-                Category/Tag Name
+                Articles Available For
+                {{ function('single_cat_title')  }}
               </h1>
             </div>
 
@@ -32,32 +33,38 @@
                     uk-child-width-1-2@m
                     uk-child-width-1-1@s'
                     uk-grid>
-                    {% for i in 1..10 %}
-                      <a href='#' class='uk-display-block'>
-                        <div class='uk-card uk-card-small uk-card-default'>
-                          <div class='uk-card-media-top'>
-                            <div class='uk-inline uk-width-1-1'>
-                              <img
-                                src='http://loremflickr.com/320/320' class='uk-width-1-1'
-                              />
-                              <div class='
-                                uk-overlay
-                                uk-overlay-primary
-                                uk-position-bottom
-                                uk-padding-small'>
-                                AAA
+                    {% if posts %}
+                      {% for post in posts %}
+                        <a
+                          href='{{post.link}}'
+                          class='uk-display-block'
+                          title='{{post.title}}'
+                        >
+                          <div class='uk-card uk-card-small uk-card-default'>
+                            <div class='uk-card-media-top'>
+                              <div class='uk-inline uk-width-1-1'>
+                                <img
+                                  src='{{post.thumbnail.src('thumbnail')}}' class='uk-width-1-1'
+                                />
+                                <div class='
+                                  uk-overlay
+                                  uk-overlay-primary
+                                  uk-position-bottom
+                                  uk-padding-small'>
+                                  {{ post.title | truncate(10)  }}
+                                </div>
                               </div>
                             </div>
+                            <div class='
+                              uk-card-body
+                              uk-padding-small'
+                              style='padding: 15px;'>
+                              {{ function('get_the_excerpt', post.ID) | truncate(10) }}
+                            </div>
                           </div>
-                          <div class='
-                            uk-card-body
-                            uk-padding-small'
-                            style='padding: 15px;'>
-                            AAA
-                          </div>
-                        </div>
-                      </a>
-                    {% endfor %}
+                        </a>
+                      {% endfor %}
+                    {% endif %}
                   </div>
 
                 </div>

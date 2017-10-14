@@ -14,10 +14,30 @@
 }
 
 #singles-standard {
+  header {
+    h1 {
+      font-size: 3em;
+      font-weight: 900;
+    }
+    .uk-text-lead {
+      font-style: italic;
+    }
+  }
   #post-list {
     .title {
       background-color: #F57C00;
       color: #F9F9F9;
     }
+  }
+}
+
+#singles-medium {
+  header {
+    h1 {
+      line-height: 1.1em;
+    }
+  }
+  .uk-text-lead {
+    font-style: italic;
   }
 }

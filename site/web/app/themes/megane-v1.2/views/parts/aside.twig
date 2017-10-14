@@ -25,27 +25,29 @@
         <div class='uk-card-body'>
           <div class='uk-flex uk-flex-center' style='height: 150px;'>
             <img
-              class='uk-border-circle' src='https://pbs.twimg.com/profile_images/520732099/NewAvatar_400x400.png'
+              class='uk-border-circle'
+              src='{{site_owner.avatar}}'
               height='150px'
               width='150px'
             />
           </div>
 
-          <p class='uk-text-center'>My Name</p>
-          <p class='uk-text-center'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+          <p class='uk-text-center'>{{site_owner.name}}</p>
+          <p class='uk-text-center'>{{site_owner.description}}</p>
         </div>
 
         <div class='uk-card-footer'>
           <div uk-margin class='uk-flex uk-flex-center'>
             <a
-              href="#"
+              href="https://www.twitter.com/{{site_owner.twitter_handle}}"
+              title='{{site_owner.twitter_handle}}'
               class='
                 uk-icon-button
                 uk-margin-right'
               uk-icon='icon: twitter'>
             </a>
             <a
-              href="#"
+              href="mailto:{{site_owner.public_email}}"
               class='uk-icon-button'
               uk-icon='icon: mail'>
             </a>

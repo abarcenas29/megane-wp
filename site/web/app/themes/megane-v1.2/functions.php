@@ -30,7 +30,10 @@
       'menu_id' => '',
       'container' => false
     ];
-    $context['options'] = get_fields('options');
+    $options = get_fields('options');
+    $context['options'] = $options;
+    $context['site_owner'] = new Timber\User($options['author_emphasis']);
+
     return $context;
   }
 

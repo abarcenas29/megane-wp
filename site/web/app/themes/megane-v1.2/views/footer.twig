@@ -11,10 +11,12 @@
         uk-grid>
 
         <div>
-          <img src='{{theme.link}}/images/logo-w.svg' width='150px' />
+          <a href='{{site.url}}'>
+            <img src='{{theme.link}}/images/logo-w.svg' width='150px' />
+          </a>
           <p>{{site.description}}</p>
           <div>
-            <a href='#' class='uk-button uk-button-primary'>
+            <a href='{{options.about_link}}' class='uk-button uk-button-primary'>
               FIND OUT MORE
             </a>
           </div>
@@ -26,12 +28,13 @@
         <div>
           <h3>Follow My Site</h3>
           <div uk-margin>
-            <a href='#' class='uk-button uk-button-default uk-button-small'>
-              <span uk-icon='icon: facebook'></span>
-            </a>
-            <a href='#' class='uk-button uk-button-default uk-button-small'>
-              <span uk-icon='icon: twitter'></span>
-            </a>
+            {% if options.social_links %}
+              {% for sn in options.social_links %}
+                <a href='{{sn.url}}' class='uk-button uk-button-default uk-button-small'>
+                  <span uk-icon='icon: {{sn.icon}}'></span>
+                </a>
+              {% endfor  %}
+            {% endif %}
           </div>
         </div>
 

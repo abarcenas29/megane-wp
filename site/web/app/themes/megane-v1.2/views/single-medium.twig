@@ -6,7 +6,7 @@
 {% endblock mainHeader %}
 
 {% block content %}
-  <div class='uk-child-width-1-1' uk-grid>
+  <div class='uk-child-width-1-1' uk-grid id='singles-medium'>
     <div>
       <div class='uk-container'>
         <div class='uk-background-default'>
@@ -37,8 +37,8 @@
                 uk-grid
                 id='single-medium-post'>
                 <header>
-                  <h1 class='uk-article-title post-content uk-text-bold'>
-                    <a class='uk-link-reset'>{{post.title}}</a>
+                  <h1 class='uk-article-title post-content uk-text-bold uk-text-uppercase'>
+                    {{post.title}}
                   </h1>
                 </header>
                 <!-- Meta  -->
@@ -50,7 +50,7 @@
                   <p class='uk-text-lead'>{{excerpt}}<p>
                 </section>
                 <!-- paragraph  -->
-                <section class='post-content'>
+                <section class='post-content' id='post-content'>
                   {{post.content}}
                 </section>
               </article>

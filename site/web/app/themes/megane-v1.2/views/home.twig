@@ -70,7 +70,10 @@
                         uk-position-bottom
                         uk-display-block'
                     >
-                      {{post.title | truncate(5)}}
+                      <p>{{post.title | truncate(5)}}</p>
+                      <span class='uk-label'>
+                        {{post.categories[0]}}
+                      </span>
                     </a>
                   </div>
                 </div>
