@@ -1,2 +1,5 @@
 configs/.env
 !configs/.env.sample
+
+nginx.conf
+!nginx.conf/.gitkeep

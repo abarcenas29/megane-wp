@@ -9,7 +9,6 @@ RUN apk --no-cache add --update curl && openssl && \
                                 chmod +x /usr/local/bin/composer && \
                                 apk del curl openssl && \
                                 rm -rf /var/cache/apk/*
-COPY /configs/site.local.conf /etc/nginx/sites-enabled/site.local.conf
 
 RUN php-fpm -D
 

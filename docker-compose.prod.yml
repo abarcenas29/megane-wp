@@ -1,0 +1,15 @@
+version: '3.1'
+
+services:
+  wp:
+    networks:
+      external-network: 
+        aliases:
+          - megane-wordpress
+    expose:
+        - 80
+
+networks:
+  external-network:
+    external:
+      name: nginx

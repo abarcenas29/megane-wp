@@ -1,47 +1,45 @@
-# Wordpress Docker Deploy
+# Megane Wordpress Dockerized Website
 
-This repo lets you deploy a wordpress application via docker using roots.io's bedrock.
+This is the dockerized version of the megane.life website contained on a dockerfile.
 
-# Features
+## Techology Invlovled
 
-_**Bedrock**_
+I've created a [docker deployment repo for wordpress](https://github.com/abarcenas29/wordpress-deploy) that contains the necessary information 
 
-It makes the wordpress more of an Application than a CMS. It uses composer to manage themes and plugins. Uses _dotenv_ files to manage your immediate settings. And using wp-cli for administrative tasks using the command line.
+## Usage
 
-Official Website: [roots.io/Bedrock](https://roots.io/bedrock/)
+This repo is setup to be used locally or deployed to a webserver that has docker installed.
 
-# Requirements
+### Preparing for deployment
+this container already has node and composer installed to build the files for production. Just run
 
-* Docker (docker-compose)
+`./setup.sh`
 
-# Setup
+*Note: If you want to run this locally. Locally install composer and node and run the command from there.*
 
-Before running the docker containers you need to edit some of the files in the `/config` folder.
+### Running on local
+to run this site on local, you need to have docker installed on your machine. You also need to make sure that port 80 in your machine is unused. If you are running XAMPP or any other similar programs that uses port 80, you may need to close them before using this.
 
-## Edit ENV Files
+to run it:
 
-In the `./config` edit the `.env` and change the following configs. Do not use the same config when deploying your container for production.
+`./docker-dev.sh`
 
-## Edit the site.local.conf
+to view it go to your browser:
 
-The wp wordpress docker container is already build with `nginx`. `site.local.conf` contains the configuration needed to load the site to be accessed. Edit the `server_name` line in the config file to your domain.
+`http://www.megane.local`
 
-_Note:_ the config file is mainly for development purpose for now.
+*Note: You need to configure your host file to have www.megane.local*
 
-_To Do:_ Create a SSL / multi setting file for central nginx docker setup.
+### Running on Production
+Be sure your server has docker installed. This container is built to connect to a centralized nginx container for scaling purposes. Particular if you want to run multiple websites on one server. As a pre-requiste, you need to create a network that will bridge the different containers together.
 
-## Edit the composer.json
+`docker network create nginx`
 
-If you want to add the necessary WP plugins for the bedrock in the `require` object.
+*Note: `nginx` here can be anything. but for this particular instance, it is named nginx*
 
-## Edit `docker-compose.yml`
+Once that's done
 
-Edit the `environment` variable and change the `MYSQL` settings. The `MYSQL_DATABASE`, `MYSQL_USER`, `MYSQL_PASSWORD` must match the DB settings in your `.env` file.
+`./docker.prod.sh`
 
-## Edit `./install.sh`
-
-If you want to change the boilerplate theme, edit line 26 of the `./install.sh`
-
-# Installation
-
-Run the `./install.sh` bash script. Visit the site you setup in the nginx config file in your browser.
+### Setting up your Nginx central server
+This is broad and not a scope of this. But for reference, [See Here](https://stackoverflow.com/questions/27912917/how-to-configure-docker-port-mapping-to-use-nginx-as-an-upstream-proxy) for insight.
