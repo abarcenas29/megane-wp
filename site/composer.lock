@@ -4,8 +4,19 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7a764f8656f41f52539c8d1306e5f958",
+    "content-hash": "b4cfa3929257ec3bf46932c1fd955609",
     "packages": [
+        {
+            "name": "abarcenas29/acf-pro",
+            "version": "5.6.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/abarcenas29/acf-pro/repository/master/archive.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "type": "wordpress-plugin"
+        },
         {
             "name": "composer/installers",
             "version": "v1.4.0",
@@ -401,16 +412,16 @@
             "time": "2016-09-01T10:05:43+00:00"
         },
         {
-            "name": "wpackagist-plugin/advanced-custom-fields",
-            "version": "5.6.2",
+            "name": "wpackagist-plugin/custom-post-type-ui",
+            "version": "1.5.5",
             "source": {
                 "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/advanced-custom-fields/",
-                "reference": "tags/5.6.2"
+                "url": "https://plugins.svn.wordpress.org/custom-post-type-ui/",
+                "reference": "tags/1.5.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/advanced-custom-fields.5.6.2.zip",
+                "url": "https://downloads.wordpress.org/plugin/custom-post-type-ui.1.5.5.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -418,19 +429,19 @@
                 "composer/installers": "~1.0"
             },
             "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/advanced-custom-fields/"
+            "homepage": "https://wordpress.org/plugins/custom-post-type-ui/"
         },
         {
             "name": "wpackagist-plugin/gutenberg",
-            "version": "1.2.1",
+            "version": "1.4.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/gutenberg/",
-                "reference": "tags/1.2.1"
+                "reference": "tags/1.4.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/gutenberg.1.2.1.zip",
+                "url": "https://downloads.wordpress.org/plugin/gutenberg.1.4.0.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -462,15 +473,15 @@
         },
         {
             "name": "wpackagist-plugin/timber-library",
-            "version": "1.5.0",
+            "version": "1.5.2",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/timber-library/",
-                "reference": "tags/1.5.0"
+                "reference": "tags/1.5.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/timber-library.1.5.0.zip",
+                "url": "https://downloads.wordpress.org/plugin/timber-library.1.5.2.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -482,15 +493,15 @@
         },
         {
             "name": "wpackagist-plugin/wordpress-seo",
-            "version": "5.5.1",
+            "version": "5.6.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
-                "reference": "tags/5.5.1"
+                "reference": "tags/5.6.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.5.5.1.zip",
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.5.6.1.zip",
                 "reference": null,
                 "shasum": null
             },
