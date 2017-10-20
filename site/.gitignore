@@ -12,6 +12,13 @@ web/app/uploads/*
 web/wp
 web/.htaccess
 
+#cache
+web/app/cache
+web/app/advanced-cache.php
+web/app/db.php
+web/app/object-cache.php
+web/app/w3tc-config
+
 # Dotenv
 .env
 .env.*

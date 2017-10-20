@@ -3,7 +3,7 @@ version: '3.1'
 services:
   wp:
     build:
-      context: '.'
+      context: './dockerfiles'
       dockerfile: wp.Dockerfile
     container_name: megane-wordpress
     volumes:
@@ -13,12 +13,21 @@ services:
       wp-network:
     depends_on:
       - db
+      - memcached
   node:
     build:
-      context: '.'
+      context: './dockerfiles'
       dockerfile: node.Dockerfile
     volumes:
       - ./site/web/app/themes/megane-v1.2:/app
+  memcached:
+    restart: always
+    image: memcached:1.5.2-alpine
+    container_name: megane-memcache
+    networks:
+      wp-network:
+        aliases:
+          - megane-memcache
   db:
     restart: always
     image: mariadb:10.3.0
