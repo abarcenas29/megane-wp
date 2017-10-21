@@ -1,4 +1,5 @@
 <?php
+  require_once('common/acf.php');
   require_once('common/essentials.php');
   require_once('common/home.php');
 
