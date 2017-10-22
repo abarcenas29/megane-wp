@@ -8,20 +8,6 @@ if (
     (!empty( $_SERVER['HTTP_X_FORWARDED_HOST'])) ||
     (!empty( $_SERVER['HTTP_X_FORWARDED_FOR'])) )
 {
-
-  // http://wordpress.org/support/topic/wordpress-behind-reverse-proxy-1
-  $_SERVER['HTTP_HOST'] = $_SERVER['HTTP_X_FORWARDED_HOST'];
-
-  /*
-  define('WP_HOME', 'https://bob.org:8080/blog');
-  define('WP_SITEURL', 'https://bob.org:8080/blog');
-
-  // rewrite blog word with wordpress
-  $_SERVER['REQUEST_URI'] = str_replace("wordpress", "blog",
-  $_SERVER['REQUEST_URI']);
-  */
-
-  // http://wordpress.org/support/topic/compatibility-with-wordpress-behind-a-reverse-proxy
   $_SERVER['HTTPS'] = 'on';
 }
 

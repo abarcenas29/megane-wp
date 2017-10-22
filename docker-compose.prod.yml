@@ -8,6 +8,14 @@ services:
           - megane-wordpress
     expose:
         - 80
+  db:
+    volumes:
+      - volume:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: 
+      MYSQL_ROOT_PASSWORD:
+      MYSQL_USER: 
+      MYSQL_PASSWORD:
 
 networks:
   external-network:

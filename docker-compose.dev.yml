@@ -4,3 +4,13 @@ services:
   wp:
     ports:
       - 80:80
+  db:
+    volumes:
+      - dbOffshorly:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: wp 
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: wp  
+      MYSQL_PASSWORD: wp
+volumes:
+  dbOffshorly:
