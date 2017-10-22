@@ -54,6 +54,7 @@
     "wpackagist-plugin/custom-post-type-ui": "^1.5.4",
     "wpackagist-plugin/gutenberg": "^1.1.0",
     "wpackagist-plugin/idle-user-logout": "^2.3",
+    "wpackagist-plugin/jetpack": "^5.4",
     "wpackagist-plugin/timber-library": "^1.5.0",
     "wpackagist-plugin/w3-total-cache": "^0.9.5.4",
     "wpackagist-plugin/wordpress-importer": "^0.6.3",
