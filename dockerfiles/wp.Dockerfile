@@ -21,7 +21,6 @@ RUN apk --no-cache add --update curl && openssl && \
                                 chmod +x /usr/local/bin/composer && \
                                 apk del curl openssl && \
                                 rm -rf /var/cache/apk/*
-
 RUN php-fpm -D
 
 ENV HOME=/app
