@@ -24,7 +24,7 @@
 
     // first three posts
     $q = array(
-      'post_per_page' => 3,
+      'posts_per_page' => 3,
       'post_status' => 'publish',
       'post_type' => 'post',
       // do not get the posts in the category headline
@@ -38,7 +38,7 @@
 
     // the rest without the headlines and category posts
     $q = array(
-      'post_per_page' => 10,
+      'posts_per_page' => 10,
       'post_status' => 'publish',
       'post_type' => 'post',
       'post__not_in' =>  array_merge($category_post_ids, $headline_ids)

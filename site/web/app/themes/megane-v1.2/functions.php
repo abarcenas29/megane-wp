@@ -45,17 +45,37 @@
 
     wp_deregister_script('jquery');
 
-    wp_register_script('commons-bundle', $build_path . 'commons.bundle.js', '', '1.0.0', true);
+    $date = new DateTime();
+
+    wp_register_script(
+        'commons-bundle', $build_path . 'commons.bundle.js',
+        '',
+        $date->getTimestamp(),
+        true);
 
     // main styles
-    wp_register_style('css-uikit', $build_path . 'main.style.css', '', '1.0.0', 'all');
-    wp_register_script('js-app', $build_path . 'main.bundle.js', '', '1.0.0', true);
+    wp_register_style(
+      'css-uikit',
+      $build_path . 'main.style.css',
+      '',
+      $date->getTimestamp(),
+      'all'
+    );
+    wp_register_script(
+      'js-app',
+      $build_path .
+      'main.bundle.js',
+      '',
+      $date->getTimestamp(),
+      true
+    );
+
     // home styles
-    wp_register_style('css-home', $build_path . 'home.style.css', '', '1.0.0', 'all');
-    wp_register_script('js-home', $build_path . 'home.bundle.js', '', '1.0.0', true);
+    wp_register_style('css-home', $build_path . 'home.style.css', '', $date->getTimestamp(), 'all');
+    wp_register_script('js-home', $build_path . 'home.bundle.js', '', $date->getTimestamp(), true);
     // single styles
-    wp_register_style('css-single', $build_path . 'singles.style.css', '', '1.0.0', 'all');
-    wp_register_script('js-single', $build_path . 'singles.bundle.js', '', '1.0.0', true);
+    wp_register_style('css-single', $build_path . 'singles.style.css', '', $date->getTimestamp(), 'all');
+    wp_register_script('js-single', $build_path . 'singles.bundle.js', '', $date->getTimestamp(), true);
 
     if(!is_admin()) {
       wp_enqueue_script('commons-bundle');
