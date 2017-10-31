@@ -1,0 +1,51 @@
+// reference
+// http://alexgoff.net/web-type/
+.post-content {
+  line-height: 1.5em;
+  margin: 1.5rem 0;
+
+  p {
+    color: #444;
+    letter-spacing: 0.01rem;
+    line-height: 1.8rem;
+  }
+  p.uk-dropcap:first-letter {
+    font-family: 'Passion One', cursive;
+    font-size: 6rem;
+    line-height: 5rem;
+  }
+
+  blockquote {
+    position: relative;
+    p {
+      display: block;
+      font-family: $header-font !important;
+      font-size: 2rem;
+      font-style: initial;
+      font-weight: 400;
+      position: relative;
+      z-index: 1;
+    }
+    p:before {
+      background-image: url('../../images/quote-mark.svg');
+      background-position: left top;
+      background-repeat: no-repeat;
+      content: '';
+      font-size: 10em;
+      height: 70px;
+      opacity: 0.5;
+      position: absolute;
+      transform: translate(-25px, -25px);
+      width: 70px;
+      z-index: -1;
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .post-content {
+    p {
+      font-size: 1rem;
+    }
+  }
+}

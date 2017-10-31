@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans|Passion+One');;
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Passion+One');
+@import 'variables';
+
+@import './globals/post_content.scss';
 
 // Overrides
 
@@ -8,23 +11,23 @@
 
 // General Styles
 h1,h2,h3,h4,h5,h6 {
-  font-family: 'Passion One', cursive;
+  font-family: $header-font;
   color: #222;
   letter-spacing: 0.1em;
 }
 
 p, li, a {
-  font-family: 'Open Sans', sans-serif !important;
+  font-family: $normal-font !important;
   transition: color 1s;
 }
 
 a:hover {
-  color: #F57C00 !important;
+  color: $brand-color !important;
   text-decoration: none;
 }
 
 p::selection {
-  background-color: #F57C00;
+  background-color: $brand-color;
 }
 
 
@@ -36,18 +39,6 @@ p::selection {
 
 .mg-white-background {
   background-color: #fff;
-}
-
-// reference
-// http://alexgoff.net/web-type/
-.post-content {
-  line-height: 1.5em;
-  margin: 1.5rem 0;
-
-  p {
-    color: #444;
-    letter-spacing: 0.01rem;
-  }
 }
 
 #simple-navigation {

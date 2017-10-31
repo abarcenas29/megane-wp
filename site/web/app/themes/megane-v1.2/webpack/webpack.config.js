@@ -18,7 +18,7 @@ const webpack = {
   },
   output: {
     path: path.resolve('build'),
-    publicPath: '/app/themes/megane-v1.2',
+    publicPath: '/app/themes/megane-v1.2/',
     filename: '[name].bundle.js',
     chunkFilename: '[name]-[chunkhash].js'
   },

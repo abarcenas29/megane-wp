@@ -1,0 +1,20 @@
+[
+    {
+        "title": "img-left",
+        "type": "item",
+        "block": "div",
+        "classes": "uk-float-left"
+    },
+    {
+        "title": "img-right",
+        "type": "item",
+        "block": "div",
+        "classes": "uk-float-right"
+    },
+    {
+        "title": "blockquote",
+        "type": "item",
+        "block": "blockquote",
+        "classes": "uk-padding-small uk-display-block uk-margin-remove"
+    }
+]

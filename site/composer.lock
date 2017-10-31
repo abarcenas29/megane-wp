@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b953f3febc846920eccae89d29b8bd05",
+    "content-hash": "2d6a5e3d874fda23b8b2bd5b44871954",
     "packages": [
         {
             "name": "abarcenas29/acf-pro",
@@ -444,15 +444,15 @@
         },
         {
             "name": "wpackagist-plugin/gutenberg",
-            "version": "1.5.1",
+            "version": "1.5.2",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/gutenberg/",
-                "reference": "tags/1.5.1"
+                "reference": "tags/1.5.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/gutenberg.1.5.1.zip",
+                "url": "https://downloads.wordpress.org/plugin/gutenberg.1.5.2.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -581,6 +581,26 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/wordpress-seo/"
+        },
+        {
+            "name": "wpackagist-plugin/wp-edit",
+            "version": "4.0.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wp-edit/",
+                "reference": "tags/4.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wp-edit.4.0.1.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wp-edit/"
         }
     ],
     "packages-dev": [
