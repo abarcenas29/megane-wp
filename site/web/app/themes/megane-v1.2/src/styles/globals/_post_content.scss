@@ -40,6 +40,12 @@
       z-index: -1;
     }
   }
+
+  .aligncenter {
+    display: block;
+    margin: auto;
+    width: 95%;
+  }
 }
 
 @media screen and (max-width: 640px) {
