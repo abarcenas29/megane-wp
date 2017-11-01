@@ -22,6 +22,8 @@ RUN apk --no-cache add --update curl && openssl && \
                                 apk del curl openssl && \
                                 rm -rf /var/cache/apk/*
 RUN php-fpm -D
+RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+RUN php wp-cli.phar --info && chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/wp && wp --info
 
 ENV HOME=/app
 WORKDIR $HOME
