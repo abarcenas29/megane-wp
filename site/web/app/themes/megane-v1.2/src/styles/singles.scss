@@ -1,3 +1,5 @@
+@import 'variables';
+
 .uk-text-meta {
   padding-left: 0;
 
@@ -39,6 +41,26 @@
   }
   .uk-text-lead {
     font-style: italic;
+  }
+  .meta {
+    ul {
+      padding-left: 0;
+      li {
+        display: inline-block;
+        font-size: 0.8em;
+        list-style-type: none;
+        text-transform: uppercase;
+        a {
+          background-color: $brand-color;
+          color: #FFF;
+          padding: 0.5em;
+        }
+        a:hover {
+          color: $brand-color;
+          background-color: #FFF;
+        }
+      }
+    }
   }
 }
 
