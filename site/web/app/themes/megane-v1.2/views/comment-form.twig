@@ -1,0 +1,44 @@
+<div class='uk-child-width-1-1 uk-grid-collapse' uk-grid id="comment-form">
+  <div><h2>Add Comment</h2></div>
+  <div class='uk-width-1-2@l uk-width-1-1'>
+    <form id='form' class='uk-form-stacked' method='post' action='{{ site.url~'/wp/wp-comments-post.php' }}'>
+      <fieldset class='uk-fieldset'>
+        {% if user %}
+          <input type="hidden" name="email" value="{{ user.email }}" />
+          <input type="hidden" name="author" value="{{ user.name }}" />
+          <input type="hidden" name="url" value="{{ user.link }}" />
+        {% else %}
+          <div class='uk-margin'>
+            <label class='uk-form-label' for='email'>Email</label>
+            <div class='uk-form-controls uk-form-controls-text'>
+              <input require name='email' type='text' id='email' class='uk-form-width-large uk-form-small uk-width-1-1 uk-input' />
+            </div>
+          </div>
+          <div class='uk-margin'>
+            <label class='uk-form-label' for='author'>Username</label>
+            <div class='uk-form-controls uk-form-controls-text'>
+              <input require name='author' type='text' id='author' class='uk-form-width-large uk-form-small uk-width-1-1 uk-input' />
+            </div>
+          </div>
+          <div class='uk-margin'>
+            <label class='uk-form-label' for='url'>Url</label>
+            <div class='uk-form-controls uk-form-controls-text'>
+              <input require name='url' type='text' id='url' class='uk-form-width-large uk-form-small uk-width-1-1 uk-input' />
+            </div>
+          </div>
+        {% endif %}
+          <input type="hidden" name="comment_post_ID" value="{{ post.id }}" id='comment_post_ID' />
+          <input type="hidden" name="comment_parent" id='comment_parent' value="{{ comment.ID|default('0')  }}" />
+
+          <div class='uk-margin'>
+            <label class='uk-form-label' for='comment'>Comment</label>
+            <textarea class='uk-textarea uk-width-1-1' name='comment' cols='60' row='3'></textarea>
+          </div>
+          <div class='uk-margin' uk-margin>
+            <button type='submit' name='Submit' class='uk-button uk-button-primary'>Sumbit</button>
+            <button type='reset' class='uk-button uk-button-secondary'>Cancel</button>
+          </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
