@@ -52,10 +52,10 @@
                 <!-- paragraph  -->
                 <section class='post-content' id='post-content'>
                   {{post.content}}
-                  <hr class='uk-divider-icon'>
                 </section>
                 <!-- Divider -->
                 <section class='meta'>
+                  <hr class='uk-divider-icon'>
                   <ul>
                     <li class='title'>Tagged for:</li>
                     {% for tag in post.tags %}
@@ -66,9 +66,20 @@
                       </li>
                     {% endfor  %}
                   </ul>
+                  <hr class='uk-divider-icon'>
                 </section>
-                <section class='comments'>
-                  {{ function('comments_template')  }}
+                <section class='uk-margin'>
+                  {% if post.comments %}
+                  <h3>Comments</h3>
+                  {% endif  %}
+                  <ul class='uk-comment-list'>
+                    {% for cmt in post.comments %}
+                      <li>{% include 'comments.twig' with {comment:cmt} %}</li>
+                    {% endfor %}
+                  </ul>
+                </section>
+                <section class='comment-form'>
+                  {% include 'comment-form.twig'  %}
                 </section>
               </article>
 

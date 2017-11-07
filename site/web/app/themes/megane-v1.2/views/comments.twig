@@ -1,0 +1,27 @@
+<article class='uk-comment uk-visible-toggle'>
+  <header class='uk-comment-header uk-position-relative'>
+    <div class='uk-grid-medium uk-flex-middle' uk-grid>
+      <div class='uk-width-expand'>
+        <h4 class='uk-comment-title uk-margin-remove'>
+          {{comment.author.name}}
+        </h4>
+      </div>
+    </div>
+  </header>
+  <section class='uk-comment-body'>
+    {{comment.comment_content|wpautop}}
+  </section>
+</article>
+{% if post.comments  %}
+  <ul>
+    {% for cmt in comment.children %}
+      <li>
+        {% include 'comments.twig' with {comment:cmt} %}
+      </li>
+    {% endfor %}
+    <li>
+      <h4>Replies</h4>
+      {% include 'comment-form.twig' %}
+    </li>
+  </ul>
+{% endif  %}
