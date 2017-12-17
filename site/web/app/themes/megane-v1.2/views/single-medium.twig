@@ -68,19 +68,8 @@
                   </ul>
                   <hr class='uk-divider-icon'>
                 </section>
-                <section class='uk-margin'>
-                  {% if post.comments %}
-                  <h3>Comments</h3>
-                  {% endif  %}
-                  <ul class='uk-comment-list'>
-                    {% for cmt in post.comments %}
-                      <li>{% include 'comments.twig' with {comment:cmt} %}</li>
-                    {% endfor %}
-                  </ul>
-                </section>
-                <section class='comment-form'>
-                  {% include 'comment-form.twig'  %}
-                </section>
+
+                {% include 'parts/facebook-comments.twig' %}
               </article>
 
             </div>
