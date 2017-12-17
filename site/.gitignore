@@ -1,6 +1,8 @@
 # Application
+.DS_Store
 .composer
 .ash_history
+yarn-error.log
 web/app/plugins/*
 !web/app/plugins/.gitkeep
 web/app/mu-plugins/*/
