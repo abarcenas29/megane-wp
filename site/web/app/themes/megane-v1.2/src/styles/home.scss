@@ -36,3 +36,17 @@
     }
   }
 }
+
+@media screen and (max-width: 960px) {
+  #home-page {
+    .container {
+      .headline {
+        .headline__space {
+          .headline__container {
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+}
