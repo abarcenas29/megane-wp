@@ -4,3 +4,20 @@ $normal-font: 'Open Sans', sans-serif;
 
 // color
 $brand-color: #F57C00;
+
+@mixin aspect-ratio ($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .content {
+    position: absolute;
+    top: 0em;
+    left: 0em;
+    right: 0em;
+    bottom: 0em;
+  }
+}

@@ -1,3 +1,5 @@
+@import 'variables';
+
 #content {
   flex-grow: 1;
 
@@ -18,6 +20,10 @@
   .container {
     background-color: #FFF;
     flex-grow: 1;
+
+    .headline--ratio {
+      @include aspect-ratio(18, 9);
+    }
 
     #header-blog {
 
@@ -44,6 +50,11 @@
         .headline__space {
           .headline__container {
             padding: 0;
+          }
+        }
+        .headline__space {
+          .headline__title {
+            font-size: 1.5rem;
           }
         }
       }
