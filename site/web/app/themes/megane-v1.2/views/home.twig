@@ -65,25 +65,51 @@
 
         <div class='uk-width-1-1'>
 
-          <div class="uk-grid-collapse" id='header-blog' uk-grid>
+          <ul class="
+            header-blog
+            uk-list
+            uk-margin-remove
+            uk-width-1-1
+          ">
 
             {% if headlines %}
               {% for post in headlines %}
-                <div class='uk-width-1-3@m uk-width-1-1@s'>
-                  <a href='{{post.link}}'>
-                    <div class='uk-inline uk-width-1-1'>
-                      <img src='{{post.thumbnail.src('thumbnail')}}' class='uk-width-1-1'  />
-                      <div class='uk-overlay uk-overlay-primary uk-position-bottom uk-flex uk-flex-between uk-flex-column' style='min-height: 6em;'>
-                        <div><p>{{post.title | truncate(10)}}</p></div>
-                        <div>
-                          <span class='uk-label'>
-                            {{post.categories[0]}}
-                          </span>
-                        </div>
+              <li class='
+                uk-display-inline-block
+                uk-margin-remove-adjacent'>
+                <a href='{{post.link}}'>
+                  <div
+                    class='
+                      header-blog__item
+                      uk-background-cover
+                      uk-height-medium
+                      uk-flex
+                      uk-flex-bottom'
+                    style='background-image:url("{{post.thumbnail.src('thumbnail')}}")'>
+                    <div
+                      class='
+                        body
+                        uk-flex
+                        uk-flex-column
+                        uk-background-default
+                        uk-width-1-1
+                        uk-padding-small
+                        uk-padding-remove-vertical'>
+                      <div class='category'>
+                        <p class='uk-margin-remove uk-text-uppercase uk-text-bold'>{{post.categories[0]}}</p>
+                      </div>
+                      <div class='header'>
+                        <h3 class='uk-margin-small-bottom'>{{post.title}}</h3>
+                      </div>
+                      <div class='content uk-text-small'>
+                        {{
+                          function('get_the_excerpt', category.post.ID)
+                        }}
                       </div>
                     </div>
-                  </a>
-                </div>
+                  </div>
+                </a>
+              </li>
               {% endfor %}
             {% endif %}
 
@@ -96,33 +122,32 @@
           <div class='uk-width-1-1 uk-margin-top'>
 
             <div class='uk-margin-left uk-margin-right'>
-              <div
-                class='
-                  uk-child-width-1-3@l
-                  uk-child-width-1-1@m
-                  uk-grid-match'
-                uk-grid
-              >
-
+              <div class='header-loop'>
                 {% for category in category_headline %}
                   {% if category.post %}
-                    <div>
-                      <div class='uk-card uk-card-small uk-card-default'>
-                        <div class="uk-card-badge uk-label">
-                          {{ category.post.categories[0]  }}
+                    <div class='uk-padding-small header-loop__container'>
+                      <div class='header-loop__item uk-height-1-1 uk-flex uk-flex-wrap uk-flex-wrap-around uk-box-shadow-medium'>
+                        <div
+                          class='
+                            feature-image
+                            uk-width-1-1
+                            uk-height-medium
+                            uk-background-cover
+                            uk-flex
+                            uk-flex-bottom
+                            uk-flex-right'
+                            style="background-image:url('{{category.post.thumbnail.src('thumbnail')}}')">
+                          <div class='category'>{{ category.post.categories[0]  }}</div>
                         </div>
-                        <div class='uk-media-top uk-width-1-1'>
-                          <img src='{{category.post.thumbnail.src('thumbnail')}}' class='uk-width-1-1' />
+                        <div class='body uk-padding-small'>
+                          <h3 class='uk-card-title uk-margin-remove' title='{{category.post.title}}'>{{category.post.title}}</h3>
+                            <p class='uk-flex-1'>
+                              {{
+                                function('get_the_excerpt', category.post.ID)
+                              }}
+                            </p>
                         </div>
-                        <div class='uk-card-body' style='min-height: 10em;'>
-                          <h3 class='uk-card-title uk-margin-remove' style='min-height: 3em;' title='{{category.post.title}}'>{{category.post.title | truncate(10) }}</h3>
-                          <p>
-                            {{
-                              function('get_the_excerpt', category.post.ID) | truncate(15)
-                            }}
-                          </p>
-                        </div>
-                        <div class='uk-card-footer'>
+                        <div class='footer uk-padding-small uk-width-1-1'>
                           <a
                             href='{{category.post.link}}'
                             class='uk-button uk-button-text'
@@ -132,7 +157,6 @@
                     </div>
                   {% endif %}
                 {% endfor %}
-
               </div>
             </div>
 

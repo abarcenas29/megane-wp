@@ -3,6 +3,7 @@
 .composer
 .ash_history
 yarn-error.log
+site/.ash_history
 web/app/plugins/*
 !web/app/plugins/.gitkeep
 web/app/mu-plugins/*/
