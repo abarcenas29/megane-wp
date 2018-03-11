@@ -25,14 +25,78 @@
       @include aspect-ratio(18, 9);
     }
 
-    #header-blog {
-
-      .header-post {
-        background-color: pink;
-        height: inherit;
-        height: 20em;
+    .header-blog {
+      display: -ms-grid;
+      @for $i from 1 through 3 {
+        li:nth-child(#{$i}) {
+          -ms-grid-column: #{$i};
+          -ms-grid-column-span: 1;
+        }
       }
 
+      display: grid;
+      overflow-y: hidden;
+
+      -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+      .header-blog__item {
+        color: #0d0d0d;
+        .body {
+          .category {
+            color: #9E9E9E;
+          }
+          .content {
+            transition: max-height 1s ease-out;
+            max-height: 0;
+          }
+          border-bottom: 1px solid $brand-color;
+        }
+        .body:hover, .body:active {
+          .category {
+            color: $brand-color;
+          }
+          .content {
+            max-height: 500px;
+          }
+        }
+      }
+    }
+
+    .header-loop {
+      display: -ms-grid;
+      @for $i from 1 through 3 {
+        .header-loop__container:nth-child(#{$i}) {
+          -ms-grid-column: #{$i};
+          -ms-grid-column-span: 1;
+        }
+      }
+      display: grid;
+
+      -ms-grid-columns: minmax(200px, 1fr) minmax(200px, 1fr) minmax(200px, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+      .header-loop__item {
+        background-color: #FFF;
+        .feature-image {
+          .category {
+            background-color: $brand-color;
+            color: #FFF;
+            padding: 5px 10px;
+
+            @supports (clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%)) {
+              clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+              padding: 5px 10px 5px 20px;
+            }
+          }
+        }
+        .body {
+          flex-grow: 1;
+        }
+        .footer {
+          border-top: 1px solid #e5e5e5;
+        }
+      }
     }
 
     .post-loop {
