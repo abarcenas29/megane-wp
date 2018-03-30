@@ -28,6 +28,10 @@
             <h2 class='
               uk-text-uppercase
               headline_title'>
+              {% if headline.is_video %}
+                <span uk-icon='icon: youtube; ratio: 2'></span>
+                [watch]
+              {% endif %}
               {{headline.title}}
             </h2>
           </div>
@@ -54,6 +58,10 @@
               uk-text-uppercase
               headline__title
               uk-hidden@l'>
+              {% if headline.is_video %}
+                <span uk-icon='icon: youtube; ratio: 2'></span>
+                [watch]
+              {% endif %}
               {{headline.title}}
             </h2>
             <p class='

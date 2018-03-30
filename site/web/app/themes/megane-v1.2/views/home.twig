@@ -96,15 +96,26 @@
                         uk-padding-small
                         uk-padding-remove-vertical'>
                       <div class='category'>
-                        <p class='uk-margin-remove uk-text-uppercase uk-text-bold'>{{post.categories[0]}}</p>
+                        <p
+                          class='
+                            uk-margin-remove
+                            uk-text-uppercase
+                            uk-text-bold'>
+                            {% if post.is_video %}
+                              <span uk-icon='icon: youtube; ratio: 2'></span>
+                            {% endif %}
+                            {{post.categories[0]}}
+                        </p>
                       </div>
                       <div class='header'>
                         <h3 class='uk-margin-small-bottom'>{{post.title}}</h3>
                       </div>
                       <div class='content uk-text-small'>
-                        {{
-                          function('get_the_excerpt', category.post.ID)
-                        }}
+                        <div class='uk-margin-small-bottom'>
+                          {{
+                            function('get_the_excerpt', category.post.ID)
+                          }}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -154,10 +165,23 @@
                             uk-flex-bottom
                             uk-flex-right'
                             style="background-image:url('{{category.post.thumbnail.src('thumbnail')}}')">
-                          <div class='category'>{{ category.post.categories[0]  }}</div>
+                          <div class='category'>
+                            {{ category.post.categories[0]  }}
+                          </div>
                         </div>
                         <div class='body uk-padding-small'>
-                          <h3 class='uk-card-title uk-margin-remove' title='{{category.post.title}}'>{{category.post.title}}</h3>
+                          <div class='uk-flex uk-flex-middle'>
+                            {% if category.is_video %}
+                              <div class='uk-margin-small-right'>
+                                <span uk-icon='icon: youtube; ratio: 2'></span>
+                              </div>
+                            {% endif %}
+                            <h3 
+                              class='uk-card-title uk-margin-remove'
+                              title='{{category.post.title}}'>
+                              {{category.post.title}}
+                            </h3>
+                          </div>
                             <p class='uk-flex-1'>
                               {{
                                 function('get_the_excerpt', category.post.ID)
@@ -199,21 +223,36 @@
                       uk-child-width-1-2@s
                       uk-margin'
                       uk-grid>
-                      <div class='uk-card-media-left uk-cover-container cover-container'>
+                      <div
+                        class='
+                          uk-card-media-left
+                          uk-cover-container
+                          cover-container'>
                         <div class='uk-inline uk-width-1-1'>
                           <img src='{{post.thumbnail.src('thumbnail')}}' class='uk-width-1-1'/>
                         </div>
                       </div>
                       <div class='uk-flex uk-flex-column'>
                         <div class='uk-flex uk-flex-right uk-padding-small'>
-                          <div
-                            class="uk-label">
-                            {{post.categories[0]}}
-                          </div>
+                          <a href='{{post.categories[0].link}}'>
+                            <div
+                              class="uk-label">
+                              {{post.categories[0]}}
+                            </div>
+                          </a>
                         </div>
                         <div class='uk-card-body uk-padding-small uk-flex-1'>
-                          <h3 class='uk-card-title'>{{post.title}}</h3>
-                          <p>{{ function('get_the_excerpt', post.ID) | truncate(15) }}</p>
+                          <h3 class='uk-card-title'>
+                            {% if post.is_video  %}
+                              <span uk-icon='icon: youtube; ratio: 2'></span>
+                            {% endif %}
+                            {{post.title}}
+                          </h3>
+                          <p>
+                            {{ 
+                              function('get_the_excerpt', post.ID) | truncate(15)
+                            }}
+                          </p>
                         </div>
                         <div class='uk-card-footer uk-padding-small'>
                           <a href='{{post.link}}' class='uk-button uk-button-text'>READ MORE</a>

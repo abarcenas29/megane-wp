@@ -44,26 +44,41 @@
   }
 }
 
-#singles-standard, #singles-medium {
+#singles-standard, #singles-medium, #singles-video {
   .meta {
     ul {
       padding-left: 0;
       li {
         display: inline-block;
-        font-size: 0.8em;
         list-style-type: none;
         text-transform: uppercase;
         a {
-          background-color: $brand-color;
-          color: #FFF;
           padding: 0.5em;
+          color: $brand-color;
         }
         a:hover {
-          color: $brand-color;
-          background-color: #FFF;
+          color: #FFF !important;
+          background-color: $brand-color;
         }
       }
     }
+  }
+}
+
+#singles-video {
+  header {
+    .breadcrumb {
+      li:not(:last-child):after {
+        content: '\25B6';
+        padding: 0 5px;
+      }
+    }
+  }
+  .video-container {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
   }
 }
 
