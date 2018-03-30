@@ -120,13 +120,30 @@
         <!-- Headline Loop  -->
         {% if category_headline %}
           <div class='uk-width-1-1 uk-margin-top'>
-
-            <div class='uk-margin-left uk-margin-right'>
-              <div class='header-loop'>
-                {% for category in category_headline %}
-                  {% if category.post %}
-                    <div class='uk-padding-small header-loop__container'>
-                      <div class='header-loop__item uk-height-1-1 uk-flex uk-flex-wrap uk-flex-wrap-around uk-box-shadow-medium'>
+            <ul class='
+              header-loop
+              uk-margin-left
+              uk-margin-right
+              uk-padding-remove'>
+              {% for category in category_headline %}
+                {% if category.post %}
+                <li class='
+                  uk-display-inline-block
+                  uk-margin-remove-adjacent'>
+                  <a 
+                    href='{{category.post.link}}'
+                    class='uk-display-flex uk-link-muted uk-height-1-1'>
+                    <div class='
+                      uk-padding-small
+                      uk-padding-remove-vertical
+                      header-loop__container
+                      uk-height-1-1'>
+                      <div class='
+                        header-loop__item
+                        uk-height-1-1
+                        uk-flex
+                        uk-flex-column
+                        uk-box-shadow-medium'>
                         <div
                           class='
                             feature-image
@@ -147,19 +164,20 @@
                               }}
                             </p>
                         </div>
-                        <div class='footer uk-padding-small uk-width-1-1'>
-                          <a
-                            href='{{category.post.link}}'
-                            class='uk-button uk-button-text'
-                            title='{{category.post.title}}'>READ MORE</a>
+                        <div class='
+                          footer
+                          uk-padding-small
+                          uk-width-1-1
+                          uk-text-uppercase'>
+                          read more
                         </div>
                       </div>
                     </div>
-                  {% endif %}
-                {% endfor %}
-              </div>
-            </div>
-
+                  </a>
+                </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
           </div>
 
         {% endif %}
