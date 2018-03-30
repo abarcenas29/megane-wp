@@ -92,9 +92,15 @@
         }
         .body {
           flex-grow: 1;
+          color: #0d0d0d;
         }
         .footer {
           border-top: 1px solid #e5e5e5;
+        }
+      }
+      .header-loop__item:hover {
+        .body > h3  {
+          color: $brand-color;
         }
       }
     }
