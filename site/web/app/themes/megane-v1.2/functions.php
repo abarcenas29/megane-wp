@@ -104,6 +104,23 @@
       true
     );
 
+    // categories
+    wp_register_style(
+      'css-categories',
+      $build_path . 'categories.style.css',
+      '',
+      $date->getTimestamp(),
+      'all'
+    );
+
+    wp_register_script(
+      'js-categories',
+      $build_path . 'categories.bundle.js',
+      '',
+      $date->getTimestamp(),
+      true
+    );
+
     if(!is_admin()) {
       wp_enqueue_script('commons-bundle');
       wp_enqueue_script('js-app');
@@ -120,6 +137,10 @@
       wp_enqueue_style('css-single');
     }
 
+    if (is_category()) {
+      wp_enqueue_script('js-categories');
+      wp_enqueue_style('css-categories');
+    }
   }
   add_action('wp_enqueue_scripts', 'load_style_scripts');
 

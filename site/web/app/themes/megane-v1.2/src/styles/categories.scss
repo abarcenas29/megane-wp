@@ -1,0 +1,23 @@
+@import 'variables';
+
+#index-category {
+  .index-loop {
+    display: -ms-grid;
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    .post-item {
+      .body {
+        flex-grow: 1;
+        color: #0d0d0d;
+      }
+    }
+
+    .post-item:hover {
+      .body h3 {
+        color: $brand-color;
+      }
+    }
+  }
+}
