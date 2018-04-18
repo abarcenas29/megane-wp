@@ -137,7 +137,7 @@
       wp_enqueue_style('css-single');
     }
 
-    if (is_category()) {
+    if (is_category() || is_archive()) {
       wp_enqueue_script('js-categories');
       wp_enqueue_style('css-categories');
     }

@@ -8,13 +8,16 @@
       <div class='uk-grid'>
 
         <!-- Headline Banner -->
-        {% if not options.category_bar.enable %}
+        {% if not options.stories_header.enable %}
         <div class='uk-width-1-1'>
-
           <a class='uk-display-block' href='{{headline.link}}'>
             {% include 'parts/headline.ratio.twig' %}
             {% include 'parts/headline.mobile.twig' %}
           </a>
+        {% else %}
+        <div class='uk-width-1-1'>
+          Stories
+        </div>
         {% endif %}
 
         <!-- Category Roll  -->
@@ -206,7 +209,7 @@
 
         {% endif %}
 
-        <div class='uk-width-1-1 uk-margin-top uk-margin-bottom'>
+        <div class='uk-width-1-1 uk-margin-top'>
 
           <div class='uk-margin-left uk-margin-right'>
             <div class='uk-grid'>

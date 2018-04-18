@@ -1,0 +1,18 @@
+<div class='
+  uk-flex
+  uk-background-muted
+  story-meta-bar'>
+  <div>
+    <p class='uk-margin-remove uk-text-large total-post'>
+    {{ stories_count }}
+    </p>
+  </div>
+  <div class='uk-flex uk-flex-middle'>
+    <div>
+      <p class='uk-margin-remove'>Total Updates since</p>
+      <p class='uk-margin-remove uk-text-small'>
+        {{post.post_modified|date('F jS Y')}}
+      </p>
+    </div>
+  </div>
+</div>

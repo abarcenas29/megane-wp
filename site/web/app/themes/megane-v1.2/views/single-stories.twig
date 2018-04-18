@@ -1,0 +1,139 @@
+{% extends 'base.twig' %}
+{% block mainHeader %}
+  {% set sticky = 'uk-sticky' %}
+  {% include 'parts/navigation-simple.twig'  %}
+{% endblock mainHeader %}
+
+{% block content %}
+  <div class='uk-display-block' id='singles-stories'>
+    <div class='uk-container'>
+      <div class='uk-background-default uk-padding-small'>
+        <div class='uk-visible@m uk-display-block uk-width-1-1'>
+          <ol
+            class='uk-padding-remove breadcrumb uk-margin-small-bottom'
+            itemscope 
+            itemtype='https://schema.org/BreadcrumbList'
+          >
+            <li
+              class='uk-display-inline-block uk-text-capitalize' itemprop='itemListElement' 
+              itemscope 
+              itemtype='https://schema.org/ListItem'
+            >
+              <!-- Add link later  -->
+              <span
+                itemscope
+                itemprop='item'
+                itemscope='https://schema.org/Thing' 
+              >
+                Stories
+              </span>
+            </li>
+            <li
+              class='uk-display-inline-block uk-text-capitalize' itemprop='itemListElement' 
+              itemscope 
+              itemtype='https://schema.org/ListItem'
+            >
+              {{post.title}}
+            </li>
+          </ol>
+          <h1 class='uk-margin-remove uk-visible@m'>{{post.title}}</h1>
+          <div class='uk-visible@m'>
+            {% include 'parts/post-meta.twig' %}
+          </div>
+        </div>
+        <div class='uk-width-1-1 uk-grid-collapse' uk-grid>
+          <div class='uk-width-2-3@m uk-width-1-1@s'>
+            {% include 'parts/stories-header.twig'  %}
+            <div class='
+              uk-display-block
+              uk-margin-small
+              uk-margin-remove-horizontal'>
+              {{post.content}}
+            </div>
+              {% include 'parts/stories-post-status.twig' %}
+              <ul class='post uk-padding-remove'>
+                {% if stories %}
+                  {% for story in stories %}
+                    <li class='uk-display-block uk-margin-bottom'>
+                      <a
+                        class='story'
+                        href="{{story.permalink}}"
+                        target='_blank'>
+                        <div class='uk-position-relative feature-image'>
+                          {% if story.is_youtube %}
+                            <div class='
+                              icon-image
+                              uk-flex
+                              uk-flex-middle
+                              uk-flex-center
+                              uk-height-1-1
+                              uk-width-1-1
+                              uk-position-absolute'>
+                              <div>
+                                <span uk-icon='icon: play-circle; ratio: 5'></span>
+                              </div>
+                            </div>
+                          {% endif  %}
+                          <img src='{{story.thumbnail}}' class='uk-width-1-1' />
+                        </div>
+                        <div class='content'>
+                          <h2 class='
+                            uk-text-capitalize
+                            uk-margin-remove'>
+                            {{story.post_title}}
+                          </h2>
+                          <ul class='
+                            uk-item
+                            uk-margin-remove
+                            uk-padding-remove
+                          '>
+                            <li class='
+                              uk-display-inline
+                              uk-text-small
+                            '>Posted on {{story.post_date}}</li>
+                          </ul>
+                          <p>{{story.post_excerpt}}</p>
+                        </div>
+                      </a>
+                    </li>
+                  {% endfor %}
+                {% endif  %}
+              </ul>
+            </div>
+          <div class='
+            uk-width-1-3@m
+            uk-width-1-1
+            uk-padding
+            uk-padding-remove-vertical
+            sidebar'>
+            <h3 class='uk-text-uppercase' style='line-height: 1.5rem;'>
+              Other Stories You Might Be Interested In
+            </h3>
+            <ul class='uk-padding-remove other-stories'>
+              {% if other_stories  %}
+                {% for story in other_stories  %}
+                <li class='uk-display-block other-story uk-margin-medium-bottom'>
+                  <a class='uk-position-relative uk-display-block'>
+                    <img src='{{story.thumbnail.src('medium')}}' class='uk-width-1-1' />
+                    <div class='
+                      uk-flex
+                      uk-flex-bottom
+                      uk-height-1-1
+                      uk-position-absolute
+                      uk-width-1-1
+                      title'>
+                      <h2 class='uk-margin-remove'>
+                        {{story.title}} 
+                      </h2>
+                    </div>
+                  </a>
+                </li>
+                {% endfor %}
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
