@@ -33,7 +33,7 @@
     } else if (is_archive()) {
       $context['title'] = post_type_archive_title('', false);
     }
-    
+
     $context['posts'] = $posts;
   }
   Timber::render( $templates, $context );

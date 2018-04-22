@@ -1,0 +1,42 @@
+<div class='
+  headline-stories
+  uk-background-cover
+  uk-width-1-1
+  uk-position-relative'
+  style='background-image: url("{{stories_thumbnail}}")'>
+  <div class='
+    uk-position-absolute
+    uk-height-1-1'
+    id='story-background'>
+  </div>
+  <div class='
+    uk-position-relatives
+    content
+    uk-width-1-1
+    uk-padding'
+    >
+    <h2 class='uk-text-right'>
+      {{options.stories_header.story.post_title}}
+    </h2>
+    <ul class='uk-padding-remove uk-margin-remove story-list'>
+      {% for story in headline_stories %}
+        {% if loop.index < 4 %}
+        <li class='story' data-feature-image={{story.thumbnail}}>
+          <a class='uk-display-block' href="{{story.link}}">
+            {{story.post_title}}
+          </a>
+        </li>
+        {% endif %}
+      {% endfor %}
+      <li class='
+        ellipsis
+        uk-display-block
+        uk-text-right'>&#8942</li>
+      <li class='story'>
+        <a class='uk-display-block story' href="{{headline_link}}">
+          See all {{headline_stories|length}} Posts
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
