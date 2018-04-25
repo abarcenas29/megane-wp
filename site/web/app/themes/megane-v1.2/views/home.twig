@@ -8,13 +8,16 @@
       <div class='uk-grid'>
 
         <!-- Headline Banner -->
-        {% if not options.category_bar.enable %}
+        {% if not options.stories_header.enable %}
         <div class='uk-width-1-1'>
-
           <a class='uk-display-block' href='{{headline.link}}'>
             {% include 'parts/headline.ratio.twig' %}
             {% include 'parts/headline.mobile.twig' %}
           </a>
+        {% else %}
+        <div class='uk-width-1-1'>
+          {% include 'parts/headline.stories.twig' %}
+        </div>
         {% endif %}
 
         <!-- Category Roll  -->
@@ -140,8 +143,9 @@
                 {% if category.post %}
                 <li class='
                   uk-display-inline-block
-                  uk-margin-remove-adjacent'>
-                  <a 
+                  uk-margin-remove-adjacent
+                  uk-margin'>
+                  <a
                     href='{{category.post.link}}'
                     class='uk-display-flex uk-link-muted uk-height-1-1'>
                     <div class='
@@ -171,12 +175,7 @@
                         </div>
                         <div class='body uk-padding-small'>
                           <div class='uk-flex uk-flex-middle'>
-                            {% if category.is_video %}
-                              <div class='uk-margin-small-right'>
-                                <span uk-icon='icon: youtube; ratio: 2'></span>
-                              </div>
-                            {% endif %}
-                            <h3 
+                            <h3
                               class='uk-card-title uk-margin-remove'
                               title='{{category.post.title}}'>
                               {{category.post.title}}
@@ -206,7 +205,7 @@
 
         {% endif %}
 
-        <div class='uk-width-1-1 uk-margin-top uk-margin-bottom'>
+        <div class='uk-width-1-1 uk-margin-top'>
 
           <div class='uk-margin-left uk-margin-right'>
             <div class='uk-grid'>
@@ -214,54 +213,36 @@
                 <h2 class='uk-heading-line'><span>Latest Posts</span></h2>
 
                 {% if posts %}
+                <ul class='uk-margin-remove uk-padding-remove'>
                   {% for post in posts %}
-                    <div class='
+                    {% if loop.index == 5 and options.stories_loop.enable %}
+                      {% include 'parts/home.loop.stories.twig' %}
+                    {% endif %}
+                    <li class='
                       post-loop
-                      uk-card
-                      uk-card-default
-                      uk-grid-collapse
-                      uk-child-width-1-2@s
-                      uk-margin'
-                      uk-grid>
-                      <div
-                        class='
-                          uk-card-media-left
-                          uk-cover-container
-                          cover-container'>
-                        <div class='uk-inline uk-width-1-1'>
-                          <img src='{{post.thumbnail.src('thumbnail')}}' class='uk-width-1-1'/>
+                      uk-box-shadow-small
+                      uk-display-block
+                      uk-margin-bottom
+                    '>
+                      <a href="{{post.link}}">
+                        <div class='feature-image'>
+                          <img
+                            src='{{post.thumbnail.src('thumbnail')}}'
+                            class='uk-width-1-1'/>
                         </div>
-                      </div>
-                      <div class='uk-flex uk-flex-column'>
-                        <div class='uk-flex uk-flex-right uk-padding-small'>
-                          <a href='{{post.categories[0].link}}'>
-                            <div
-                              class="uk-label">
-                              {{post.categories[0]}}
-                            </div>
-                          </a>
-                        </div>
-                        <div class='uk-card-body uk-padding-small uk-flex-1'>
-                          <h3 class='uk-card-title'>
-                            {% if post.is_video  %}
-                              <span uk-icon='icon: youtube; ratio: 2'></span>
-                            {% endif %}
-                            {{post.title}}
-                          </h3>
+                        <div class='content uk-padding-small'>
+                          <h3>{{post.title}}</h3>
                           <p>
-                            {{ 
-                              function('get_the_excerpt', post.ID) | truncate(15)
+                            {{
+                              function('get_the_excerpt', post.ID)
                             }}
                           </p>
                         </div>
-                        <div class='uk-card-footer uk-padding-small'>
-                          <a href='{{post.link}}' class='uk-button uk-button-text'>READ MORE</a>
-                        </div>
-                      </div>
-                    </div>
+                      </a>
+                    </li>
                   {% endfor %}
+                </ul>
                 {% endif %}
-
               </div>
 
               <div class='uk-width-2-5@m uk-width-1-1@s'>

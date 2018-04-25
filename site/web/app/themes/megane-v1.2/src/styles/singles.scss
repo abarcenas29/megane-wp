@@ -44,7 +44,7 @@
   }
 }
 
-#singles-standard, #singles-medium, #singles-video {
+#singles-standard, #singles-medium, #singles-video, #singles-stories {
   .meta {
     ul {
       padding-left: 0;
@@ -63,22 +63,137 @@
       }
     }
   }
+  .breadcrumb {
+    li:not(:last-child):after {
+      content: '\25B6';
+      padding: 0 5px;
+    }
+  }
 }
 
 #singles-video {
-  header {
-    .breadcrumb {
-      li:not(:last-child):after {
-        content: '\25B6';
-        padding: 0 5px;
-      }
-    }
-  }
   .video-container {
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
+  }
+}
+
+#singles-stories {
+  .background-feature {
+    @include aspect-ratio(18,9);
+    background-color: $brand-color;
+    clip-path: polygon(30% 0%, 95% 0, 100% 10%, 100% 70%, 100% 100%, 5% 100%, 0 90%, 0 0);
+
+    @media (max-width: $responsive-phone) {
+      clip-path: polygon(65% 0, 100% 15%, 99% 100%, 30% 100%, 0 85%, 0 0);
+      height: 70vh;
+    }
+
+    .content {
+      top: 0;
+      left: 0;
+
+      background-color: rgba(34, 34, 34, 0.4);
+
+      h1 {
+        color: #fff;
+      }
+    }
+  }
+
+  .story-meta-bar {
+    background-color: $c-grey-200;
+    padding: 7.5px;
+    .total-post {
+      font-size: 2.5rem;
+      padding: 0 7.5px;
+    }
+  }
+
+  .sidebar {
+    padding: map-get($paddings, normal);
+    
+    @media (max-width: $responsive-phone) {
+      padding: 0;
+    }
+  }
+
+  .post {
+    .story {
+      display: -ms-grid;
+      display: grid;
+
+      -ms-grid-columns: 1fr 2fr;
+      grid-template-columns: 1fr 2fr;
+
+      @media (max-width: $responsive-phone) {
+        -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+      }
+
+      color: $c-grey-900;
+      .feature-image {
+        .icon-image {
+          top: 0;
+          left: 0;
+          span {
+            color: #FFF;
+
+            &:hover {
+              color: $brand-color;
+            }
+          }
+
+          transition: background-color 250ms ease-in, color 250ms ease-in;
+          &:hover {
+            background-color: rgba(34, 34, 34, 0.4);
+          }
+        }
+      }
+      .content {
+        margin-left: map-get($margins, normal);
+        h2 {
+          transition: color 250ms ease-in;
+        }
+        
+        &:hover {
+          h2 {
+            color: $brand-color;
+          }
+          color: $c-grey-800;
+        }
+
+        @media (max-width: $responsive-phone) {
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  .other-stories {
+    .other-story {
+      .title {
+        top: 0;
+        left: 0;
+        h2 {
+          background-color: #fff;
+          font-size: 1.5rem;
+          line-height: 1.5rem;
+          transition: background-color 250ms ease-in-out;
+          width: 80%;
+        }
+      }
+      &:hover {
+        .title {
+          h2 {
+            background-color: $brand-color;
+            color: #FFF;
+          }
+        }
+      }
+    }
   }
 }
 

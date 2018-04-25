@@ -45,19 +45,20 @@ p::selection {
   border-top: 3px solid #FB8C00;
 }
 
+.f-light {
+  font-weight: 300;
+}
+
 html {
-  height: 100%;
   width: 100%;
   background-color: #dadada;
 
   body {
-    height: inherit;
     width: inherit;
 
     display: block;
 
     #skeleton {
-      height: inherit;
       width: inherit;
 
       display: flex;

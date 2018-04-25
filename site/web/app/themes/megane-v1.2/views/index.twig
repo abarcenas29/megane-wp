@@ -20,7 +20,7 @@
                 uk-heading-divider
                 '>
                 Posts about
-                {{ function('single_cat_title')  }}
+                {{title}}
               </h1>
             </div>
 
@@ -47,9 +47,6 @@
                         </div>
                         <div class='uk-padding-small body'>
                           <h3>
-                            {% if post.is_video  %}
-                              <span uk-icon='icon: youtube; ratio: 2'></span>
-                            {% endif %}
                             {{post.title}}
                           </h3>
                           <p>{{ function('get_the_excerpt', post.ID)  }}</p>

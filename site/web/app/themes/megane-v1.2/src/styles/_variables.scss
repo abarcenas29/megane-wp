@@ -5,6 +5,38 @@ $normal-font: 'Open Sans', sans-serif;
 // color
 $brand-color: #F57C00;
 
+$c-grey-050: #FAFAFA;
+$c-grey-100: #F5F5F5;
+$c-grey-200: #EEE;
+$c-grey-300: #E0E0E0;
+$c-grey-400: #BDBDBD;
+$c-grey-500: #9E9E9E;
+$c-grey-600: #757575;
+$c-grey-700: #616161;
+$c-grey-800: #424242;
+$c-grey-900: #212121;
+
+$responsive-phone: 640px;
+$responsive-tablet: 960px;
+$responsive-desktop: 1200px;
+$responsive-xdesktop: 1600px;
+
+$margins: (
+  normal: 20px,
+  small: 10px,
+  medium: 40px,
+  large: 70px,
+  larger: 140px
+);
+
+$paddings: (
+  normal: 20px,
+  small: 10px,
+  medium: 40px,
+  large: 70px,
+  larger: 140px
+);
+
 @mixin aspect-ratio ($width, $height) {
   position: relative;
   &:before {

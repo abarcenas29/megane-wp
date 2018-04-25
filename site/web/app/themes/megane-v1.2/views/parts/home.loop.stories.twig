@@ -1,0 +1,61 @@
+<li class='
+  story-loop
+  uk-display-block
+  uk-margin-bottom
+  uk-height-medium
+  uk-background-cover
+  uk-position-relative'
+  style='background-image: url("{{options.stories_loop.thumbnail}}")'>
+  <div class='
+    uk-flex
+    uk-flex-column
+    content
+    uk-width-1-1
+    uk-height-1-1
+    uk-padding-small'>
+    <div class='uk-flex uk-margin-bottom header'>
+      <div class='left-triangle uk-visible@m'>
+      </div>
+      <div>
+        <h3 class='
+          uk-margin-remove
+          uk-text-uppercase'>
+          {{options.stories_loop.story.post_title}}
+        </h3>
+      </div>
+    </div>
+    <ul class='
+      list
+      uk-margin-remove
+      uk-padding-remove
+    '>
+    {% for story in stories_loop.stories %}
+      {% if loop.index < 5 %}
+      <li class='uk-display-block uk-margin-small-bottom'>
+        <a href="{{story.link}}">
+          <img src="{{story.thumbnail}}" />
+          <div class='
+            uk-flex
+            uk-flex-middle
+            uk-margin-small-right
+          '>
+            <h4 class='
+              uk-margin-remove
+              uk-padding-small
+              uk-padding-remove-vertical
+              f-light'>
+              {{story.post_title}}
+            </h4>
+          </div>
+        </a>
+      </li>
+      {% endif %}
+    {% endfor %}
+    </ul>
+    <div class='uk-flex uk-flex-right view-all'>
+      <a href='{{stories_loop.permalink}}'>
+        View All ({{stories_loop.stories | length}}) Posts
+      </a>
+    </div>
+  </div>
+</li>
