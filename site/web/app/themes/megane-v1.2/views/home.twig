@@ -242,6 +242,7 @@
                     '>
                       <a href="{{post.link}}">
                         <div class='feature-image uk-position-relative'>
+                          {% if post.is_video %}
                           <div class='
                             play-button
                             uk-position-absolute
@@ -255,6 +256,7 @@
                               <span uk-icon='icon: play-circle; ratio: 5'></span>
                             </div>
                           </div>
+                          {% endif %}
                           <img
                             src='{{post.thumbnail.src('thumbnail')}}'
                             class='uk-width-1-1'/>
