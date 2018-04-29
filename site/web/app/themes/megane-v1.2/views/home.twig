@@ -162,6 +162,7 @@
                         <div
                           class='
                             feature-image
+                            uk-position-relative
                             uk-width-1-1
                             uk-height-medium
                             uk-background-cover
@@ -169,6 +170,21 @@
                             uk-flex-bottom
                             uk-flex-right'
                             style="background-image:url('{{category.post.thumbnail.src('thumbnail')}}')">
+                          {% if category.is_video %}
+                            <div class='
+                            uk-position-absolute
+                            play-button
+                            uk-flex
+                            uk-flex-middle
+                            uk-flex-center
+                            uk-width-1-1
+                            uk-height-1-1
+                          '>
+                            <div>
+                              <span uk-icon='icon: play-circle; ratio: 5'></span>
+                            </div>
+                          </div>
+                          {% endif %}
                           <div class='category'>
                             {{ category.post.categories[0]  }}
                           </div>
@@ -225,7 +241,20 @@
                       uk-margin-bottom
                     '>
                       <a href="{{post.link}}">
-                        <div class='feature-image'>
+                        <div class='feature-image uk-position-relative'>
+                          <div class='
+                            play-button
+                            uk-position-absolute
+                            uk-flex
+                            uk-flex-middle
+                            uk-flex-center
+                            uk-height-1-1
+                            uk-width-1-1
+                          '>
+                            <div>
+                              <span uk-icon='icon: play-circle; ratio: 5'></span>
+                            </div>
+                          </div>
                           <img
                             src='{{post.thumbnail.src('thumbnail')}}'
                             class='uk-width-1-1'/>

@@ -53,3 +53,7 @@ $paddings: (
     bottom: 0em;
   }
 }
+
+@mixin transition ($prop, $msec) {
+  transition: $prop $msec ease-in;
+}
