@@ -29,7 +29,7 @@
     }
 
     if (is_category()) {
-      $context['title'] = single_cat_title();
+      $context['title'] = single_cat_title('', false);
     } else if (is_archive()) {
       $context['title'] = post_type_archive_title('', false);
     }
