@@ -13,18 +13,33 @@
 
           <div class='uk-grid'>
             <div class='uk-width-1-1'>
-              <div class='uk-cover-container uk-height-large'>
-
-                {% if post.cover_position == 'top' %}
-                  {% set style = 'top: 75%' %}
-                {% elseif post.cover_position == 'bottom' %}
-                  {% set style = 'top: 25%' %}
-                {% else %}
-                  {% set style = ''  %}
-                {% endif %}
-
-                <img src='{{ post.thumbnail.src('full')  }}' style='{{style}}'  uk-cover />
-              </div>
+              {% if post.cover_position == 'top' %}
+                {% set style = 'uk-background-top-center' %}
+              {% elseif post.cover_position == 'bottom' %}
+                {% set style = 'uk-background-bottom-center' %}
+              {% else %}
+                {% set style = 'uk-background-center-center'  %}
+              {% endif %}
+                <div class='
+                  {{style}}
+                  uk-background-cover
+                  uk-height-large'
+                  style="background-image: url('{{post.thumbnail.src('full')}}');">
+                  <div class='
+                    mobile-title
+                    uk-flex
+                    uk-width-1-1
+                    uk-height-1-1
+                    uk-flex-middle
+                    uk-flex-center
+                    uk-hidden@m'>
+                    <div>
+                      <h1 class='
+                        uk-text-center
+                        uk-margin-remove'>{{post.title}}</h1>
+                    </div>
+                  </div>
+                </div>
             </div>
             <div class='uk-width-1-1 uk-margin-medium-left uk-margin-medium-right uk-margin'>
 
@@ -36,7 +51,7 @@
                 uk-article'
                 uk-grid
                 id='single-medium-post'>
-                <header>
+                <header class='uk-visible@m'>
                   <h1 class='uk-article-title post-content uk-text-bold uk-text-uppercase'>
                     {{post.title}}
                   </h1>
