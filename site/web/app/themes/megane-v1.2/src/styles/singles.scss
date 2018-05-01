@@ -50,7 +50,11 @@
   }
 }
 
-#singles-standard, #singles-medium, #singles-video, #singles-stories {
+#singles-standard,
+#singles-medium,
+#singles-video,
+#singles-stories,
+#single-podcast {
   .meta {
     ul {
       padding-left: 0;
@@ -77,7 +81,7 @@
   }
 }
 
-#singles-video {
+#singles-video, #single-podcast {
   .video-container {
     top: 0;
     left: 0;
@@ -196,6 +200,65 @@
           h2 {
             background-color: $brand-color;
             color: #FFF;
+          }
+        }
+      }
+    }
+  }
+}
+
+#single-podcast {
+  .body {
+    background-color: $c-grey-050;
+    .content {
+      .album-art-container {
+        filter: blur(2px);
+        z-index: 5;
+      }
+      .album-art {
+        top: 0;
+        left: 0;
+        z-index: 10;
+        div {
+          width: 320px;
+          height: 320px;
+          img {
+            border: 2px solid #fff;
+          }
+        }
+      }
+
+      .body {
+        margin: map-get($paddings, normal );
+
+        audio {
+          width: 70%;
+        }
+      }
+    }
+    .aside {
+      padding: map-get($paddings, small);
+
+      .download-button {
+        background-color: $brand-color;
+        color: $c-grey-050;
+
+        @include transition (background-color, 250ms);
+
+        &:hover {
+          background-color: transparent;
+          color: $brand-color;
+        }
+      }
+
+      .tags {
+        background-color: $c-grey-800;
+        h3 {
+          color: $c-grey-050;
+        }
+        ul {
+          li > a {
+            color: $c-grey-500;
           }
         }
       }

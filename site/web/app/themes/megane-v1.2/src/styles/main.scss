@@ -50,16 +50,19 @@ p::selection {
 }
 
 html {
-  width: 100%;
+  min-width: 100%;
+  min-height: 100%;
   background-color: #dadada;
 
   body {
-    width: inherit;
+    min-width: inherit;
+    min-height: inherit;
 
     display: block;
 
     #skeleton {
-      width: inherit;
+      min-width: inherit;
+      min-height: inherit;
 
       display: flex;
       flex-direction: column;

@@ -1,0 +1,147 @@
+{% extends 'base.twig' %}
+
+{% block mainHeader %}
+  {% set sticky = 'ui-sticky' %}
+  {% include 'parts/navigation-simple.twig' %}
+{% endblock mainHeader %}
+
+{% block content %}
+  <div class='uk-container uk-container-large' id='single-podcast'>
+    <div class='body uk-grid-collapse' uk-grid>
+      <div class='uk-width-2-3@m uk-width-1-1 content uk-position-relative'>
+        {% if not post.display_video %}
+        <div style='overflow: hidden;'>
+          <div
+            style='background-image: url("{{post.thumbnail.src('full')}}")'
+            class='
+              uk-display-block
+              album-art-container
+              uk-background-cover
+              uk-height-large
+              uk-width-1-1
+            '>
+          </div>
+        </div>
+        <div class='
+          album-art
+          uk-position-absolute
+          uk-height-large
+          uk-width-1-1
+          uk-flex
+          uk-flex-center
+          uk-flex-middle
+        '>
+          <div>
+            <img src='{{post.thumbnail.src('full')}}' />
+          </div>
+        </div>
+        {% else %}
+          <div class='uk-position-relative uk-width-1-1 uk-height-large'>
+            <div class='video-container uk-height-large'>
+              <iframe
+                width='100%'
+                height='100%'
+                src='https://www.youtube.com/embed/{{post.youtube_id}}'
+                frameborder='0'
+                allow='autoplay: encrypted-media'
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        {% endif %}
+        <div class='body'>
+          <ol
+            class='uk-padding-remove breadcrumb'
+            itemscope
+            itemtype="https://schema.org/BreadcrumbList">
+            <li
+              class='uk-display-inline-block uk-text-capitalize'
+              itemscope
+              itemtype="https://schema.org/ListItem"
+            >
+              <a
+                itemprop='item'
+                itemscope='https://schema.org/Thing'
+                href="{{site.url}}/tag/podcasts"
+                class='uk-link-muted uk-text-bold'
+              >
+                Podcasts
+              </a>
+            </li>
+            <li
+              class='
+                uk-display-inline-block
+                uk-text-capitalize
+                uk-text-italic'
+              itemprop='itemListElement'
+              itemscope
+              itemtype='https://schema.org/ListItem'
+            >
+              <span
+                itemprop='item'
+                itemscope='https://schema.org/Thing'>
+                {{post.title}}
+              </span>
+            </li>
+          </ol>
+          <h1 class='uk-margin-remove'>{{post.title}}</h1>
+          <div class='uk-flex uk-flex-center'>
+            <audio controls>
+              <source src='{{post.audio_file}}' type='audio/mpeg'/>
+            </audio>
+          </div>
+          <div class='post-content'>
+            {{post.content}}
+
+            <hr class='uk-divider-icon'/>
+          </div>
+          {% include 'parts/facebook-comments.twig' %}
+        </div>
+      </div>
+      <div class='uk-width-1-3@m uk-width-1-1@s aside'>
+        <div class='uk-margin-small tags'>
+          <div class='uk-padding-small'>
+            <h3 class='uk-text-uppercase'>Related Topics</h3>
+            <ul>
+              {% for tag in tags %}
+              <li>
+                <a class='uk-text-capitalize'>
+                  {{tag.name}}
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        <div class='uk-flex uk-flex-center'>
+          <a
+            class='
+              download-button
+              uk-text-uppercase
+              uk-button
+              uk-button-large
+              uk-button-default
+              uk-width-1-1
+            '
+            href='{{post.audio_file}}'
+            target="_new">
+            <span uk-icon='download'></span>
+            Download
+          </a>
+        </div>
+        <div class='uk-display-block uk-margin-top'>
+          <h3 class='uk-margin '>
+            Other Podcast Episodes
+          </h3>
+          <ul>
+            {% for other in other_posts %}
+            <li>
+              <a class='{{other.permalink}}'>{{other.title}}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
