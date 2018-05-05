@@ -31,7 +31,9 @@
           <div uk-margin>
             {% if options.social_links %}
               {% for sn in options.social_links %}
-                <a href='{{sn.url}}' class='uk-button uk-button-default uk-button-small'>
+                <a
+                  href='{{sn.url}}'
+                  class='sn-button'>
                   <span uk-icon='icon: {{sn.icon}}'></span>
                 </a>
               {% endfor  %}

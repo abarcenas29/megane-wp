@@ -7,12 +7,18 @@
         mg-white-background
         uk-height-small
         uk-flex
-        uk-flex-middle'>
+        uk-flex-middle
+        {{options.header_options.background_size}}
+        {{options.header_options.background_position}}'
+        style="
+        background-color: {{options.header_options.background_color}};
+        background-image: url('{{options.header_options.background_image}}');
+        background-repeat: {{options.header_options.background_repeat}}">
 
         <div class='uk-flex uk-flex-center uk-width-1-1'>
 
-          <a href='{{site.url}}' style='display: block;'>
-            <img src='{{theme.link}}/images/logo.svg' width='252px' />
+          <a href='{{site.url}}' style='display: block; width: 256px;'>
+            {% include 'parts/logo.twig' %}
           </a>
 
         </div>

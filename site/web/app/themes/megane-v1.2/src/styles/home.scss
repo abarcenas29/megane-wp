@@ -207,6 +207,7 @@
     }
 
     .story-loop {
+      min-height: 300px;
       @media (max-width: $responsive-phone) {
         height: initial;
       }
@@ -246,12 +247,12 @@
               display: -ms-grid;
               display: flex;
 
-              -ms-grid-columns: 80px 1fr;
-              grid-template-columns: 80px 1fr;
+              -ms-grid-columns: 100px 1fr;
+              grid-template-columns: 100px 1fr;
 
               img {
-                width: 80px;
-                height: 80px;
+                width: 100px;
+                height: 100px;
 
                 object-fit: cover;
               }
@@ -259,10 +260,11 @@
                 transition: all 250ms ease-in;
                 background-color: #FFF;
 
-                height: 80px;
+                height: 100px;
                 overflow-y: hidden;
 
                 h4 {
+                  font-size: 0.95rem;
                   line-height: 1.2rem;
                 }
 

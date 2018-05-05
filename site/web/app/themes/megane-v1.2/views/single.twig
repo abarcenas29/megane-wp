@@ -73,7 +73,6 @@
               <div class='
                 uk-grid-collapse
                 uk-child-width-1-1'
-                uk-sticky='media: 640;'
                 uk-grid
                 id='post-list'>
                 <div>
@@ -93,7 +92,7 @@
                             href='{{post.link}}'
                             title='{{post.title}}'
                             class='uk-link uk-link-muted'>
-                            {{post.title | truncate(8)}}
+                            {{post.title}}
                           </a>
                         </li>
                         {% endfor %}
