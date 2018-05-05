@@ -8,6 +8,9 @@
 
     $options_stories_enable = $context['options']['stories_header']['enable'];
     if (!$options_stories_enable) {
+      $sticky['enable'] = $context['options']['sticky_headline']['enable'];
+      $sticky['post'] = $context['options']['sticky_headline']['post'];
+
       $q = array(
         'post_type' => 'post',
         'post_status' => 'publish',
@@ -15,6 +18,11 @@
         'order' => 'DESC',
         'order_by' => 'date'
       );
+
+      if ($sticky['enable']) {
+        $q['p'] = $sticky['post'];
+      }
+
       $post = new Timber\PostQuery($q);
       if (count($post) > 0) {
         $category_post_ids[] = $post[0]->ID;

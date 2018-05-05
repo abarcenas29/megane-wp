@@ -1,9 +1,22 @@
+@import 'variables';
+
 #main-footer {
 
   #content {
     background-color: #424242;
     h3, p, a {
       color: #EEEEEE;
+    }
+
+    .sn-button {
+      padding: 0.9rem;
+      border: 1px solid #FFF;
+
+      @include transition(all, 250ms);
+      &:hover {
+        border-color: $brand-color;
+        color: $brand-color;
+      }
     }
   }
 

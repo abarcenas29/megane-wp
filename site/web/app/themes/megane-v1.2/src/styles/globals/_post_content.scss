@@ -1,8 +1,83 @@
 // reference
 // http://alexgoff.net/web-type/
+
+// General Styles
+h1,h2,h3,h4,h5,h6 {
+  font-family: $header-font;
+  color: #222;
+  letter-spacing: 0.1em;
+}
+
+$divider: 1.5;
+
 .post-content {
   line-height: 1.5em;
   margin: 1.5rem 0;
+
+  h1, .h1 {
+    font-size: calc(4.22rem / $divider);
+    line-height: calc(5.167rem / $divider);
+    margin-top: calc(1.72rem / $divider);
+    margin-bottom: calc(3.44rem / $divider);
+  }
+
+  h2, .h2 {
+    font-size: calc(2.61rem / $divider);
+    line-height: calc(3.44rem / $divider);
+    margin-top: calc(1.72rem / $divider);
+    margin-bottom: calc(1.72rem / $divider);
+  }
+
+  h3, .h3 {
+    font-size: calc(1.61rem / $divider);
+    line-height: calc(1.72rem / $divider);
+    margin-top: calc(1.72rem / $divider);
+    margin-bottom: 0rem;
+  }
+
+  h4, .h4 {
+    font-size: calc(1rem / $divider);
+    line-height: calc(1.72rem / $divider);
+    margin-top: calc(1.72rem / $divider);
+    margin-bottom: 0rem;
+  }
+
+  h5, .h5 {
+    font-size: calc(1rem / $divider);
+    line-height: calc(1.72rem / $divider);
+    margin-top: calc(1.72rem / $divider);
+    margin-bottom: 0rem;
+  }
+
+  p, ul, ol, pre, table, blockquote {
+    font-family: $normal-font !important;
+    transition: color 1s;
+  }
+
+  ul ul, ol ol, ul ol, ol ul {
+    margin-top: 0em;
+    margin-bottom: 0em;
+  }
+
+  /* Let's make sure all's aligned */
+  hr, .hr {
+    margin: -1px 0;
+  }
+  a, b, i, strong, em, small, code {
+    line-height: 0;
+  }
+  sub, sup {
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+
+  sup {
+    top: -0.5em;
+  }
+  sub {
+    bottom: -0.25em;
+  }
 
   p {
     color: #444;
