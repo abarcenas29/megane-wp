@@ -89,6 +89,7 @@
                       uk-flex
                       uk-flex-bottom'
                     style='background-image:url("{{post.thumbnail.src('thumbnail')}}")'>
+
                     <div
                       class='
                         body
@@ -105,7 +106,7 @@
                             uk-text-uppercase
                             uk-text-bold'>
                             {% if post.is_video %}
-                              <span uk-icon='icon: youtube; ratio: 2'></span>
+                              <span uk-icon='icon: play-circle; ratio: 1.5'></span>
                             {% endif %}
                             {{post.categories[0]}}
                         </p>

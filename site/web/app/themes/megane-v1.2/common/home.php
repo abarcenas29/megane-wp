@@ -31,7 +31,7 @@
 
         $tags = get_the_tags($post[0]->ID);
         foreach ($tags as $tag) {
-          if ($tag->slug === 'videos') {
+          if ($tag->slug === 'videos' || $tag->slug === 'podcasts') {
             $context['headline']->is_video = true;
           }
         }
@@ -79,7 +79,7 @@
       $tags = get_the_tags($post[0]->ID);
 
       foreach ($tags as $index => $tag) {
-        if ($tag->slug === 'videos') {
+        if ($tag->slug === 'videos' || $tag->slug === 'podcasts') {
           $context['category_headline'][$x]['is_video'] = true;
         }
       }
@@ -107,7 +107,7 @@
 
       $tags = get_the_tags($post->ID);
       foreach ($tags as $tag) {
-        if ($tag->slug === 'videos') {
+        if ($tag->slug === 'videos' || $tag->slug === 'podcasts') {
           $context['headlines'][$index]->is_video = true;
         }
       }
@@ -126,7 +126,7 @@
       $tags = get_the_tags($post->ID);
 
       foreach ($tags as $tag) {
-        if ($tag->slug === 'videos') {
+        if ($tag->slug === 'videos' || $tag->slug === 'podcasts') {
           $context['posts'][$index]->is_video = true;
         }
       }
