@@ -28,17 +28,25 @@
         </div>
         <div>
           <h3>Follow My Site</h3>
-          <div uk-margin>
+          <ul class='
+            uk-margin-remove
+            uk-padding-remove'>
             {% if options.social_links %}
               {% for sn in options.social_links %}
-                <a
-                  href='{{sn.url}}'
-                  class='sn-button'>
-                  <span uk-icon='icon: {{sn.icon}}'></span>
-                </a>
-              {% endfor  %}
+                <li class='
+                  uk-display-inline-block
+                  uk-padding-small
+                  uk-padding-horizontal-remove
+                '>
+                  <a
+                    href='{{sn.url}}'
+                    class='sn-button'>
+                    <span uk-icon='icon: {{sn.icon}}'></span>
+                  </a>
+                </li>
+              {% endfor %}
             {% endif %}
-          </div>
+          </ul>
         </div>
 
       </div>
@@ -47,7 +55,7 @@
 
   <div
     id='closing'
-    class='uk-padding-small uk-padding-remove-horizontal'>
+    class='uk-padding-small uk-padding-horizontal-remove'>
     <div class='uk-container'>
       <p class='uk-text-center'>
         {{options.main_footer_text}}
