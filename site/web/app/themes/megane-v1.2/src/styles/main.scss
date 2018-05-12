@@ -17,7 +17,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 p, li, a {
-  font-family: $normal-font !important;
+  font-family: $normal-font, Arial, Helvetica, sans-serif !important;
   transition: color 1s;
 }
 
@@ -45,8 +45,46 @@ p::selection {
   border-top: 3px solid #FB8C00;
 }
 
-.f-light {
-  font-weight: 300;
+.f {
+  &-smaller {
+    font-size: $f-smaller;
+  }
+
+  &-small {
+    font-size: $f-small;
+  }
+
+  &-medium {
+    font-size: $f-medium;
+  }
+
+  &-large {
+    font-size: $f-large;
+  }
+
+  &-larger {
+    font-size: $f-larger;
+  }
+
+  &-xlarge {
+    font-size: $f-xlarge;
+  }
+
+  &-xxlarge {
+    font-size: $f-xxlarge;
+  }
+
+  &-bold {
+    font-weight: $f-bold;
+  }
+
+  &-light {
+    font-weight: $f-light;
+  }
+
+  &-italic {
+    font-style: italic;
+  }
 }
 
 html {

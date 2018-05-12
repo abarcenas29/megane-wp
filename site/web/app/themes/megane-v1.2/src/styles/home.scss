@@ -21,8 +21,203 @@
     background-color: #FFF;
     flex-grow: 1;
 
-    .headline--ratio {
-      @include aspect-ratio(18, 9);
+    .home-headline {
+      display: -ms-grid;
+      display: grid;
+
+      -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(1fr, min-content));
+      grid-gap: 2px;
+
+      background: linear-gradient(45deg, #ff9b35 0%,#566bff 98%);
+
+      @media (max-width: $responsive-phone) {
+        -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+      }
+
+      li {
+        list-style-type: none;
+
+        .post-meta {
+          p {
+            font-size: 1.28vmax;
+          }
+        }
+
+        .category {
+          top: 0;
+          left: 0;
+          span {
+            padding: map-get($paddings, tiny);
+            font-size: $f-small;
+            font-weight: 800;
+          }
+        }
+
+        &:first-child {
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 3;
+
+          grid-column: 1/4;
+          @media (max-width: $responsive-phone) {
+            grid-column: span 2;
+          }
+
+          .post-meta {
+            h1 {
+              min-width: min-content;
+              max-width: 70%;
+              background-color: $brand-color;
+              padding: map-get($paddings, small);
+              font-size: 3vmax;
+            }
+            p {
+              max-width: 80%;
+              background-color: $c-grey-900;
+              color: $c-grey-300;
+              padding: map-get($paddings, small);
+            }
+          }
+          .category {
+            span {
+              background-color: lighten($c-teal, 20);
+              color: $c-grey-700;
+            }
+          }
+        }
+        &:nth-child(2) {
+          -ms-grid-column: 4;
+          -ms-grid-column-span: 2;
+          grid-column: 4/6;
+
+          @media (max-width: $responsive-phone) {
+            grid-column: span 2;
+          }
+
+          a {
+            display: -ms-grid;
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            .post-meta {
+              background-color: $c-grey-900;
+              h2 {
+                color: $brand-color;
+                font-size: 3.5vmax;
+                min-width: min-content;
+              }
+              p {
+                color: $c-grey-300;
+              }
+            }
+            img {
+              object-fit: contain;
+            }
+          }
+
+          .category {
+            span {
+              background-color: lighten($c-yellow-dark, 20);
+              color: $c-grey-700;
+            }
+          }
+        }
+        &:nth-child(3) {
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 1;
+          grid-column: 1/2;
+
+          @media (max-width: $responsive-phone) {
+            grid-column: span 2;
+          }
+
+          &:before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            content: '';
+            background: radial-gradient(ellipse at center, rgba(245,124,0,1) 51%,rgba(242,175,109,1) 99%);
+            opacity: 0.8;
+          }
+
+          a {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            .post-meta {
+              h2 {
+                color: $c-grey-300;
+              }
+            }
+          }
+
+          .category {
+            span {
+              background-color: darken($brand-color, 10);
+              color: $c-grey-300;
+            }
+          }
+        }
+        &:last-child {
+          -ms-grid-column: 2;
+          -ms-grid-column-span: 4;
+          grid-column: 2/6;
+
+          @media (max-width: $responsive-phone) {
+            grid-column: span 2;
+          }
+
+          a {
+            .post-meta {
+              background-color: $c-grey-900;
+              width: 40%;
+              h2 {
+                color: $c-grey-300;
+                min-width: min-content;
+                width: 100%;
+                font-size: 3.5vmax;
+              }
+            }
+          }
+
+          .category {
+            span {
+              background-color: lighten($c-blue, 15);
+              color: $c-grey-300;
+            }
+          }
+        }
+      }
+    }
+
+    .category-cta-text {
+      background: linear-gradient(45deg, #ff9b35 0%,#566bff 98%);
+      .uk-flex {
+        div {
+          width: 50%;
+          a, p {
+            color: $c-grey-900;
+            line-height: 1.8rem;
+
+            @include transition(color, 250ms);
+            h3, {
+              @include transition(color, 250ms);
+              line-height: 1.7rem;
+              &:hover {
+                color: $brand-color;
+              }
+            }
+          }
+        }
+      }
     }
 
     .headline-stories {

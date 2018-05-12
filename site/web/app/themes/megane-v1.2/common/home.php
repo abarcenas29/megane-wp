@@ -132,5 +132,20 @@
       }
 
     }
+
+    $cta = $context['options']['call_to_action_text'];
+    if ($cta['enable'] and is_object($cta['post'])) {
+      $post = $cta['post'];
+      $cat = array_map(function ($cat) {
+        return array(
+          'name' => $cat->name,
+          'permalink' => get_category_link($cat->term_id)
+        );
+      }, get_the_category($post->ID));
+
+      $context['options']['call_to_action_text']['post']->categories = $cat;
+      $context['options']['call_to_action_text']['post']->permalink = get_permalink($post->ID);
+    }
+
     return $context;
   }
