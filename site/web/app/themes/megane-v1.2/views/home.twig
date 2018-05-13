@@ -10,10 +10,8 @@
         <!-- Headline Banner -->
         {% if not options.stories_header.enable %}
         <div class='uk-width-1-1'>
-          <a class='uk-display-block' href='{{headline.link}}'>
-            {% include 'parts/headline.ratio.twig' %}
-            {% include 'parts/headline.mobile.twig' %}
-          </a>
+          {% include 'parts/home.headline.twig'  %}
+        </div>
         {% else %}
         <div class='uk-width-1-1'>
           {% include 'parts/headline.stories.twig' %}
@@ -56,81 +54,35 @@
 
         <!-- Category Roll CTA  -->
         {% if options.call_to_action_text.enable %}
+          {% set cta = options.call_to_action_text.post %}
           <div class='uk-width-1-1'>
-            <div class='uk-background-primary uk-padding'>
-              <h2 class='uk-text-center uk-text-bold uk-text-uppercase uk-margin-remove'>
-                This is some cta action or image
-              </h2>
+            <div class='uk-padding uk-padding-remove-horizontal category-cta-text'>
+              <div class='uk-flex'>
+                <div class='uk-text-right uk-padding-small'>
+                  <a class='f-large f-bold uk-margin-remove' href="{{cta.permalink}}">
+                    {% if options.call_to_action_text.override_excerpt %}
+                      {{options.call_to_action_text.excerpt}}
+                    {% else %}
+                      {{cta.post_excerpt}}
+                    {% endif %}
+                  </a>
+                  <p class='uk-margin-small'>Filed on <a href="{{cta.categories[0].permalink}}" class='f-bold'>{{cta.categories[0].name}}</a></p>
+                </div>
+                <div class='uk-padding-small uk-flex uk-flex-middle'>
+                  <a href="{{cta.permalink}}">
+                    <h3 class='
+                      f-xlarge
+                      uk-margin-remove
+                      uk-text-uppercase
+                      f-italic'>
+                      {{cta.post_title}}
+                    </h3>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         {% endif %}
-
-
-        <div class='uk-width-1-1'>
-
-          <ul class="
-            header-blog
-            uk-list
-            uk-margin-remove
-            uk-width-1-1
-          ">
-
-            {% if headlines %}
-              {% for post in headlines %}
-              <li class='
-                uk-display-inline-block
-                uk-margin-remove-adjacent'>
-                <a href='{{post.link}}'>
-                  <div
-                    class='
-                      header-blog__item
-                      uk-background-cover
-                      uk-height-medium
-                      uk-flex
-                      uk-flex-bottom'
-                    style='background-image:url("{{post.thumbnail.src('thumbnail')}}")'>
-
-                    <div
-                      class='
-                        body
-                        uk-flex
-                        uk-flex-column
-                        uk-background-default
-                        uk-width-1-1
-                        uk-padding-small
-                        uk-padding-remove-vertical'>
-                      <div class='category'>
-                        <p
-                          class='
-                            uk-margin-remove
-                            uk-text-uppercase
-                            uk-text-bold'>
-                            {% if post.is_video %}
-                              <span uk-icon='icon: play-circle; ratio: 1.5'></span>
-                            {% endif %}
-                            {{post.categories[0]}}
-                        </p>
-                      </div>
-                      <div class='header'>
-                        <h3 class='uk-margin-small-bottom'>{{post.title}}</h3>
-                      </div>
-                      <div class='content uk-text-small'>
-                        <div class='uk-margin-small-bottom'>
-                          {{
-                            function('get_the_excerpt', category.post.ID)
-                          }}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              {% endfor %}
-            {% endif %}
-
-          </div>
-
-        </div>
 
         <!-- Headline Loop  -->
         {% if category_headline %}
@@ -224,7 +176,7 @@
         <div class='uk-width-1-1 uk-margin-top'>
 
           <div class='uk-margin-left uk-margin-right'>
-            <div class='uk-grid'>
+            <div class='uk-grid uk-grid-collapse'>
               <div class='uk-width-3-5@m uk-width-1-1@s'>
                 <h2 class='uk-heading-line'><span>Latest Posts</span></h2>
 
@@ -276,7 +228,7 @@
                 {% endif %}
               </div>
 
-              <div class='uk-width-2-5@m uk-width-1-1@s'>
+              <div class='uk-width-2-5@m uk-width-1-1@s uk-flex uk-flex-right'>
                 {% include 'parts/aside.twig' %}
               </div>
 

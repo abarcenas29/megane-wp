@@ -4,6 +4,28 @@ $normal-font: 'Open Sans', sans-serif;
 
 // color
 $brand-color: #F57C00;
+$brand-color-darker: #974C00;
+$brand-color-dark: #C16100;
+$brand-color-light: #FF9B35;
+$brand-color-lighter: #FFB060;
+
+$c-yellow: #F5AC00;
+$c-yellow-lighter: #FFCF60;
+$c-yellow-light: #FFC325;
+$c-yellow-dark: #C18700;
+$c-yellow-darker: #976A00;
+
+$c-blue: #1431A7;
+$c-blue-lighter: #566BFF;
+$c-blue-light: #354EB1;
+$c-blue-dark: #0E2583;
+$c-blue-darker: #091B67;
+
+$c-teal: #057898;
+$c-teal-lighter: #479CB4;
+$c-teal-light: #2687A3;
+$c-teal-dark: #045E78;
+$c-teal-darker: #024A5E;
 
 $c-grey-050: #FAFAFA;
 $c-grey-100: #F5F5F5;
@@ -21,8 +43,20 @@ $responsive-tablet: 960px;
 $responsive-desktop: 1200px;
 $responsive-xdesktop: 1600px;
 
+$f-smaller: 0.7rem;
+$f-small: 0.85rem;
+$f-medium: 1rem;
+$f-large: 1.4rem;
+$f-larger: 1.8rem;
+$f-xlarge: 2rem;
+$f-xxlarge: 2.8rem;
+
+$f-light: 400;
+$f-bold: 800;
+
 $margins: (
   normal: 20px,
+  tiny: 5px,
   small: 10px,
   medium: 40px,
   large: 70px,
@@ -31,6 +65,7 @@ $margins: (
 
 $paddings: (
   normal: 20px,
+  tiny: 5px,
   small: 10px,
   medium: 40px,
   large: 70px,
