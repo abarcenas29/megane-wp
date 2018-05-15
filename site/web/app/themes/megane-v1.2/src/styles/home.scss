@@ -27,7 +27,6 @@
 
       -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr;
       grid-template-columns: repeat(auto-fit, minmax(1fr, min-content));
-      grid-gap: 2px;
 
       background: linear-gradient(45deg, #ff9b35 0%,#566bff 98%);
 
@@ -40,8 +39,20 @@
         list-style-type: none;
 
         .post-meta {
+          h2 {
+            font-size: 3.5vmax;
+
+            @media (max-width: $responsive-phone) {
+              font-size: 1.3rem;
+            }
+          }
+
           p {
             font-size: 1.28vmax;
+
+            @media (max-width: $responsive-phone) {
+              font-size: 0.8rem;
+            }
           }
         }
 
@@ -71,6 +82,9 @@
               background-color: $brand-color;
               padding: map-get($paddings, small);
               font-size: 3vmax;
+              @media (max-width: $responsive-phone) {
+                font-size: 1.5rem;
+              }
             }
             p {
               max-width: 80%;
@@ -103,7 +117,6 @@
               background-color: $c-grey-900;
               h2 {
                 color: $brand-color;
-                font-size: 3.5vmax;
                 min-width: min-content;
               }
               p {
@@ -183,7 +196,6 @@
                 color: $c-grey-300;
                 min-width: min-content;
                 width: 100%;
-                font-size: 3.5vmax;
               }
             }
           }
