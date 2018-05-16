@@ -19,6 +19,11 @@ h1,h2,h3,h4,h5,h6 {
 p, li, a {
   font-family: $normal-font, Arial, Helvetica, sans-serif !important;
   transition: color 1s;
+  font-size: $f-medium;
+
+  @media (max-width: $responsive-phone) {
+    font-size: $f-s-medium;
+  }
 }
 
 a:hover {

@@ -1,3 +1,5 @@
+// @import './../variables';
+
 // reference
 // http://alexgoff.net/web-type/
 
@@ -16,6 +18,11 @@ $divider: 1.5;
 
   h1, .h1 {
     font-size: calc(4.22rem / $divider);
+    
+    @media (max-width: $responsive-phone) {
+      font-size: (4.22rem / $divider) * $s-multi;
+    }
+
     line-height: calc(5.167rem / $divider);
     margin-top: calc(1.72rem / $divider);
     margin-bottom: calc(3.44rem / $divider);
@@ -123,10 +130,10 @@ $divider: 1.5;
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: $responsive-phone) {
   .post-content {
     p {
-      font-size: 1rem;
+      font-size: $f-s-medium;
     }
   }
 }

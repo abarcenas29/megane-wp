@@ -51,6 +51,17 @@ $f-larger: 1.8rem;
 $f-xlarge: 2rem;
 $f-xxlarge: 2.8rem;
 
+$s-multi: 0.8;
+$f-s-smaller: calc($f-smaller * $s-multi);
+
+$f-s-small: $f-small * $s-multi;
+$f-s-medium: $f-medium * $s-multi;
+$f-s-large: $f-large * $s-multi;
+$f-s-larger: $f-larger * $s-multi;
+$f-s-xlarge: $f-xlarge * $s-multi;
+$f-s-xxlarge: $f-xxlarge * $s-multi;
+
+
 $f-light: 400;
 $f-bold: 800;
 

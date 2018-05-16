@@ -46,14 +46,6 @@
               font-size: 1.3rem;
             }
           }
-
-          p {
-            font-size: 1.28vmax;
-
-            @media (max-width: $responsive-phone) {
-              font-size: 0.8rem;
-            }
-          }
         }
 
         .category {
@@ -191,7 +183,8 @@
           a {
             .post-meta {
               background-color: $c-grey-900;
-              width: 40%;
+              min-width: min-content;
+              max-width: 60%;
               h2 {
                 color: $c-grey-300;
                 min-width: min-content;
