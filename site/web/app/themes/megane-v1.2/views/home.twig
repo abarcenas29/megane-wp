@@ -179,6 +179,33 @@
             <div class='uk-grid uk-grid-collapse'>
               <div class='uk-width-3-5@m uk-width-1-1@s'>
                 <h2 class='uk-heading-line'><span>Latest Posts</span></h2>
+                {% if options.post_loop_header.enable  %}
+                {% set plh = options.post_loop_header.post %}
+                <a class='
+                  post-loop-headline
+                  uk-height-large
+                  uk-width-1-1
+                  uk-margin-bottom
+                  uk-flex
+                  uk-flex-column
+                  '
+                >
+                  <div class='
+                    header 
+                    uk-display-block 
+                    uk-padding-small'>
+                    <h2 class='uk-margin-remove'>{{plh.post_title}}</h2>
+                    <p class='uk-margin-remove f-small'>{{plh.post_excerpt}}</p>
+                  </div>
+                  <div class='
+                    content 
+                    uk-display-block 
+                    uk-background-cover'
+                    style='background-image: url("{{plh.thumbnail}}")'
+                  >
+                  </div>
+                </a>
+                {% endif %}
 
                 {% if posts %}
                 <ul class='uk-margin-remove uk-padding-remove'>
