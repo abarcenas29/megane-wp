@@ -1,3 +1,5 @@
+@import 'variables';
+
 #main-nav-menu {
   background-color: #fff;
 }
@@ -6,5 +8,38 @@
   #main-logo {
     width: 256px;
     fill: #030303;
+  }
+}
+
+#simple-navigation {
+  border-top: 3px solid #FB8C00;
+  .cookie-dialog {
+    background-color: $brand-color;
+
+    @media (max-width: $responsive-phone) {
+      flex-direction: column;
+    }
+
+    .message {
+      color: #FFF;
+      @media (max-width: $responsive-phone) {
+        text-align: center;
+      }
+    }
+    .agree {
+      @media (max-width: $responsive-phone) {
+        justify-content: center;
+      }
+      button {
+        color: $brand-color;
+        background-color: #FFF;
+        border: 1px solid #FFF;
+
+        &:hover {
+          color: #FFF;
+          background-color: $brand-color;
+        }
+      }
+    }
   }
 }
