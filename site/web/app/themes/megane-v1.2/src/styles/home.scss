@@ -493,6 +493,26 @@
       }
     }
 
+    .post-loop-headline {
+      background-color: $c-grey-900;
+      .header {
+        h2, p {
+          color: $c-grey-300;
+        }
+      }
+      .content {
+        flex-grow: 1;
+      }
+
+      &:hover {
+        .header {
+          h2, p {
+            color: $brand-color;
+          }
+        }
+      }
+    }
+
     .post-loop {
       a {
         display: -ms-grid;

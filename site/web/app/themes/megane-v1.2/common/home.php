@@ -50,6 +50,40 @@
       $context['stories_thumbnail'] = get_the_post_thumbnail_url($story_ID,'large');
     }
 
+    /*
+      Call to Action Section
+    */
+    $cta = $context['options']['call_to_action_text'];
+    if ($cta['enable'] and is_object($cta['post'])) {
+      $post = $cta['post'];
+      $cat = array_map(function ($cat) {
+        return array(
+          'name' => $cat->name,
+          'permalink' => get_category_link($cat->term_id)
+        );
+      }, get_the_category($post->ID));
+
+      $context['options']['call_to_action_text']['post']->categories = $cat;
+      $context['options']['call_to_action_text']['post']->permalink = get_permalink($post->ID);
+      $category_post_ids[] = $post->ID;
+    }
+
+    $post_loop_header = $context['options']['post_loop_header'];
+    if($post_loop_header['enable'] and is_object($cta['post'])) {
+      $post = $post_loop_header['post'];
+      $cat = array_map(function ($cat) {
+        return array(
+          'name' => $cat->name,
+          'permalink' => get_category_link($cat->term_id)
+        );
+      }, get_the_category($post->ID));
+
+      $context['options']['post_loop_header']['post']->categories = $cat;
+      $context['options']['post_loop_header']['post']->permalink = get_permalink($post->ID);
+      $context['options']['post_loop_header']['post']->thumbnail = get_the_post_thumbnail_url($post->ID, 'large');
+      $category_post_ids[] = $post->ID;
+    }
+
     $options_stories_loop_enable = $context['options']['stories_loop']['enable'];
     if ($options_stories_loop_enable) {
       $story = $context['options']['stories_loop']['story'];
@@ -131,20 +165,6 @@
         }
       }
 
-    }
-
-    $cta = $context['options']['call_to_action_text'];
-    if ($cta['enable'] and is_object($cta['post'])) {
-      $post = $cta['post'];
-      $cat = array_map(function ($cat) {
-        return array(
-          'name' => $cat->name,
-          'permalink' => get_category_link($cat->term_id)
-        );
-      }, get_the_category($post->ID));
-
-      $context['options']['call_to_action_text']['post']->categories = $cat;
-      $context['options']['call_to_action_text']['post']->permalink = get_permalink($post->ID);
     }
 
     return $context;
