@@ -46,6 +46,9 @@
               font-size: 1.3rem;
             }
           }
+          p {
+            color: $c-grey-100;
+          }
         }
 
         .category {
@@ -55,6 +58,7 @@
             padding: map-get($paddings, tiny);
             font-size: $f-small;
             font-weight: 800;
+            color: $c-grey-100;
           }
         }
 
@@ -81,14 +85,12 @@
             p {
               max-width: 80%;
               background-color: $c-grey-900;
-              color: $c-grey-300;
               padding: map-get($paddings, small);
             }
           }
           .category {
             span {
               background-color: lighten($c-teal, 20);
-              color: $c-grey-700;
             }
           }
         }
@@ -122,8 +124,7 @@
 
           .category {
             span {
-              background-color: lighten($c-yellow-dark, 20);
-              color: $c-grey-700;
+              background-color: darken($c-yellow-light, 10);
             }
           }
         }
@@ -166,8 +167,8 @@
 
           .category {
             span {
-              background-color: darken($brand-color, 10);
-              color: $c-grey-300;
+              border: 1px solid darken($brand-color, 5);
+              background-color: lighten($brand-color, 10);
             }
           }
         }
@@ -186,7 +187,7 @@
               min-width: min-content;
               max-width: 60%;
               h2 {
-                color: $c-grey-300;
+                color: $brand-color;
                 min-width: min-content;
                 width: 100%;
               }
@@ -196,7 +197,6 @@
           .category {
             span {
               background-color: lighten($c-blue, 15);
-              color: $c-grey-300;
             }
           }
         }

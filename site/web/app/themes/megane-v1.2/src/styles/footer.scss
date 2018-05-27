@@ -11,11 +11,15 @@
     .sn-button {
       padding: 0.9rem;
       border: 1px solid #FFF;
+      border-radius: 50%;
 
       @include transition(all, 250ms);
       &:hover {
         border-color: $brand-color;
         color: $brand-color;
+      }
+      span {
+        top: -0.1rem;
       }
     }
   }
