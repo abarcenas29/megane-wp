@@ -4,7 +4,8 @@
     uk-width-4-6@l
     uk-width-5-6@m
     uk-width-1-1@s
-    uk-margin-top'
+    uk-margin-top
+    aside-items'
 >
   <div
     class='
@@ -52,15 +53,37 @@
       </div>
     <!-- Facebook Widget  -->
     <div class='uk-flex uk-padding uk-padding-remove-horizontal'>
-      <div 
+      <div
         class="fb-page uk-width-1-1"
-        data-href="https://www.facebook.com/themeganelife/" 
-        data-tabs="messages" 
-        data-small-header="false" 
-        data-adapt-container-width="true" 
-        data-hide-cover="false" 
+        data-href="https://www.facebook.com/themeganelife/"
+        data-tabs="messages"
+        data-small-header="false"
+        data-adapt-container-width="true"
+        data-hide-cover="false"
         data-show-facepile="true"><blockquote cite="https://www.facebook.com/themeganelife/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/themeganelife/">Megane Life
         </a></blockquote></div>
       </div>
   </div>
+  <div class='uk-margin-top personal-notes'>
+      <div class='header uk-flex'>
+        <h3 class='
+          uk-padding-small
+          uk-padding-remove-vertical
+          uk-margin-remove'>
+          Personal Notes
+        </h3>
+      </div>
+      <div class='content'>
+        <ul class='uk-margin-remove-vertical uk-padding-small'>
+          {% for personal in personal_posts %}
+          <li>
+            <a
+              target='_new'
+              href="{{personal.permalink}}">
+                ({{personal.date|date("m/d/y")}}) - {{personal.title}}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+    </div>
 </div>

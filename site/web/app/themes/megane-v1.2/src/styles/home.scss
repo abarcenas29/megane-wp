@@ -408,7 +408,7 @@
     }
 
     .story-loop {
-      min-height: 300px;
+      height: 20rem;
       @media (max-width: $responsive-phone) {
         height: initial;
       }
@@ -562,6 +562,35 @@
 
           }
         }
+      }
+    }
+
+    .aside-items {
+      width: 100%;
+
+      .personal-notes {
+        .header {
+          h3 {
+            background-color: $c-grey-900;
+            color: $c-grey-050;
+          }
+          border-bottom: 1px solid $c-grey-900;
+        }
+        .content {
+          border: 1px solid $c-grey-900;
+          ul {
+            list-style: none;
+            li {
+              a {
+                color: $c-grey-900;
+              }
+            }
+          }
+        }
+      }
+
+      @media (min-width: $responsive-desktop) {
+        width: 340px;
       }
     }
   }

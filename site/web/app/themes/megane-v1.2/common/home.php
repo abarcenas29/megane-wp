@@ -2,8 +2,10 @@
   function call_home_queries ($context) {
     $context['hide_nav_banner'] = true;
     $context['category_headline'] = array();
+    $personal_category = $context['options']['personal_logs_category'];
 
     $category_post_ids = array();
+
     $headline_ids = array();
 
     $options_stories_enable = $context['options']['stories_header']['enable'];
@@ -12,11 +14,12 @@
       $sticky['post'] = $context['options']['sticky_headline']['post'];
 
       $q = array(
-        'post_type' => 'post',
-        'post_status' => 'publish',
-        'post_per_page' => 1,
+        'category__not_in' => array($personal_category),
         'order' => 'DESC',
-        'order_by' => 'date'
+        'order_by' => 'date',
+        'post_per_page' => 1,
+        'post_status' => 'publish',
+        'post_type' => 'post'
       );
 
       if ($sticky['enable']) {
@@ -68,20 +71,22 @@
       $category_post_ids[] = $post->ID;
     }
 
-    $post_loop_header = $context['options']['post_loop_header'];
-    if($post_loop_header['enable'] and is_object($cta['post'])) {
-      $post = $post_loop_header['post'];
-      $cat = array_map(function ($cat) {
-        return array(
-          'name' => $cat->name,
-          'permalink' => get_category_link($cat->term_id)
-        );
-      }, get_the_category($post->ID));
+    if (isset($context['options']['post_loop_header'])) {
+      $post_loop_header = $context['options']['post_loop_header'];
+      if($post_loop_header['enable'] and is_object($cta['post'])) {
+        $post = $post_loop_header['post'];
+        $cat = array_map(function ($cat) {
+          return array(
+            'name' => $cat->name,
+            'permalink' => get_category_link($cat->term_id)
+          );
+        }, get_the_category($post->ID));
 
-      $context['options']['post_loop_header']['post']->categories = $cat;
-      $context['options']['post_loop_header']['post']->permalink = get_permalink($post->ID);
-      $context['options']['post_loop_header']['post']->thumbnail = get_the_post_thumbnail_url($post->ID, 'large');
-      $category_post_ids[] = $post->ID;
+        $context['options']['post_loop_header']['post']->categories = $cat;
+        $context['options']['post_loop_header']['post']->permalink = get_permalink($post->ID);
+        $context['options']['post_loop_header']['post']->thumbnail = get_the_post_thumbnail_url($post->ID, 'large');
+        $category_post_ids[] = $post->ID;
+      }
     }
 
     $options_stories_loop_enable = $context['options']['stories_loop']['enable'];
@@ -133,7 +138,8 @@
       'post_type' => 'post',
       // do not get the posts in the category headline
       // to prevent duplication
-      'post__not_in' => $category_post_ids
+      'post__not_in' => $category_post_ids,
+      'category__not_in' => array($personal_category)
     );
     $context['headlines'] = new Timber\PostQuery($q);
     foreach($context['headlines'] as $index => $post) {
@@ -152,7 +158,8 @@
       'posts_per_page' => 15,
       'post_status' => 'publish',
       'post_type' => 'post',
-      'post__not_in' =>  array_merge($category_post_ids, $headline_ids)
+      'post__not_in' =>  array_merge($category_post_ids, $headline_ids),
+      'category__not_in' => array($personal_category)
     );
     $context['posts'] = new Timber\PostQuery($q);
     foreach($context['posts'] as $index => $post) {
@@ -166,6 +173,37 @@
       }
 
     }
+
+    $cta = $context['options']['call_to_action_text'];
+    if ($cta['enable'] and is_object($cta['post'])) {
+      $post = $cta['post'];
+      $cat = array_map(function ($cat) {
+        return array(
+          'name' => $cat->name,
+          'permalink' => get_category_link($cat->term_id)
+        );
+      }, get_the_category($post->ID));
+
+      $context['options']['call_to_action_text']['post']->categories = $cat;
+      $context['options']['call_to_action_text']['post']->permalink = get_permalink($post->ID);
+    }
+
+    // Personal Category Loop
+    if ($personal_category) {
+      $q = [
+        'cat' => $personal_category,
+        'posts_per_page' => 10,
+        'post_status' => 'publish'
+      ];
+      $personal_posts = new Timber\PostQuery($q);
+      foreach($personal_posts as $index => $post) {
+        $key = 'personal_posts';
+        $context[$key][$index]['date'] = $post->post_date;
+        $context[$key][$index]['permalink'] = get_permalink($post->ID);
+        $context[$key][$index]['title'] = $post->post_title;
+      }
+    }
+
 
     return $context;
   }
