@@ -78,6 +78,20 @@
       padding: 0 5px;
     }
   }
+
+  .feature-image {
+    overflow: hidden;
+    min-height: 10rem;
+    
+    .single-loop-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+  
+    }
+  }
+
 }
 
 #singles-video, #single-podcast {
