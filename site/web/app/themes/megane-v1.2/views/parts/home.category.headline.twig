@@ -1,0 +1,93 @@
+{% for category in category_headline %}
+  {% if category.post %}
+  <li class='
+    uk-display-inline-block
+    uk-margin-remove-adjacent
+    uk-margin'>
+    <a
+      href='{{category.post.link}}'
+      class='uk-display-flex uk-link-muted uk-height-1-1'>
+      <div class='
+        uk-padding-small
+        uk-padding-remove-vertical
+        header-loop__container
+        uk-height-1-1'>
+        <div class='
+          header-loop__item
+          uk-height-1-1
+          uk-flex
+          uk-flex-column
+          uk-box-shadow-medium'>
+          <div
+            class='
+              feature-image
+              uk-position-relative
+              uk-width-1-1
+              uk-height-medium
+              uk-background-cover
+              uk-flex
+              uk-flex-bottom
+              uk-flex-right'
+              style="background-image:url('{{category.post.thumbnail.src('thumbnail')}}')">
+            {% if category.post.gify_options_gify_url  %}
+              <div 
+                class='
+                  uk-flex 
+                  uk-flex-middle 
+                  header-loop-video 
+                  uk-width-1-1 
+                  uk-visible@m'>
+                <video
+                  autoplay 
+                  muted 
+                  loop  style='transform: scale({{category.post.gify_options_scale}});'>
+                  <source src="{{category.post.gify_options_gify_url}}" tyle='video/mp4'>
+                </video>
+              </div>
+            {% endif  %}
+            {% if category.is_video %}
+            <div class='
+              uk-position-absolute
+              play-button
+              uk-flex
+              uk-flex-middle
+              uk-flex-center
+              uk-width-1-1
+              uk-height-1-1
+            '>
+              <div>
+                <span uk-icon='icon: play-circle; ratio: 5'></span>
+              </div>
+            </div>
+            {% endif %}
+            <div class='category'>
+              {{ category.post.categories[0]  }}
+            </div>
+          </div>
+          <div class='body uk-padding-small'>
+            <div class='uk-flex uk-flex-middle'>
+              <h3
+                class='uk-card-title uk-margin-remove'
+                title='{{category.post.title}}'>
+                {{category.post.title}}
+              </h3>
+            </div>
+              <p class='uk-flex-1'>
+                {{
+                  function('get_the_excerpt', category.post.ID)
+                }}
+              </p>
+          </div>
+          <div class='
+            footer
+            uk-padding-small
+            uk-width-1-1
+            uk-text-uppercase'>
+            read more
+          </div>
+        </div>
+      </div>
+    </a>
+  </li>
+  {% endif %}
+{% endfor %}

@@ -34,7 +34,29 @@
                 <!-- thumbnail  -->
                 <div>
                   {% if post.thumbnail %}
-                    <img src='{{ post.thumbnail.src('full') }}' class='uk-width-1-1' />
+                    <div class='
+                      feature-image
+                      uk-width-1-1
+                      uk-position-relative
+                    '>
+                      <img src='{{ post.thumbnail.src('full') }}' class='uk-width-1-1' />
+                      {% if post.gify_options_gify_url  %}
+                        <div class='
+                          single-loop-video
+                          uk-flex
+                          uk-flex-middle
+                          uk-visible@m
+                          uk-width-1-1
+                          '>
+                            <video
+                              autoplay 
+                              muted 
+                              loop  style='transform: scale({{post.gify_options_scale}});'>
+                              <source src="{{post.gify_options_gify_url}}" tyle='video/mp4'>
+                            </video>
+                        </div>
+                      {% endif %}
+                    </div>
                   {% else  %}
                     <img src='http://via.placeholder.com/800x400' class='uk-width-1-1' />
                   {% endif %}
