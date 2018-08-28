@@ -130,4 +130,85 @@ if( function_exists('acf_add_local_field_group') ):
     'description' => '',
   ));
 
+  // Other Titles
+
+  acf_add_local_field_group(array(
+    'key' => 'group_5b8537200fe39',
+    'title' => 'Other Titles',
+    'fields' => array(
+      array(
+        'key' => 'field_5b85384b2f765',
+        'label' => 'Other Titles',
+        'name' => 'other_titles',
+        'type' => 'group',
+        'instructions' => '',
+        'required' => 0,
+        'conditional_logic' => 0,
+        'wrapper' => array(
+          'width' => '',
+          'class' => '',
+          'id' => '',
+        ),
+        'layout' => 'block',
+        'sub_fields' => array(
+          array(
+            'key' => 'field_5b85391b2f766',
+            'label' => 'Romaji Title',
+            'name' => 'romaji_title',
+            'type' => 'text',
+            'instructions' => '',
+            'required' => 0,
+            'conditional_logic' => 0,
+            'wrapper' => array(
+              'width' => '',
+              'class' => '',
+              'id' => '',
+            ),
+            'default_value' => '',
+            'placeholder' => '',
+            'prepend' => '',
+            'append' => '',
+            'maxlength' => '',
+          ),
+          array(
+            'key' => 'field_5b8539332f767',
+            'label' => 'Japanese Title',
+            'name' => 'japanese_title',
+            'type' => 'text',
+            'instructions' => '',
+            'required' => 0,
+            'conditional_logic' => 0,
+            'wrapper' => array(
+              'width' => '',
+              'class' => '',
+              'id' => '',
+            ),
+            'default_value' => '',
+            'placeholder' => '',
+            'prepend' => '',
+            'append' => '',
+            'maxlength' => '',
+          ),
+        ),
+      ),
+    ),
+    'location' => array(
+      array(
+        array(
+          'param' => 'post_type',
+          'operator' => '==',
+          'value' => 'post',
+        ),
+      ),
+    ),
+    'menu_order' => 0,
+    'position' => 'normal',
+    'style' => 'default',
+    'label_placement' => 'top',
+    'instruction_placement' => 'label',
+    'hide_on_screen' => '',
+    'active' => 1,
+    'description' => '',
+  ));
+
   endif;

@@ -20,6 +20,13 @@
                   </a>
                 {% endfor  %}
               </h4>
+              {% if post.other_titles_romaji_title and post.other_titles_japanese_title  %}
+                <h2 class='uk-margin-remove  other-titles'>
+                  {{post.other_titles_romaji_title}} 
+                  |
+                  {{post.other_titles_japanese_title}}
+                </h2>
+              {% endif %}
               <h1 class='uk-primary-header uk-text-bold uk-margin-remove uk-text-uppercase'>
               {{post.title}}
               </h1>
