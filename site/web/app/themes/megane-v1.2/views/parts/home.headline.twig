@@ -2,10 +2,12 @@
   <li 
     class='uk-height-large uk-background-cover uk-position-relative'
     style="background-image: url('{{headline.thumbnail.src('medium')}}')">
-    {% if headline.gify_options_gify_url  %}
-      <video autoplay muted loop class='headline-video uk-visible@m' style='transform: scale({{headline.gify_options_scale}});'>
-        <source src="{{headline.gify_options_gify_url}}" tyle='video/mp4'>
-      </video>
+    {% if headline.gify_options_gify_url %}
+      <div class='headline-video uk-visible@m'>
+        <video autoplay muted loop class='uk-visible@m' style='transform: scale({{headline.gify_options_scale}});'>
+          <source src="{{headline.gify_options_gify_url}}" tyle='video/mp4'>
+        </video>
+      </div>
     {% endif  %}
     <a class='
       uk-width-1-1

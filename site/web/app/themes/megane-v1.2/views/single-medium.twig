@@ -22,6 +22,8 @@
               {% endif %}
                 <div class='
                   {{style}}
+                  feature-image
+                  uk-position-relative
                   uk-background-cover
                   uk-height-large'
                   style="background-image: url('{{post.thumbnail.src('full')}}');">
@@ -33,7 +35,10 @@
                     uk-flex-middle
                     uk-flex-center
                     uk-hidden@m'>
-                    <div>
+                    <div class='uk-display-block'>
+                      {% if post.other_titles_romaji_title and post.other_titles_japanese_title  %}
+                      <h2 class='uk-text-center uk-margin-small'>{{post.other_titles_romaji_title}} | {{post.other_titles_japanese_title}}</h2>
+                      {% endif %}
                       <h1 class='
                         uk-text-center
                         uk-margin-remove'>{{post.title}}</h1>
@@ -51,8 +56,15 @@
                 uk-article'
                 uk-grid
                 id='single-medium-post'>
-                <header class='uk-visible@m'>
-                  <h1 class='uk-article-title post-content uk-text-bold uk-text-uppercase'>
+                <header class='uk-visible@m uk-display-block'>
+                  {% if post.other_titles_romaji_title and post.other_titles_japanese_title  %}
+                    <h2 class='uk-margin-small f-larger other-titles'>
+                      {{post.other_titles_romaji_title}} 
+                      |
+                      {{post.other_titles_japanese_title}}
+                    </h2>
+                  {% endif %}
+                  <h1 class='uk-article-title post-content uk-text-bold uk-text-uppercase uk-margin-remove'>
                     {{post.title}}
                   </h1>
                 </header>

@@ -35,7 +35,7 @@
 #singles-medium {
   .mobile-title {
     background-color: rgba(0,0,0,0.25);
-    h1 {
+    h1, h2 {
       color: #fff;
     }
   }
@@ -47,6 +47,18 @@
   .uk-text-lead {
     font-style: italic;
   }
+  .feature-image {
+    &::after {
+      content: '';
+      background-color: #FFF;
+      bottom: 0;
+      clip-path: polygon(35% 91%, 85% 74%, 100% 92%, 100% 100%, 57% 100%, 0 100%, 0 70%);
+      height: 10rem;
+      left: 0;
+      position: absolute;
+      right: 0;
+    }
+  }
 }
 
 #singles-standard,
@@ -54,6 +66,9 @@
 #singles-video,
 #singles-stories,
 #single-podcast {
+  .other-titles {
+    opacity: 0.3;
+  }
   .meta {
     ul {
       padding-left: 0;
@@ -81,14 +96,21 @@
 
   .feature-image {
     overflow: hidden;
-    min-height: 10rem;
-    
     .single-loop-video {
       position: absolute;
       top: 0;
       left: 0;
       bottom: 0;
-  
+      width: 100%;
+      height: 100%;
+
+      video {
+        min-width: 100%;
+        min-height: 100%;
+
+        object-fit: cover;
+        position: absolute;
+      }
     }
   }
 
