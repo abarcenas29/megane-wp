@@ -266,6 +266,9 @@
       .body {
         margin: map-get($paddings, normal );
 
+        .audio-container {
+          height: 5rem;
+        }
         audio {
           width: 70%;
         }
