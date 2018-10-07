@@ -1,7 +1,4 @@
 <?php
-
-
-
 // If WordPress is behind reverse proxy
 // which proxies https to http
 if (
