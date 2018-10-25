@@ -14,8 +14,8 @@
     $context = call_home_queries($context);
     array_unshift( $templates, 'home.twig' );
   } else {
-    $posts = Timber::get_posts();
-
+    $posts = new Timber\PostQuery();
+    
     foreach ($posts as $index => $post) {
       $tags = get_the_tags($post->ID);
 

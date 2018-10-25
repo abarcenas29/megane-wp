@@ -88,6 +88,18 @@ p::selection {
   }
 }
 
+.brand-color {
+  background-color: $brand-color;
+  color: #FFF;
+  box-sizing: content-box;
+
+  &:hover {
+    background-color: #FFF;
+    color: $brand-color;
+    border: 1px solid $brand-color;
+  }
+}
+
 html {
   min-width: 100%;
   min-height: 100%;
