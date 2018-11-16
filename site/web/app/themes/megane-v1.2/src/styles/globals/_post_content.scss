@@ -17,42 +17,42 @@ $divider: 1.5;
   margin: 1.5rem 0;
 
   h1, .h1 {
-    font-size: calc(4.22rem / $divider);
+    font-size: calc(4.22rem / #{$divider});
     
     @media (max-width: $responsive-phone) {
-      font-size: (4.22rem / $divider) * $s-multi;
+      font-size: (4.22rem / #{$divider}) * $s-multi;
     }
 
-    line-height: calc(5.167rem / $divider);
-    margin-top: calc(1.72rem / $divider);
-    margin-bottom: calc(3.44rem / $divider);
+    line-height: calc(5.167rem / #{$divider});
+    margin-top: calc(1.72rem / #{$divider});
+    margin-bottom: calc(3.44rem / #{$divider});
   }
 
   h2, .h2 {
-    font-size: calc(2.61rem / $divider);
-    line-height: calc(3.44rem / $divider);
-    margin-top: calc(1.72rem / $divider);
-    margin-bottom: calc(1.72rem / $divider);
+    font-size: calc(2.61rem / #{$divider});
+    line-height: calc(3.44rem / #{$divider});
+    margin-top: calc(1.72rem / #{$divider});
+    margin-bottom: calc(1.72rem / #{$divider});
   }
 
   h3, .h3 {
-    font-size: calc(1.61rem / $divider);
-    line-height: calc(1.72rem / $divider);
-    margin-top: calc(1.72rem / $divider);
+    font-size: calc(1.61rem / #{$divider});
+    line-height: calc(1.72rem / #{$divider});
+    margin-top: calc(1.72rem / #{$divider});
     margin-bottom: 0rem;
   }
 
   h4, .h4 {
-    font-size: calc(1rem / $divider);
-    line-height: calc(1.72rem / $divider);
-    margin-top: calc(1.72rem / $divider);
+    font-size: calc(1rem / #{$divider});
+    line-height: calc(1.72rem / #{$divider});
+    margin-top: calc(1.72rem / #{$divider});
     margin-bottom: 0rem;
   }
 
   h5, .h5 {
-    font-size: calc(1rem / $divider);
-    line-height: calc(1.72rem / $divider);
-    margin-top: calc(1.72rem / $divider);
+    font-size: calc(1rem / #{$divider});
+    line-height: calc(1.72rem / #{$divider});
+    margin-top: calc(1.72rem / #{$divider});
     margin-bottom: 0rem;
   }
 
