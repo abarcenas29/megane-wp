@@ -1,166 +1,159 @@
+const path = require('path')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const Webpack = require('webpack')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const autoPrefixer = require('autoprefixer')
 
-const path = require('path')
+const Webpack = require('webpack')
 
-const env = process.env.NODE_ENV
-
-const webpack = {
-  entry: {
-    archives: path.resolve('src', 'archives.js'),
-    categories: path.resolve('src', 'categories.js'),
-    home: path.resolve('src', 'home.js'),
-    main: path.resolve('src', 'main.js'),
-    singles: path.resolve('src', 'singles.js'),
-    editor: path.resolve('src', 'editor.js')
-  },
-  output: {
-    path: path.resolve('build'),
-    publicPath: '/app/themes/megane-v1.2/',
-    filename: '[name].bundle.js',
-    chunkFilename: '[name]-[chunkhash].js'
-  },
-
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          use: [
-            {loader: 'css-loader'}
-          ]
+module.exports = (env, options) => {
+  const isDevMode = options.mode === 'development'
+  const config = {
+    mode: options.mode,
+    target: 'web',
+    optimization: {
+      minimizer: [
+        new UglifyJsPlugin({
+          cache: true,
+          parallel: true,
+          sourceMap: true // set to true if you want JS source maps
         })
-      }, // end css rules
-      {
-        test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
+      ]
+    },
+    entry: {
+      archives: path.resolve('src', 'archives.js'),
+      categories: path.resolve('src', 'categories.js'),
+      home: path.resolve('src', 'home.js'),
+      main: path.resolve('src', 'main.js'),
+      singles: path.resolve('src', 'singles.js'),
+      editor: path.resolve('src', 'editor.js')
+    },
+    output: {
+      path: path.resolve('build'),
+      publicPath: '/app/themes/megane-v1.2/',
+      filename: '[name].bundle.js',
+      chunkFilename: '[name]-[chunkhash].js'
+    },
+    devtool: (isDevMode) ? 'inline-source-map' : false,
+    resolve: {
+      alias: {
+        'jquery-extensions': path.resolve('jquery-plugins', 'index.js'),
+        styles: path.resolve('src', 'styles')
+      }
+    },
+    module: {
+      rules: [
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              envName: (isDevMode) ? 'development' : 'production'
+            }
+          }
+        },
+        {
+          test: /\.(sa|sc|c)ss$/,
           use: [
-            {loader: 'css-loader'},
+            isDevMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+            {
+              loader: 'css-loader',
+              options: {
+                sourceMap: true,
+                importLoaders: 1
+              }
+            },
             {
               loader: 'postcss-loader',
               options: {
-                plugins: () => [autoPrefixer]
+                plugins: () => [
+                  autoPrefixer,
+                  require('cssnano')({
+                    preset: 'default'
+                  })
+                ]
               }
             },
-            {loader: 'sass-loader'}
-          ],
-          fallback: 'style-loader'
-        })
-      }, // sass rules
-      {
-        test: /\.js$/,
-        exclude: path.resolve('src'),
-        enforce: 'pre',
-        loader: 'source-map-loader'
-      },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader'
-      },
-      {
-        test: /\.json$/,
-        exclude: /node_modules/,
-        loader: 'json-loader'
-      },
-      {
-        test: /\.(png|jpg|woff|woff2|eot|ttf|svg)(\?.*)?$/,
-        loader: 'file-loader?name=[path]/[name].[ext]?[hash]'
-      },
-      {
-        test: require.resolve('jquery'),
-        use: [
-          {
-            loader: 'expose-loader',
-            options: 'jQuery'
-          },
-          {
-            loader: 'expose-loader',
-            options: '$'
+            'sass-loader'
+          ]
+        },
+        {
+          test: /\.json$/,
+          exclude: /node_modules/,
+          loader: 'json-loader'
+        },
+        {
+          test: /\.(jpe?g|png|gif|svg|ico)$/i,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                outputPath: 'assets/'
+              }
+            }
+          ]
+        },
+        {
+          test: /\.(ttf|eot|woff|woff2)$/,
+          use: {
+            loader: 'file-loader',
+            options: {
+              name: 'fonts/[name].[ext]'
+            }
           }
-        ]
-      }
-    ] // end rules
-  }, // end module
-
-  plugins: [
-    new Webpack.LoaderOptionsPlugin({
-      minimize: (env === 'production'),
-      debug: false
-    }),
-    new ExtractTextPlugin({
-      filename: '[name].style.css',
-      allChunks: true
-    })
-  ],
-
-  resolve: {
-    alias: {
-      'jquery-extensions': path.resolve('jquery-plugins', 'index.js'),
-      styles: path.resolve('src', 'styles')
-    }
+        },
+        {
+          test: require.resolve('jquery'),
+          use: [
+            {
+              loader: 'expose-loader',
+              options: 'jQuery'
+            },
+            {
+              loader: 'expose-loader',
+              options: '$'
+            }
+          ]
+        }
+      ]
+    },
+    plugins: [
+      new Webpack.LoaderOptionsPlugin({
+        minimize: (env === 'production'),
+        debug: false
+      }),
+      new MiniCssExtractPlugin({
+        filename: isDevMode ? '[name].css' : '[name].[hash].css',
+        chunkFilename: isDevMode ? '[id].css' : '[id].[hash].css'
+      })
+    ]
   }
+
+  if (options.mode === 'development') {
+    config.plugins.push(
+      new BrowserSyncPlugin({
+        proxy: 'www.megane.local',
+        port: 3000,
+        files: [
+          '**/*.php',
+          '**/*.twig'
+        ],
+        ghostMode: {
+          clicks: false,
+          location: false,
+          forms: false,
+          scroll: false
+        },
+        injectChanges: true,
+        logFileChanges: true,
+        logLevel: 'debug',
+        logPrefix: 'webpack',
+        notify: true,
+        reloadDelay: 0
+      })
+    )
+  }
+
+  return config
 }
-
-if (env === 'development') {
-  webpack.plugins.push(
-    new Webpack.DllReferencePlugin({
-      context: path.resolve('src'),
-      name: '[name]',
-      manifest: path.resolve('webpack', 'dlls', 'vendor.json')
-    })
-  )
-  webpack.plugins.push(
-    new BrowserSyncPlugin({
-      proxy: 'www.megane.local',
-      port: 3000,
-      files: [
-        '**/*.php',
-        '**/*.twig'
-      ],
-      ghostMode: {
-        clicks: false,
-        location: false,
-        forms: false,
-        scroll: false
-      },
-      injectChanges: true,
-      logFileChanges: true,
-      logLevel: 'debug',
-      logPrefix: 'webpack',
-      notify: true,
-      reloadDelay: 0
-    })
-  )
-}
-
-if (env === 'production') {
-  webpack.plugins.push(
-    new Webpack.optimize.CommonsChunkPlugin({
-      name: 'commons',
-      minChunks: Infinity
-    })
-  )
-
-  webpack.plugins.push(
-    // More minification
-    new Webpack.optimize.AggressiveMergingPlugin()
-  )
-
-  webpack.plugins.push(
-    new Webpack.optimize.UglifyJsPlugin({
-      beautify: false,
-      mangle: {
-        screw_ie8: true,
-        keep_fnames: true
-      },
-      compress: {
-        screw_ie8: true
-      },
-      comments: false
-    }))
-}
-
-module.exports = webpack

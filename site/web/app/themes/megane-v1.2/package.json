@@ -6,47 +6,61 @@
   "license": "",
   "homepage": "https://www.megane.life",
   "scripts": {
-    "build": "yarn run clean:build && cross-env NODE_ENV=development webpack --config=webpack/webpack.config.js --progress --color --watch",
-    "build:prod": "yarn run clean:build && cross-env NODE_ENV=production webpack --config=webpack/webpack.config.js --progress --color",
-    "build:dlls": "yarn run clean:dll && cross-env BUILD_DLL=true webpack --display-chunks --color --config webpack/webpack.dll.js --progress --hide-modules",
-    "clean:build": "cleandir build",
-    "clean:dll": "cleandir webpack/dlls",
-    "postinstall": "yarn run build:dlls"
+    "build": "yarn run clean:build && cross-env NODE_ENV=development webpack --config=webpack/webpack.config.js --progress --color --watch --mode development",
+    "build:prod": "yarn run clean:build && cross-env NODE_ENV=production webpack --config=webpack/webpack.config.js --progress --color --mode production",
+    "clean:build": "cleandir build"
   },
   "devDependencies": {
-    "autoprefixer": "7.1.4",
-    "babel-core": "6.24.1",
-    "babel-loader": "7.0.0",
-    "babel-preset-es2015": "6.24.1",
-    "browser-sync": "2.18.13",
-    "browser-sync-webpack-plugin": "1.2.0",
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "autoprefixer": "9.3.1",
+    "babel-loader": "^8.0.0",
+    "browser-sync": "2.26.3",
+    "browser-sync-webpack-plugin": "2.2.2",
     "clean-dir": "1.0.3",
-    "copy-webpack-plugin": "4.0.1",
-    "cross-env": "5.0.5",
-    "css-loader": "0.28.7",
-    "eslint": "4.7.0",
-    "eslint-config-standard": "10.2.1",
-    "eslint-plugin-import": "2.7.0",
-    "eslint-plugin-node": "5.1.1",
-    "eslint-plugin-promise": "3.5.0",
-    "eslint-plugin-standard": "3.0.1",
+    "copy-webpack-plugin": "4.6.0",
+    "cross-env": "5.2.0",
+    "css-loader": "1.0.1",
+    "cssnano": "4.1.7",
+    "eslint": "5.9.0",
+    "eslint-config-standard": "12.0.0",
+    "eslint-plugin-import": "2.14.0",
+    "eslint-plugin-node": "8.0.0",
+    "eslint-plugin-promise": "4.0.1",
+    "eslint-plugin-standard": "4.0.0",
     "expose-loader": "0.7.3",
-    "extract-text-webpack-plugin": "3.0.0",
-    "file-loader": "0.11.2",
+    "file-loader": "2.0.0",
+    "mini-css-extract-plugin": "0.4.4",
     "node-sass": "4.5.3",
+    "optimize-css-assets-webpack-plugin": "5.0.1",
     "postcss-loader": "2.0.6",
     "prettier": "1.7.0",
     "sass-loader": "6.0.6",
     "semantic-ui-less": "2.2.12",
     "source-map-loader": "0.2.1",
     "style-loader": "0.18.2",
-    "uglifyjs-webpack-plugin": "0.4.6",
-    "webpack": "3.6.0"
+    "uglifyjs-webpack-plugin": "2.0.1",
+    "webpack": "4.25.1",
+    "webpack-cli": "3.1.2"
   },
   "babel": {
-    "presets": [
-      "es2015"
-    ]
+    "env": {
+      "development": {
+        "presets": [
+          "@babel/preset-env"
+        ]
+      },
+      "production": {
+        "presets": [
+          [
+            "@babel/preset-env",
+            {
+              "modules": false
+            }
+          ]
+        ]
+      }
+    }
   },
   "eslintConfig": {
     "extends": [
