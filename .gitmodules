@@ -1,0 +1,3 @@
+[submodule "site/web/app/themes/megane-v1.2/src/styles"]
+	path = site/web/app/themes/megane-v1.2/src/styles
+	url = git@github.com:abarcenas29/atomic_classes.git

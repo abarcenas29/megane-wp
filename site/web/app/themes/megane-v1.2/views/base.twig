@@ -44,23 +44,23 @@
     >
     <link rel="author" href="{{ site.theme.link }}/humans.txt" />
     <link rel="pingback" href="{{ site.pingback_url }}" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/fontawesome.css" integrity="sha384-u5J7JghGz0qUrmEsWzBQkfvc8nK3fUT7DCaQzNQ+q4oEXhGSx+P2OqjWsfIRB8QT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/solid.css" integrity="sha384-rdyFrfAIC05c5ph7BKz3l5NG5yEottvO/DQ0dCrwD8gzeQDjYBHNr1ucUpQuljos" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/brands.css" integrity="sha384-QT2Z8ljl3UupqMtQNmPyhSPO/d5qbrzWmFxJqmY7tqoTuT2YrQLEqzvVOP2cT5XW" crossorigin="anonymous">
     {{ function('wp_head') }}
   </head>
   <body>
-    <div id='skeleton' class='uk-offcanvas-content'>
-      {% include 'parts/off-canvas.twig' %}
+    <div
+      id='skeleton'
+      class='uk-offcanvas-content l-d-f l-fd-col'>
       <header id='main-header'>
         {% block mainHeader %}
           {% include 'header.twig' %}
         {% endblock mainHeader  %}
       </header>
-      <div id='content'>
-        {% block content %}
-        {% endblock content %}
+      <div id='content l-fg-1'>
+        aa
       </div>
-      <footer id='main-footer'>
-        {% include 'footer.twig' %}
-      </footer>
     </div>
     {{ function('wp_footer')  }}
   </body>

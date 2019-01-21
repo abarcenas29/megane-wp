@@ -1,34 +1,62 @@
-<div class='uk-child-width-1-1' uk-grid id='default-navigation-menu'>
-
-  <div>
-    <div class='uk-container uk-container-large'>
-      <!-- Logo Area  -->
-      <div class='
-        mg-white-background
-        uk-height-small
-        uk-flex
-        uk-flex-middle
-        {{options.header_options.background_size}}
-        {{options.header_options.background_position}}'
-        style="background-color: {{options.header_options.background_color}};
-        background-image: url('{{options.header_options.background_image}}');
-        background-repeat: {{options.header_options.background_repeat}}">
-
-        <div class='uk-flex uk-flex-center uk-width-1-1'>
-
-          <a href='{{site.url}}' style='display: block; width: 256px;'>
-            {% include 'parts/logo.twig' %}
-          </a>
-
-        </div>
-
+<div id="header" class='f-c-white l-d-b--4col l-d-f l-fd-col l-ai-cen l-jc-cen'>
+  <div class='container l-d-n l-d-f--3col l-fd-col l-jc-cen l-fd-fs--4col l-fg-1'>
+    <div class='logo l-d-f l-ai-cen l-jc-cen l-pa1'>
+      <a href='{{site.url}}' style='display: block; width: 256px;'>
+        <img src='{{theme.link}}/images/logo-w.svg' class='l-w-100' />
+      </a>
+    </div>
+    <div class='search-box l-d-n l-d-b--4col'>
+      <div class='l-ml1 l-mr1 l-d-f l-ai-cen input-wrapper'>
+        <i class='fas fa-search'></i>
+        <input class='l-w-100' type='input' />
       </div>
-
-        <!-- Navigation  -->
-      {% include 'parts/navigation.twig' %}
-
+    </div>
+    <div class='l-d-n l-d-b--4col l-mt2 wide-menu'>
+      {{ function('wp_nav_menu', nav_menu_footer_args) }}
+    </div>
+    <div class='l-d-n l-d-f--4col l-fw-w l-mt2 social-widget'>
+      <ul class='l-d-f l-jc-cen l-w-100 l-lst-n l-ma0 l-pa0'>
+        <li class='l-pl1 l-pr1'>
+          <a href='www.facebook.com'>
+            <i class='fab fa-facebook-square fa-3x'></i>
+          </a>
+        </li>
+        <li class='l-pl1 l-pr1'>
+          <a href='www.facebook.com'>
+            <i class='fab fa-twitter-square fa-3x'></i>
+          </a>
+        </li>
+        <li class='l-pl1 l-pr1'>
+          <a href='www.facebook.com'>
+            <i class='fab fa-instagram fa-3x'></i>
+          </a>
+        </li>
+        <li class='l-pl1 l-pr1'>
+          <a href='www.facebook.com'>
+            <i class='fab fa-youtube-square fa-3x'></i>
+          </a>
+        </li>
+      </ul>
+      <div class='l-w-100 f-center'>
+        Follow Me on these social platforms
+      </div>
     </div>
   </div>
-
-
+  <div class='l-d-n l-w-100 l-d-b--3col'>
+    <div class='navbar l-jc-cen l-w-100 l-d-f l-d-n--4col'>
+      <div class='wrapper l-w-3col'>
+        {{ function('wp_nav_menu', nav_menu_footer_args) }}
+      </div>
+    </div>
+  </div>
+  <div class='l-w-100 l-d-f l-jc-sb l-d-n--3col navbar-mobile l-pl1 l-pr1'>
+    <a href='{{site.url}}' class='l-d-b brand'>
+      <img src='{{theme.link}}/images/logo-w.svg' class='l-w-100' />
+    </a>
+    <div class='menu-button l-ai-cen l-d-f'>
+      <button id='nav-mobile-button'>
+        <i class='fas fa-bars fa-3x'></i>
+      </button>
+    </div>
+  </div>
 </div>

@@ -1,5 +1,5 @@
-import 'styles/home.scss';
-import $ from 'jquery-extensions';
+// import 'styles/home.scss';
+import $ from 'jquery-extensions'
 
 $(document).ready(() => {
   $('#main-nav-menu').waypoint({

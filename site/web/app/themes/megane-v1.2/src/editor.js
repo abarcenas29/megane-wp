@@ -1,3 +1,3 @@
-import './styles/editor.scss'
+// import './styles/editor.scss'
 
 console.log('editor scss')

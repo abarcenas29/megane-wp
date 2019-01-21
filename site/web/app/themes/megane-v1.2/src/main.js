@@ -1,12 +1,6 @@
-import 'uikit/dist/css/uikit.css'
-import './styles/main.scss'
+import 'sanitize.css'
+import './styles/global.scss'
 
 import './main/header'
-import './main/footer'
-
-import Icons from 'uikit/dist/js/uikit-icons'
-import UIKit from 'uikit'
-
-UIKit.use(Icons)
 
 console.log('main')

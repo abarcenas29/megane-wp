@@ -20,6 +20,11 @@ module.exports = (env, options) => {
         })
       ]
     },
+    resolve: {
+      alias: {
+        Styles: path.resolve('src', 'styles')
+      }
+    },
     entry: {
       archives: path.resolve('src', 'archives.js'),
       categories: path.resolve('src', 'categories.js'),

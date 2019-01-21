@@ -1,4 +1,4 @@
-import 'styles/singles.scss'
+// import 'styles/singles.scss'
 import $ from 'jquery-extensions'
 
 $(document).ready(() => {

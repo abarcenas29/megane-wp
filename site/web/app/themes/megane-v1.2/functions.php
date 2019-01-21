@@ -47,15 +47,9 @@
 
     $date = new DateTime();
 
-    wp_register_script(
-        'commons-bundle', $build_path . 'commons.bundle.js',
-        '',
-        $date->getTimestamp(),
-        true);
-
     // main styles
     wp_register_style(
-      'css-uikit',
+      'global-styles',
       $build_path . 'main.style.css',
       '',
       $date->getTimestamp(),
@@ -122,9 +116,8 @@
     );
 
     if(!is_admin()) {
-      wp_enqueue_script('commons-bundle');
       wp_enqueue_script('js-app');
-      wp_enqueue_style('css-uikit');
+      wp_enqueue_style('global-styles');
     }
 
     if(is_home()) {
