@@ -15,7 +15,7 @@
     </a>
   </li>
   {% if headlines  %}
-  {% set post = headlines[2]  %}
+  {% set post = headlines[1]  %}
   <li class='item-2 item block'>
     <a href='{{post.link}}'>
       <p class='uk-text-uppercase uk-margin-remove-bottom'>
@@ -29,18 +29,19 @@
       </div>
     </a>
   </li>
+  {% set post = headlines[2]  %}
   <li class='item-3 item block'>
-    <a href='{{headline.link}}'>
-      <p class='uk-text-uppercase'>aa aaa</p>
-      <img src='{{headline.thumbnail.src('medium')}}' class='image' />
+    <a href='{{post.link}}'>
+      <p class='uk-text-uppercase'>{{post.categories[0]}}</p>
+      <img src='{{post.thumbnail.src('medium')}}' class='image' />
       <div class='uk-padding-small'>
         <h2 class='uk-text-uppercase uk-margin-remove'>
-          the military is looking at ways to incerept nukes from space
+          {{post.title}}
         </h2>
       </div>
     </a>
   </li>
-  {% set post = headlines[1]  %}
+  {% set post = headlines[0]  %}
   <li class='item-4 item'>
     <a href='{{post.link}}'>
       <p class='uk-text-uppercase uk-margin-remove-bottom'>

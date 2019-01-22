@@ -1,8 +1,8 @@
-import 'styles/home.scss';
-import $ from 'jquery-extensions';
+import 'styles/home.scss'
+import $ from 'jquery-extensions'
 
 $(document).ready(() => {
-  $('#main-nav-menu').waypoint({
+  $('#home-page').waypoint({
     handler: direction => {
       const $simpleNavigation = $('#simple-navigation')
       $simpleNavigation.find('.uk-logo').css('display', '')

@@ -22,20 +22,46 @@
     flex-grow: 1;
 
     .home-headline {
+      border: 0.1rem solid $brand-color;
       background: linear-gradient(45deg, rgba(255,155,53,1) 0%, rgba(255,155,53,1) 1%, rgba(255,176,96,1) 100%);
       display: grid;
-      grid-gap: 0.1rem;
-      grid-template-columns: repeat(5, 1fr);
       list-style-type: none;
+      
+      grid-template-columns: 1fr;
+
+      @media (min-width: $responsive-desktop) {
+        grid-gap: 0.1rem;
+        grid-template-columns: repeat(5, 1fr);  
+      }
+
+      .item-1 {
+        grid-column: 3 span;
+      }
+      .item-2 {
+        grid-column: 2 span;
+      }
+      .item-3 {
+        grid-column: 2 span;
+      }
+      .item-4 {
+        grid-column: 3 span;
+      }
 
       .item {
-        max-height: 25rem;
-        overflow: hidden;
+        @media (min-width: $responsive-desktop) {
+          max-height: 25rem;
+          overflow: hidden;
+        }
 
         a {
           display: flex;
           height: 100%;
           position: relative;
+
+
+          @media (max-width: $responsive-desktop) {
+            flex-direction: column;
+          }
 
           p {
             position: absolute;
@@ -53,6 +79,7 @@
             max-height: initial;
           }
           div {
+            box-sizing: border-box;
             width: 100%;
             background: #0d0d0d;
             color: #FFF;
@@ -67,6 +94,12 @@
               overflow: auto;
             }
 
+          }
+
+          &:hover {
+            h2 {
+              color: $brand-color;
+            }
           }
         }
 
@@ -92,24 +125,12 @@
             }
           }
         }
+
+        @media (max-width: $responsive-desktop) {
+          grid-column: 1 span;
+        }
       }
 
-      .item-1 {
-        background-color: pink;
-        grid-column: 3 span;
-      }
-      .item-2 {
-        background-color: blue;
-        grid-column: 2 span;
-      }
-      .item-3 {
-        background-color: yellow;
-        grid-column: 2 span;
-      }
-      .item-4 {
-        background-color: green;
-        grid-column: 3 span;
-      }
     }
 
     .category-cta-text {
