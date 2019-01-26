@@ -86,26 +86,4 @@
         </a></blockquote></div>
       </div>
   </div>
-  <div class='uk-margin-top personal-notes'>
-      <div class='header uk-flex'>
-        <h3 class='
-          uk-padding-small
-          uk-padding-remove-vertical
-          uk-margin-remove'>
-          Personal Notes
-        </h3>
-      </div>
-      <div class='content'>
-        <ul class='uk-margin-remove-vertical uk-padding-small'>
-          {% for personal in personal_posts %}
-          <li>
-            <a
-              target='_new'
-              href="{{personal.permalink}}">
-                ({{personal.date|date("m/d/y")}}) - {{personal.title}}
-            </a>
-          </li>
-          {% endfor %}
-        </ul>
-    </div>
 </div>

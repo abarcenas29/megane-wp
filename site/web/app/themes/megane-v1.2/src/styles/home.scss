@@ -16,6 +16,32 @@
 
 }
 
+#story-container {
+  display: block;
+  height: 90vh;
+  width: 100%;
+  background-size: cover;
+
+  .vigenette {
+    position: absolute;
+    top: 0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    box-shadow: 0 0 200px rgba(0,0,0,0.9) inset;
+  }
+
+  .information {
+    width: inherit;
+    height: inherit;
+    background-color: rgba(0,0,0,0.1);
+    color: #fff;
+    h2 {
+      color: inherit;
+    }
+  }
+}
+
 #home-page {
   .container {
     background-color: #FFF;
@@ -535,27 +561,6 @@
 
     .aside-items {
       width: 100%;
-
-      .personal-notes {
-        .header {
-          h3 {
-            background-color: $c-grey-900;
-            color: $c-grey-050;
-          }
-          border-bottom: 1px solid $c-grey-900;
-        }
-        .content {
-          border: 1px solid $c-grey-900;
-          ul {
-            list-style: none;
-            li {
-              a {
-                color: $c-grey-900;
-              }
-            }
-          }
-        }
-      }
 
       @media (min-width: $responsive-desktop) {
         width: 340px;
