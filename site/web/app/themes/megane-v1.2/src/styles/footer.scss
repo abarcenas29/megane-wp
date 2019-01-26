@@ -1,9 +1,9 @@
 @import 'variables';
 
 #main-footer {
-
+  border-top: 1px solid gray;
   #content {
-    background-color: #424242;
+    background-color: #0d0d0d;
     h3, p, a {
       color: #EEEEEE;
     }
@@ -25,7 +25,7 @@
   }
 
   #closing {
-    background-color: #212121;
+    background-color: #0d0d0d;
   }
 
 }
