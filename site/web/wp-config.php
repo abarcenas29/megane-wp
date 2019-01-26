@@ -1,4 +1,7 @@
 <?php
+/** Enable W3 Total Cache */
+define('WP_CACHE', true); // Added by W3 Total Cache
+
 // If WordPress is behind reverse proxy
 // which proxies https to http
 if (
