@@ -1,0 +1,20 @@
+{% if story_headline %}
+<a
+  id='story-container'
+  class='uk-position-relative'
+  href="{{story_headline.permalink}}"
+  style="background-image: url('{{story_headline.cover}}')"
+>
+    <div class='vigenette'></div>
+    <div class='information uk-flex uk-flex-middle uk-flex-center' >
+      <div class='uk-display-block'>
+        <h2 class='uk-heading-primary'>
+          {{story_headline.title}}
+        </h2>
+        <p class='uk-text-center'>
+          {{story_headline.excerpt}}
+        </p>
+      </div>
+    </div>
+</a>
+{% endif %}

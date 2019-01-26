@@ -2,21 +2,16 @@
 
 {% block content %}
   {% include 'parts/navigation-simple.twig' %}
-  <div class='uk-container uk-container-large' id='home-page'>
+  {% include 'parts/home.story.banner.twig' %}
+  <div class='uk-container uk-padding-large uk-padding-remove-horizontal' id='home-page'>
     <div class='container'>
 
       <div class='uk-grid'>
 
         <!-- Headline Banner -->
-        {% if not options.stories_header.enable %}
         <div class='uk-width-1-1'>
           {% include 'parts/home.headline.twig'  %}
         </div>
-        {% else %}
-        <div class='uk-width-1-1'>
-          {% include 'parts/headline.stories.twig' %}
-        </div>
-        {% endif %}
 
         <!-- Category Roll  -->
         {% if options.category_bar.enable %}
@@ -134,7 +129,7 @@
                 <ul class='uk-margin-remove uk-padding-remove'>
                   {% for post in posts %}
                     {% if loop.index == 5 and options.stories_loop.enable %}
-                      {% include 'parts/home.loop.stories.twig' %}
+                      
                     {% endif %}
                     <li class='
                       post-loop

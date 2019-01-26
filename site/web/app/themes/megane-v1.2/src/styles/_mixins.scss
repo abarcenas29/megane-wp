@@ -1,0 +1,48 @@
+@mixin media ($property, $value) {
+  #{$property}: $value;
+
+  &--1col {
+    @media (min-width: $l-1col) {
+      #{$property}: $value !important;
+    }
+  }
+  &--2col {
+    @media (min-width: $l-2col) {
+      #{$property}: $value !important;
+    }
+  }
+  &--3col {
+    @media (min-width: $l-3col) {
+      #{$property}: $value !important;
+    }
+  }
+  &--4col {
+    @media (min-width: $l-4col) {
+      #{$property}: $value !important;
+    }
+  }
+  &--5col {
+    @media (min-width: $l-5col) {
+      #{$property}: $value !important;
+    }
+  }
+}
+
+@mixin subClasses ($class, $property, $value) {
+  &-#{$class} {
+    @include media($property, $value);
+  }
+}
+
+@mixin createSubClass ($values, $property) {
+  @each $class, $value in $values {
+    @include subClasses($class,$property, $value);
+  }
+}
+
+@mixin sizingGenerator ($values, $property, $prefix) {
+  @each $iteration, $value in $values {
+    $class : #{$prefix}#{$iteration};
+    @include subClasses($class, $property, #{$value}rem);
+  }
+}

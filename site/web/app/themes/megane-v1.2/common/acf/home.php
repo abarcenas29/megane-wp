@@ -1,78 +1,78 @@
 <?php
-
 if( function_exists('acf_add_local_field_group') ):
 
-  acf_add_local_field_group(array (
+  acf_add_local_field_group(array(
     'key' => 'group_59e0f14981f76',
     'title' => 'Home Page Settings',
-    'fields' => array (
-      array (
-        'key' => 'field_5aec6000d1a73',
-        'label' => 'Sticky Headline',
-        'name' => 'sticky_headline',
+    'fields' => array(
+      array(
+        'key' => 'field_5c4c024994fb5',
+        'label' => 'Show Headline Story',
+        'name' => 'show_headline_story',
         'type' => 'group',
         'instructions' => '',
         'required' => 0,
         'conditional_logic' => 0,
-        'wrapper' => array (
+        'wrapper' => array(
           'width' => '',
           'class' => '',
           'id' => '',
         ),
         'layout' => 'block',
-        'sub_fields' => array (
-          array (
-            'key' => 'field_5aec60b8d1a74',
+        'sub_fields' => array(
+          array(
+            'key' => 'field_5c4c026394fb6',
             'label' => 'Enable',
             'name' => 'enable',
             'type' => 'true_false',
-            'instructions' => 'If you have enabled stories, this will not be reflected.',
+            'instructions' => '',
             'required' => 0,
             'conditional_logic' => 0,
-            'wrapper' => array (
+            'wrapper' => array(
               'width' => '',
               'class' => '',
               'id' => '',
             ),
-            'message' => 'Enable Sticky',
+            'message' => '',
             'default_value' => 0,
             'ui' => 0,
             'ui_on_text' => '',
             'ui_off_text' => '',
           ),
-          array (
-            'key' => 'field_5aec6100d1a75',
-            'label' => 'Post',
-            'name' => 'post',
+          array(
+            'key' => 'field_5c4c027e94fb7',
+            'label' => 'Story',
+            'name' => 'story',
             'type' => 'post_object',
             'instructions' => '',
             'required' => 0,
-            'conditional_logic' => array (
-              array (
-                array (
-                  'field' => 'field_5aec60b8d1a74',
+            'conditional_logic' => array(
+              array(
+                array(
+                  'field' => 'field_5c4c026394fb6',
                   'operator' => '==',
                   'value' => '1',
                 ),
               ),
             ),
-            'wrapper' => array (
+            'wrapper' => array(
               'width' => '',
               'class' => '',
               'id' => '',
             ),
-            'post_type' => array (
+            'post_type' => array(
+              0 => 'stories',
             ),
-            'taxonomy' => array (
+            'taxonomy' => array(
             ),
             'allow_null' => 0,
             'multiple' => 0,
-            'return_format' => 'id',
+            'return_format' => 'object',
             'ui' => 1,
           ),
         ),
       ),
-      array (
+      array(
         'key' => 'field_59e0ee0d53a9f',
         'label' => 'Category Bar',
         'name' => 'category_bar',
@@ -80,14 +80,14 @@ if( function_exists('acf_add_local_field_group') ):
         'instructions' => 'This is where you like to put emphasis on category. (i.e: First Impressions)',
         'required' => 0,
         'conditional_logic' => 0,
-        'wrapper' => array (
+        'wrapper' => array(
           'width' => '',
           'class' => '',
           'id' => '',
         ),
         'layout' => 'block',
-        'sub_fields' => array (
-          array (
+        'sub_fields' => array(
+          array(
             'key' => 'field_59e0ee8853aa0',
             'label' => 'enable',
             'name' => 'enable',
@@ -95,7 +95,7 @@ if( function_exists('acf_add_local_field_group') ):
             'instructions' => 'Toggle the category bar to show in the home page.',
             'required' => 0,
             'conditional_logic' => 0,
-            'wrapper' => array (
+            'wrapper' => array(
               'width' => '',
               'class' => '',
               'id' => '',
@@ -106,23 +106,23 @@ if( function_exists('acf_add_local_field_group') ):
             'ui_on_text' => 'Display the Category Bar',
             'ui_off_text' => 'Hide the Category Bar',
           ),
-          array (
+          array(
             'key' => 'field_59e0eee953aa1',
             'label' => 'Category',
             'name' => 'category',
             'type' => 'taxonomy',
             'instructions' => 'What category to show',
             'required' => 0,
-            'conditional_logic' => array (
-              array (
-                array (
+            'conditional_logic' => array(
+              array(
+                array(
                   'field' => 'field_59e0ee8853aa0',
                   'operator' => '==',
                   'value' => '1',
                 ),
               ),
             ),
-            'wrapper' => array (
+            'wrapper' => array(
               'width' => '',
               'class' => '',
               'id' => '',
@@ -136,23 +136,23 @@ if( function_exists('acf_add_local_field_group') ):
             'return_format' => 'id',
             'multiple' => 0,
           ),
-          array (
+          array(
             'key' => 'field_59e0ef3a53aa2',
             'label' => 'Image',
             'name' => 'image',
             'type' => 'image',
             'instructions' => 'Cover Image To Show in the Category',
             'required' => 0,
-            'conditional_logic' => array (
-              array (
-                array (
+            'conditional_logic' => array(
+              array(
+                array(
                   'field' => 'field_59e0ee8853aa0',
                   'operator' => '==',
                   'value' => '1',
                 ),
               ),
             ),
-            'wrapper' => array (
+            'wrapper' => array(
               'width' => '',
               'class' => '',
               'id' => '',
@@ -168,23 +168,23 @@ if( function_exists('acf_add_local_field_group') ):
             'max_size' => '',
             'mime_types' => '',
           ),
-          array (
+          array(
             'key' => 'field_59e0ef6753aa3',
             'label' => 'Items Shown',
             'name' => 'items_shown',
             'type' => 'number',
             'instructions' => 'Display what number of items to show in the category.',
             'required' => 0,
-            'conditional_logic' => array (
-              array (
-                array (
+            'conditional_logic' => array(
+              array(
+                array(
                   'field' => 'field_59e0ee8853aa0',
                   'operator' => '==',
                   'value' => '1',
                 ),
               ),
             ),
-            'wrapper' => array (
+            'wrapper' => array(
               'width' => '',
               'class' => '',
               'id' => '',
@@ -199,74 +199,7 @@ if( function_exists('acf_add_local_field_group') ):
           ),
         ),
       ),
-      array (
-        'key' => 'field_5ad9e85f4f560',
-        'label' => 'Stories Header',
-        'name' => 'stories_header',
-        'type' => 'group',
-        'instructions' => 'Replace the Header Post for a Story Header',
-        'required' => 0,
-        'conditional_logic' => 0,
-        'wrapper' => array (
-          'width' => '',
-          'class' => '',
-          'id' => '',
-        ),
-        'layout' => 'block',
-        'sub_fields' => array (
-          array (
-            'key' => 'field_5ad9e8db4f561',
-            'label' => 'Enable',
-            'name' => 'enable',
-            'type' => 'true_false',
-            'instructions' => '',
-            'required' => 0,
-            'conditional_logic' => 0,
-            'wrapper' => array (
-              'width' => '',
-              'class' => '',
-              'id' => '',
-            ),
-            'message' => 'Turn on the Story Header',
-            'default_value' => 0,
-            'ui' => 0,
-            'ui_on_text' => '',
-            'ui_off_text' => '',
-          ),
-          array (
-            'key' => 'field_5ad9e9004f562',
-            'label' => 'Story',
-            'name' => 'story',
-            'type' => 'post_object',
-            'instructions' => '',
-            'required' => 0,
-            'conditional_logic' => array (
-              array (
-                array (
-                  'field' => 'field_5ad9e8db4f561',
-                  'operator' => '==',
-                  'value' => '1',
-                ),
-              ),
-            ),
-            'wrapper' => array (
-              'width' => '',
-              'class' => '',
-              'id' => '',
-            ),
-            'post_type' => array (
-              0 => 'stories',
-            ),
-            'taxonomy' => array (
-            ),
-            'allow_null' => 0,
-            'multiple' => 0,
-            'return_format' => 'object',
-            'ui' => 1,
-          ),
-        ),
-      ),
-      array (
+      array(
         'key' => 'field_59e0f16bacad6',
         'label' => 'Call To Action Text',
         'name' => 'call_to_action_text',
@@ -274,14 +207,14 @@ if( function_exists('acf_add_local_field_group') ):
         'instructions' => 'This is where you put some fancy text to inform the user something.',
         'required' => 0,
         'conditional_logic' => 0,
-        'wrapper' => array (
+        'wrapper' => array(
           'width' => '',
           'class' => '',
           'id' => '',
         ),
         'layout' => 'block',
-        'sub_fields' => array (
-          array (
+        'sub_fields' => array(
+          array(
             'key' => 'field_59e0f19cacad7',
             'label' => 'Enable',
             'name' => 'enable',
@@ -289,7 +222,7 @@ if( function_exists('acf_add_local_field_group') ):
             'instructions' => 'Hide or Show the CTA',
             'required' => 0,
             'conditional_logic' => 0,
-            'wrapper' => array (
+            'wrapper' => array(
               'width' => '',
               'class' => '',
               'id' => '',
@@ -300,77 +233,143 @@ if( function_exists('acf_add_local_field_group') ):
             'ui_on_text' => 'Show',
             'ui_off_text' => 'Hide',
           ),
-          array (
-            'key' => 'field_59e0f22bacad9',
-            'label' => 'Post',
-            'name' => 'post',
-            'type' => 'post_object',
-            'instructions' => '',
+          array(
+            'key' => 'field_59e0f2b8acadd',
+            'label' => 'Background Color',
+            'name' => 'background_color',
+            'type' => 'color_picker',
+            'instructions' => 'Display what color to use in the bacground',
             'required' => 0,
-            'conditional_logic' => array (
-              array (
-                array (
+            'conditional_logic' => array(
+              array(
+                array(
                   'field' => 'field_59e0f19cacad7',
                   'operator' => '==',
                   'value' => '1',
                 ),
               ),
             ),
-            'wrapper' => array (
+            'wrapper' => array(
               'width' => '',
               'class' => '',
               'id' => '',
             ),
-            'post_type' => array (
+            'default_value' => '',
+          ),
+          array(
+            'key' => 'field_59e0f2eeacade',
+            'label' => 'Font Color',
+            'name' => 'font_color',
+            'type' => 'color_picker',
+            'instructions' => 'Select what kind of font color to use',
+            'required' => 0,
+            'conditional_logic' => array(
+              array(
+                array(
+                  'field' => 'field_59e0f19cacad7',
+                  'operator' => '==',
+                  'value' => '1',
+                ),
+              ),
             ),
-            'taxonomy' => array (
+            'wrapper' => array(
+              'width' => '',
+              'class' => '',
+              'id' => '',
+            ),
+            'default_value' => '',
+          ),
+          array(
+            'key' => 'field_59e0f1cdacad8',
+            'label' => 'Display Type',
+            'name' => 'display_type',
+            'type' => 'select',
+            'instructions' => 'Display what type of CTA. Choose between text or link.',
+            'required' => 0,
+            'conditional_logic' => array(
+              array(
+                array(
+                  'field' => 'field_59e0f19cacad7',
+                  'operator' => '==',
+                  'value' => '1',
+                ),
+              ),
+            ),
+            'wrapper' => array(
+              'width' => '',
+              'class' => '',
+              'id' => '',
+            ),
+            'choices' => array(
+              'text' => 'Text',
+              'link' => 'link',
+            ),
+            'default_value' => array(
+              0 => 'text',
             ),
             'allow_null' => 0,
             'multiple' => 0,
-            'return_format' => 'object',
-            'ui' => 1,
+            'ui' => 0,
+            'ajax' => 0,
+            'return_format' => 'value',
+            'placeholder' => '',
           ),
-          array (
-            'key' => 'field_5af818da0fc71',
-            'label' => 'Override Excerpt',
-            'name' => 'override_excerpt',
-            'type' => 'true_false',
+          array(
+            'key' => 'field_59e0f22bacad9',
+            'label' => 'Post',
+            'name' => 'Post',
+            'type' => 'page_link',
             'instructions' => '',
             'required' => 0,
-            'conditional_logic' => 0,
-            'wrapper' => array (
-              'width' => '',
-              'class' => '',
-              'id' => '',
-            ),
-            'message' => '',
-            'default_value' => 0,
-            'ui' => 0,
-            'ui_on_text' => '',
-            'ui_off_text' => '',
-          ),
-          array (
-            'key' => 'field_5af810930bd9b',
-            'label' => 'Excerpt',
-            'name' => 'excerpt',
-            'type' => 'text',
-            'instructions' => 'If the post excerpt is too long. You can use this to overwrite the default text taken from the excerpt.',
-            'required' => 0,
-            'conditional_logic' => array (
-              array (
-                array (
+            'conditional_logic' => array(
+              array(
+                array(
                   'field' => 'field_59e0f19cacad7',
                   'operator' => '==',
                   'value' => '1',
                 ),
-                array (
-                  'field' => 'field_5af818da0fc71',
+                array(
+                  'field' => 'field_59e0f1cdacad8',
                   'operator' => '==',
-                  'value' => '1',
+                  'value' => 'link',
                 ),
               ),
             ),
-            'wrapper' => array (
+            'wrapper' => array(
+              'width' => '',
+              'class' => '',
+              'id' => '',
+            ),
+            'post_type' => array(
+            ),
+            'taxonomy' => array(
+            ),
+            'allow_null' => 0,
+            'allow_archives' => 1,
+            'multiple' => 0,
+          ),
+          array(
+            'key' => 'field_59e0f275acadb',
+            'label' => 'Text',
+            'name' => 'text',
+            'type' => 'text',
+            'instructions' => '',
+            'required' => 0,
+            'conditional_logic' => array(
+              array(
+                array(
+                  'field' => 'field_59e0f19cacad7',
+                  'operator' => '==',
+                  'value' => '1',
+                ),
+                array(
+                  'field' => 'field_59e0f1cdacad8',
+                  'operator' => '==',
+                  'value' => 'text',
+                ),
+              ),
+            ),
+            'wrapper' => array(
               'width' => '',
               'class' => '',
               'id' => '',
@@ -383,7 +382,7 @@ if( function_exists('acf_add_local_field_group') ):
           ),
         ),
       ),
-      array (
+      array(
         'key' => 'field_59e0f41652d78',
         'label' => 'Category Headlines',
         'name' => 'category_headlines',
@@ -391,7 +390,7 @@ if( function_exists('acf_add_local_field_group') ):
         'instructions' => 'Add the set of categories to use in the header part of the home page.',
         'required' => 0,
         'conditional_logic' => 0,
-        'wrapper' => array (
+        'wrapper' => array(
           'width' => '',
           'class' => '',
           'id' => '',
@@ -401,8 +400,8 @@ if( function_exists('acf_add_local_field_group') ):
         'max' => 3,
         'layout' => 'block',
         'button_label' => '',
-        'sub_fields' => array (
-          array (
+        'sub_fields' => array(
+          array(
             'key' => 'field_59e0f45252d7a',
             'label' => 'Category',
             'name' => 'category',
@@ -410,7 +409,7 @@ if( function_exists('acf_add_local_field_group') ):
             'instructions' => 'Categories to choose to display the latest post in the header.',
             'required' => 1,
             'conditional_logic' => 0,
-            'wrapper' => array (
+            'wrapper' => array(
               'width' => '',
               'class' => '',
               'id' => '',
@@ -426,99 +425,10 @@ if( function_exists('acf_add_local_field_group') ):
           ),
         ),
       ),
-      array (
-        'key' => 'field_5adc304b4438e',
-        'label' => 'Stories Loop',
-        'name' => 'stories_loop',
-        'type' => 'group',
-        'instructions' => 'Stories to show in the post loop',
-        'required' => 0,
-        'conditional_logic' => 0,
-        'wrapper' => array (
-          'width' => '',
-          'class' => '',
-          'id' => '',
-        ),
-        'layout' => 'block',
-        'sub_fields' => array (
-          array (
-            'key' => 'field_5adc307944390',
-            'label' => 'Enable',
-            'name' => 'enable',
-            'type' => 'true_false',
-            'instructions' => 'Show stories in the post loop?',
-            'required' => 0,
-            'conditional_logic' => 0,
-            'wrapper' => array (
-              'width' => '',
-              'class' => '',
-              'id' => '',
-            ),
-            'message' => 'Show stories in the post loop',
-            'default_value' => 0,
-            'ui' => 0,
-            'ui_on_text' => '',
-            'ui_off_text' => '',
-          ),
-          array (
-            'key' => 'field_5adc30644438f',
-            'label' => 'Story',
-            'name' => 'story',
-            'type' => 'post_object',
-            'instructions' => '',
-            'required' => 0,
-            'conditional_logic' => array (
-              array (
-                array (
-                  'field' => 'field_5adc307944390',
-                  'operator' => '==',
-                  'value' => '1',
-                ),
-              ),
-            ),
-            'wrapper' => array (
-              'width' => '',
-              'class' => '',
-              'id' => '',
-            ),
-            'post_type' => array (
-              0 => 'stories',
-            ),
-            'taxonomy' => array (
-            ),
-            'allow_null' => 0,
-            'multiple' => 0,
-            'return_format' => 'object',
-            'ui' => 1,
-          ),
-        ),
-      ),
-      array (
-        'key' => 'field_5b6e9e9921d44',
-        'label' => 'Personal Logs Category',
-        'name' => 'personal_logs_category',
-        'type' => 'taxonomy',
-        'instructions' => 'The category that is assigned for the Personal Logs',
-        'required' => 0,
-        'conditional_logic' => 0,
-        'wrapper' => array (
-          'width' => '',
-          'class' => '',
-          'id' => '',
-        ),
-        'taxonomy' => 'category',
-        'field_type' => 'select',
-        'allow_null' => 0,
-        'add_term' => 0,
-        'save_terms' => 0,
-        'load_terms' => 0,
-        'return_format' => 'id',
-        'multiple' => 0,
-      ),
     ),
-    'location' => array (
-      array (
-        array (
+    'location' => array(
+      array(
+        array(
           'param' => 'options_page',
           'operator' => '==',
           'value' => 'acf-options-home',
@@ -530,7 +440,7 @@ if( function_exists('acf_add_local_field_group') ):
     'style' => 'default',
     'label_placement' => 'top',
     'instruction_placement' => 'label',
-    'hide_on_screen' => array (
+    'hide_on_screen' => array(
       0 => 'permalink',
       1 => 'the_content',
       2 => 'excerpt',
@@ -550,5 +460,5 @@ if( function_exists('acf_add_local_field_group') ):
     'active' => 1,
     'description' => '',
   ));
-
+  
   endif;

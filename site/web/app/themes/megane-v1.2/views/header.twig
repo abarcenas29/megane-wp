@@ -1,10 +1,8 @@
 <div class='uk-child-width-1-1' uk-grid id='default-navigation-menu'>
 
   <div>
-    <div class='uk-container uk-container-large'>
       <!-- Logo Area  -->
       <div class='
-        mg-white-background
         uk-height-small
         uk-flex
         uk-flex-middle
@@ -24,10 +22,14 @@
 
       </div>
 
-        <!-- Navigation  -->
-      {% include 'parts/navigation.twig' %}
-
-    </div>
+      <!-- Navigation  -->
+      <div class='navigation-container uk-visible@m'>
+        <div class='uk-container'>
+          <div class='uk-flex uk-flex-center'>
+            {% include 'parts/navigation.twig' %}
+          </div>
+        </div>
+      </div>
   </div>
 
 

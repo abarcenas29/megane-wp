@@ -14,6 +14,28 @@
       uk-flex-column'>
     <!-- About Widget   -->
       <div
+        class='uk-card uk-width-1-1 uk-background-muted uk-margin-bottom'
+      >
+        <div class='uk-card-body uk-padding-small uk-position-relative'>
+          <h2 class='uk-headline'>
+            Listen to Megene Podcast
+          </h2>
+          <iframe
+            style="width: 100%;"
+            src="https://anchor.fm/megane-podcast/embed"
+            frameborder="0"
+            scrolling="no"></iframe>
+            <div 
+              class='uk-text-center uk-width-1-1 uk-text-small'>  
+              <a
+                href='https://anchor.fm/megane-podcast'
+                target="_new">
+                Powered by Anchor.fm
+              </a>
+            </div>
+        </div>
+      </div>
+      <div
         class='
           uk-card
           uk-background-muted
@@ -64,26 +86,4 @@
         </a></blockquote></div>
       </div>
   </div>
-  <div class='uk-margin-top personal-notes'>
-      <div class='header uk-flex'>
-        <h3 class='
-          uk-padding-small
-          uk-padding-remove-vertical
-          uk-margin-remove'>
-          Personal Notes
-        </h3>
-      </div>
-      <div class='content'>
-        <ul class='uk-margin-remove-vertical uk-padding-small'>
-          {% for personal in personal_posts %}
-          <li>
-            <a
-              target='_new'
-              href="{{personal.permalink}}">
-                ({{personal.date|date("m/d/y")}}) - {{personal.title}}
-            </a>
-          </li>
-          {% endfor %}
-        </ul>
-    </div>
 </div>

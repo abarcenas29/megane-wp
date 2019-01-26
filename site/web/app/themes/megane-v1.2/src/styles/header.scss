@@ -1,13 +1,22 @@
 @import 'variables';
 
 #main-nav-menu {
-  background-color: #fff;
+  background-color: transparent;
+
+  input {
+    background: transparent;
+    display: none;
+  }
 }
 
 #default-navigation-menu {
   #main-logo {
     width: 256px;
-    fill: #030303;
+    fill: #FFF;
+  }
+  .navigation-container {
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
   }
 }
 
